@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Integrante 1** - [integrante1](https://github.com/integrante1)
 * **Fernando Yu** - [fernandoyu](https://github.com/FernandoYu)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
+* **Alejo Ordoñez** - [alejoordonez02](https://github.com/alejoordonez02)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
 Corrector: **{Corrector}**
