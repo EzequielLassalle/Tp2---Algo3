@@ -6,9 +6,9 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {N}
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
+* * Lassalle Ezequiel ** - [LassalleEzequiel](https://github.com/EzequielLassalle)
 * **Fernando Yu** - [fernandoyu](https://github.com/FernandoYu)
-* **Alejo Ordoñez** - [alejoordonez02](https://github.com/alejoordonez02)
+* **Integrante 3** - [integrante3](https://github.com/integrante3)
 * **Integrante 4** - [integrante4](https://github.com/integrante4)
 
 Corrector: **{Corrector}**
