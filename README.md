@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {11}
+## Grupo 11
 
 * **Lassalle Ezequiel** - [LassalleEzequiel](https://github.com/EzequielLassalle)
 * **Fernando Yu** - [fernandoyu](https://github.com/FernandoYu)
