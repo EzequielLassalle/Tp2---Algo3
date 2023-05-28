@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Lassalle Ezequiel** - [LassalleEzequiel](https://github.com/EzequielLassalle)
 * **Fernando Yu** - [fernandoyu](https://github.com/FernandoYu)
 * **Alejo Ordoñez** - [alejoordonez02](https://github.com/alejoordonez02)
-* **Gonzalo Olmos** - [integrante4](https://github.com/gonzalo912)
+* **Gonzalo Olmos** - [gonzalo912](https://github.com/gonzalo912)
 
 ##cambio##
 
