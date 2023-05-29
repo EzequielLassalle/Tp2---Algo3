@@ -3,10 +3,23 @@ package edu.fiuba.algo3.entrega_1;
 import edu.fiuba.algo3.modelo.Message;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import edu.fiuba.algo3.modelo.*;
 
 public class Entrega1Test {
     @Test
     public void test01EmpiezaPartidaYJugadorTieneVidaYCreditosCorrespondientes() {
+
+        Jugador jugador = new Jugador(new Credito(100),20);
+
+        Credito creditoEsperado = new Credito(100);
+
+        assertTrue(jugador.creditoIgual(creditoEsperado));
+       
+        assertTrue(jugador.vidaIgual(20));
+
 
     }
 
