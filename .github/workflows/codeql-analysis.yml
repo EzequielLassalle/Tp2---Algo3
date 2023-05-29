@@ -25,13 +25,13 @@ on:
 jobs:
   analyze:
     
-  permissions:
-    actions: read
-    contents: read
-    security-events: write
-    
     name: Analyze
     runs-on: ubuntu-20.04
+    
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
     strategy:
       fail-fast: false
