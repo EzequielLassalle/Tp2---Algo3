@@ -31,7 +31,7 @@ public class Entrega1Test {
     }
 
     @Test
-    public void test06EnemigosRecibenElDañoEsperado() {
+    public void test06EnemigosRecibenElDanioEsperado() {
 
     }
 
