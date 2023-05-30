@@ -26,6 +26,19 @@ public class Entrega1Test {
     @Test
     public void test02TiempoConstruccionDeDefensasEsElCorrespondienteYSonUtilizables() {
 
+        TorreBlanca torreBlanca = new TorreBlanca();
+        TorrePlateada torrePlateada = new TorrePlateada();
+
+        torreBlanca.turno();
+        torrePlateada.turno();
+        torrePlateada.turno();
+
+
+        assertTrue(torreBlanca.operativa());
+        assertTrue(torrePlateada.operativa());
+
+
+
     }
 
     @Test
