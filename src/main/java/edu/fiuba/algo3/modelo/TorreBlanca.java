@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class TorreBlanca {
+public class TorreBlanca extends Torre {
 
     Boolean operativa;
     Boolean enConstruccion;

@@ -12,11 +12,9 @@ public class Entrega1Test {
     @Test
     public void test01EmpiezaPartidaYJugadorTieneVidaYCreditosCorrespondientes() {
 
-        Jugador jugador = new Jugador(new Credito(100),20);
+        Jugador jugador = new Jugador(100,20);
 
-        Credito creditoEsperado = new Credito(100);
-
-        assertTrue(jugador.creditoIgual(creditoEsperado));
+        assertTrue(jugador.creditoIgual(100));
        
         assertTrue(jugador.vidaIgual(20));
 
@@ -43,6 +41,15 @@ public class Entrega1Test {
 
     @Test
     public void test03VerificacionCreditosParaConstruir() {
+
+        Jugador jugador = new Jugador(100,20);
+
+
+        jugador.construirTorreBlanca(10);
+        jugador.construirTorrePlateada(20);
+
+        assertTrue(jugador.creditoIgual(70));
+
 
     }
 
