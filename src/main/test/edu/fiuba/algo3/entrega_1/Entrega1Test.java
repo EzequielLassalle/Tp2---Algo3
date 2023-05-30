@@ -45,8 +45,8 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(100,20);
 
 
-        jugador.construirTorreBlanca(10, new Tierra());
-        jugador.construirTorrePlateada(20, new Tierra());
+        jugador.construirTorreBlanca(10, new Tierra(1,2));
+        jugador.construirTorrePlateada(20, new Tierra(1,2));
 
         assertTrue(jugador.creditoIgual(70));
 
@@ -60,12 +60,10 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(100,20);
 
 
-        jugador.construirTorreBlanca(10, new Tierra());
-        jugador.construirTorrePlateada(20, new Rocosa());
+        jugador.construirTorreBlanca(10, new Tierra(1,2));
+        jugador.construirTorrePlateada(20, new Rocosa(1,4));
 
         assertTrue(jugador.creditoIgual(90));
-
-
 
 
     }
@@ -73,10 +71,35 @@ public class Entrega1Test {
     @Test
     public void test05SeVerificaQueLasDefensasAtaquenDentroDelRangoEsperado() {
 
+        Tierra tierraBlanca = new Tierra(1,1);
+        Tierra tierraPlateada = new Tierra(1,1);
+
+        TorreBlanca torreBlanca = new TorreBlanca();
+        TorrePlateada torrePlateada = new TorrePlateada();
+
+        Pasarela pasarela1 = new Pasarela(3,3);
+        Pasarela pasarela2 = new Pasarela(5,5);
+
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Arania();
+
+        tierraBlanca.establecerDefensa(torreBlanca);
+        tierraPlateada.establecerDefensa(torrePlateada);
+
+        pasarela1.establecerEnemigo(enemigo1);
+        pasarela2.establecerEnemigo(enemigo2);
+
+
+        assertTrue(tierraBlanca.atacar(pasarela1));
+        assertTrue(tierraPlateada.atacar(pasarela2));
+
+
     }
 
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
+
+
 
     }
 

@@ -6,6 +6,9 @@ public class TorreBlanca extends Torre {
     Boolean enConstruccion;
     int tiempoDeConstruccion = 1;
     int tiempoConstruyendose;
+    
+   
+    
 
 
     public TorreBlanca(){
@@ -34,13 +37,25 @@ public void estado(){
         return;
     }
     
-
 }
 
 public boolean operativa(){
 
     return this.operativa;
 }
+
+public Boolean atacar(Pasarela unaPasarela,int y,int x){
+    
+    if(rango.CalcularRangoBlanca(unaPasarela,y,x)){
+     unaPasarela.AtacadoPorTorreBlanca();
+     return true;
+    }
+    return false;
+}
+    
+
+
+
 
 
     

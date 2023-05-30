@@ -1,11 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-public class TorrePlateada {
+public class TorrePlateada extends Torre {
     
     Boolean operativa;
     Boolean enConstruccion;
     int tiempoDeConstruccion = 2;
     int tiempoConstruyendose;
+    
 
 
     public TorrePlateada(){
@@ -45,4 +46,20 @@ public class TorrePlateada {
         }
 
 
+    
+
+    public Boolean atacar(Pasarela unaPasarela,int y,int x){
+
+        if(rango.CalcularRangoPlateada(unaPasarela,y,x)){
+        unaPasarela.AtacadoPorTorrePlateada();
+        return true;
+
+        }
+        
+        return false;
+
     }
+
+}
+
+

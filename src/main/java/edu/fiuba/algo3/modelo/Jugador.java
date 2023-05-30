@@ -30,8 +30,10 @@ public class Jugador {
         if(this.credito > creditoTorreBlanca && unCasillero.esTierra()){
             
             this.credito = this.credito - creditoTorreBlanca;
-            return (new TorreBlanca());
-
+            TorreBlanca torreNueva = new TorreBlanca();
+            unCasillero.establecerDefensa(torreNueva);
+            return (torreNueva);
+            
         }
 
         return null;
@@ -43,7 +45,9 @@ public class Jugador {
         if(this.credito > creditoTorrePlateada && unCasillero.esTierra()){
             
             this.credito = this.credito - creditoTorrePlateada;
-            return (new TorrePlateada());
+            TorrePlateada torreNueva = new TorrePlateada();
+            unCasillero.establecerDefensa(torreNueva);
+            return (torreNueva);
 
         }
 

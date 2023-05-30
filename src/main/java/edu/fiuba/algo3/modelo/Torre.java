@@ -6,6 +6,8 @@ public class Torre {
     Boolean enConstruccion;
     int tiempoDeConstruccion;
     int tiempoConstruyendose;
+    Rango rango = new Rango();
+    
 
     public Torre(){
 
@@ -18,7 +20,14 @@ public class Torre {
     
     public void estado(){
 
-        }
+    }
+
+    public Boolean atacar(Pasarela unaPasarela,int y,int x){
+
+        return false;
+    }
+
+
         
 
 
