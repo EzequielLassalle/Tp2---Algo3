@@ -45,8 +45,8 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(100,20);
 
 
-        jugador.construirTorreBlanca(10);
-        jugador.construirTorrePlateada(20);
+        jugador.construirTorreBlanca(10, new Tierra());
+        jugador.construirTorrePlateada(20, new Tierra());
 
         assertTrue(jugador.creditoIgual(70));
 
@@ -55,6 +55,18 @@ public class Entrega1Test {
 
     @Test
     public void test04SeVerificaQueSoloSePuedeConstruirSobreTierra() {
+
+        
+        Jugador jugador = new Jugador(100,20);
+
+
+        jugador.construirTorreBlanca(10, new Tierra());
+        jugador.construirTorrePlateada(20, new Rocosa());
+
+        assertTrue(jugador.creditoIgual(90));
+
+
+
 
     }
 
