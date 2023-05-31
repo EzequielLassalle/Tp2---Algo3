@@ -22,9 +22,11 @@ public class Torre {
 
     }
 
+
     public Boolean atacar(Pasarela unaPasarela,int y,int x){
 
         return false;
+
     }
 
 

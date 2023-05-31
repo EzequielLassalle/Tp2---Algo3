@@ -47,10 +47,11 @@ public class TorrePlateada extends Torre {
 
 
     
-
+    @Override
     public Boolean atacar(Pasarela unaPasarela,int y,int x){
 
         if(rango.CalcularRangoPlateada(unaPasarela,y,x)){
+
         unaPasarela.AtacadoPorTorrePlateada();
         return true;
 

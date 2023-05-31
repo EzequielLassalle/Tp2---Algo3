@@ -99,6 +99,31 @@ public class Entrega1Test {
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
 
+       /*  Tierra tierraBlanca = new Tierra(1,1);
+        Tierra tierraPlateada = new Tierra(1,1);
+
+        TorreBlanca torreBlanca = new TorreBlanca();
+        TorrePlateada torrePlateada = new TorrePlateada();
+
+        Pasarela pasarela1 = new Pasarela(3,3);
+        Pasarela pasarela2 = new Pasarela(5,5);
+
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Arania();
+
+        tierraBlanca.establecerDefensa(torreBlanca);
+        tierraPlateada.establecerDefensa(torrePlateada);
+
+        pasarela1.establecerEnemigo(enemigo1);
+        pasarela2.establecerEnemigo(enemigo2);
+
+
+        tierraBlanca.atacar(pasarela1);
+        tierraPlateada.atacar(pasarela2);
+
+        assertTrue(enemigo1.vida(0));
+        assertTrue(enemigo2.vida(0)); */
+
 
 
     }

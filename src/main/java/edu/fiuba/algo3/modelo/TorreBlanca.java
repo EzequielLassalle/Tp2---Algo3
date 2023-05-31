@@ -21,6 +21,7 @@ public class TorreBlanca extends Torre {
 
     
 public void turno(){
+    
     if (enConstruccion == true){
         this.tiempoConstruyendose = this.tiempoConstruyendose+1;
     }
@@ -44,19 +45,20 @@ public boolean operativa(){
     return this.operativa;
 }
 
+@Override
 public Boolean atacar(Pasarela unaPasarela,int y,int x){
     
     if(rango.CalcularRangoBlanca(unaPasarela,y,x)){
+
      unaPasarela.AtacadoPorTorreBlanca();
      return true;
+
     }
+
     return false;
+
 }
     
-
-
-
-
 
     
 }

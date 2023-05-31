@@ -19,6 +19,12 @@ public class Enemigo {
 
     }
 
+    public Boolean vida(int unaVida){
+
+        return(unaVida == this.vida);
+
+    }
+
     
     
 }
