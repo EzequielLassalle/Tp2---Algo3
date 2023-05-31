@@ -12,6 +12,12 @@ public class Pasarela extends Casillero {
 
     }
 
+    @Override
+    public Boolean esPasarela(){
+
+        return true;
+    }
+
     
     public void establecerEnemigo(Enemigo unEnemigo){
 
@@ -40,6 +46,21 @@ public class Pasarela extends Casillero {
         return this.y;
     }
 
+    //////// En el refactor Casillero de por si va a conocer si siguiente //////////////
+
     
-    
+    public Boolean moverEnemigo(Casillero pasarelaMover){
+
+        if(pasarelaMover.esPasarela()){
+        
+            pasarelaMover.establecerEnemigo(enemigo);
+            enemigo = null;
+            return true;
+    }
+
+    return false;
+ 
+
+    }
+
 }

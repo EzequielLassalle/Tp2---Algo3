@@ -18,5 +18,16 @@ public class Casillero {
 
     }
 
+    public void establecerEnemigo(Enemigo enemigo){
+
+
+
+    }
+
+    public Boolean esPasarela(){
+
+        return false;
+    }
+
 
 }

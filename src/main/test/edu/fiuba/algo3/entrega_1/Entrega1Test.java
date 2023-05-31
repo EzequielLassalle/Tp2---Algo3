@@ -130,10 +130,18 @@ public class Entrega1Test {
     @Test
     public void test07EnemigosSeMuevenSoloPorLaParcelaAutorizada() {
 
+    Pasarela pasarela1 = new Pasarela(3,3);
+
+    Enemigo enemigo = new Hormiga();
+
+    pasarela1.establecerEnemigo(enemigo);
+
+    
+    Pasarela pasarela2 = new Pasarela(4,4);
+
+    assertTrue(pasarela1.moverEnemigo(pasarela2));
 
 
-
-        
 
     }
 
