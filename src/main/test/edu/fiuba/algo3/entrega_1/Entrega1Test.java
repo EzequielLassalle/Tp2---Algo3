@@ -99,7 +99,7 @@ public class Entrega1Test {
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
 
-       /*  Tierra tierraBlanca = new Tierra(1,1);
+        Tierra tierraBlanca = new Tierra(1,1);
         Tierra tierraPlateada = new Tierra(1,1);
 
         TorreBlanca torreBlanca = new TorreBlanca();
@@ -122,14 +122,18 @@ public class Entrega1Test {
         tierraPlateada.atacar(pasarela2);
 
         assertTrue(enemigo1.vida(0));
-        assertTrue(enemigo2.vida(0)); */
-
+        assertTrue(enemigo2.vida(0)); 
 
 
     }
 
     @Test
     public void test07EnemigosSeMuevenSoloPorLaParcelaAutorizada() {
+
+
+
+
+        
 
     }
 
