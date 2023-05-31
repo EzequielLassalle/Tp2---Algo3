@@ -23,11 +23,8 @@ public class Tierra extends Casillero{
         this.defensa = unaTorre;
     }
 
-    public Boolean atacar(Pasarela unaPasarela){
-
-        
-        return defensa.atacar(unaPasarela,this.x,this.y);
-   
+    public Boolean atacar(Pasarela unaPasarela, Jugador jugador){
+        return defensa.atacar(unaPasarela,this.x,this.y, jugador);
     }
 
     

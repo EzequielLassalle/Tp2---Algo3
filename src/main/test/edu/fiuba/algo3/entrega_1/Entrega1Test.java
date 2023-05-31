@@ -71,6 +71,8 @@ public class Entrega1Test {
     @Test
     public void test05SeVerificaQueLasDefensasAtaquenDentroDelRangoEsperado() {
 
+        Jugador jugador = new Jugador(100, 20);
+
         Tierra tierraBlanca = new Tierra(1,1);
         Tierra tierraPlateada = new Tierra(1,1);
 
@@ -90,8 +92,8 @@ public class Entrega1Test {
         pasarela2.establecerEnemigo(enemigo2);
 
 
-        assertTrue(tierraBlanca.atacar(pasarela1));
-        assertTrue(tierraPlateada.atacar(pasarela2));
+        assertTrue(tierraBlanca.atacar(pasarela1, jugador));
+        assertTrue(tierraPlateada.atacar(pasarela2, jugador));
 
 
     }
@@ -99,6 +101,8 @@ public class Entrega1Test {
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
 
+        Jugador jugador = new Jugador(100, 20);
+
         Tierra tierraBlanca = new Tierra(1,1);
         Tierra tierraPlateada = new Tierra(1,1);
 
@@ -118,8 +122,8 @@ public class Entrega1Test {
         pasarela2.establecerEnemigo(enemigo2);
 
 
-        tierraBlanca.atacar(pasarela1);
-        tierraPlateada.atacar(pasarela2);
+        tierraBlanca.atacar(pasarela1, jugador);
+        tierraPlateada.atacar(pasarela2, jugador);
 
         assertTrue(enemigo1.vida(0));
         assertTrue(enemigo2.vida(0)); 
@@ -130,24 +134,26 @@ public class Entrega1Test {
     @Test
     public void test07EnemigosSeMuevenSoloPorLaParcelaAutorizada() {
 
-    Pasarela pasarela1 = new Pasarela(3,3);
-
-    Enemigo enemigo = new Hormiga();
-
-    pasarela1.establecerEnemigo(enemigo);
-
-    
-    Pasarela pasarela2 = new Pasarela(4,4);
-
-    assertTrue(pasarela1.moverEnemigo(pasarela2));
-
-
+        Pasarela pasarela1 = new Pasarela(3,3);
+        Enemigo enemigo = new Hormiga();
+        pasarela1.establecerEnemigo(enemigo);
+        Pasarela pasarela2 = new Pasarela(4,4);
+        assertTrue(pasarela1.moverEnemigo(pasarela2));
 
     }
 
     @Test
     public void test08SeDestruyeUnidadEnemigaYJugadorCobraCreditosCorrespondientes() {
 
+        Jugador jugador = new Jugador(100, 20);
+        Tierra tierraBlanca = new Tierra(1,1);
+        TorreBlanca torreBlanca = new TorreBlanca();
+        Pasarela pasarela1 = new Pasarela(3,3);
+        Enemigo enemigo1 = new Hormiga();
+        tierraBlanca.establecerDefensa(torreBlanca);
+        pasarela1.establecerEnemigo(enemigo1);
+        tierraBlanca.atacar(pasarela1, jugador);
+        assertTrue(jugador.creditosIgualA(101));
     }
 
     @Test
@@ -170,3 +176,28 @@ public class Entrega1Test {
 
     }
 }
+
+
+/*main(){
+    Jugador jugador new;
+    Juego juego new(jugador);
+
+    Mapa mapa new(JSON);
+    turno 1:
+    jugador.construir(casillero, construccion);
+    enemigos.aparecen(JSON);
+
+    ----------------------------
+    juego.pasarTurno()
+    ----------------------------
+    turno 2:
+
+
+
+    turno 3:
+
+
+
+
+
+}*/

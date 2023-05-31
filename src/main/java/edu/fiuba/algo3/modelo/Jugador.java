@@ -57,5 +57,11 @@ public class Jugador {
     }
 
 
+    public boolean creditosIgualA(int creditos) {
+        return this.credito == creditos;
+    }
 
+    public void cobrar(int credito) {
+        this.credito += credito;
+    }
 }

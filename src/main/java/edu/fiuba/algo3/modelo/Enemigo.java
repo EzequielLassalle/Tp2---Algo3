@@ -7,15 +7,23 @@ public class Enemigo {
     int energia;
     int credito;
 
-    public void AtacadoPorTorreBlanca(){
+    public void AtacadoPorTorreBlanca(Jugador jugador){
 
         this.vida = this.vida - 1;
 
+        if(this.vida <= 0){
+            jugador.cobrar(credito);
+        }
+
     }
 
-    public void AtacadoPorTorrePlateada(){
+    public void AtacadoPorTorrePlateada(Jugador jugador){
 
         this.vida = this.vida - 2;
+
+        if(this.vida <= 0){
+            jugador.cobrar(credito);
+        }
 
     }
 

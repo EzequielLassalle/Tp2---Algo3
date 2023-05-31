@@ -46,11 +46,11 @@ public boolean operativa(){
 }
 
 @Override
-public Boolean atacar(Pasarela unaPasarela,int y,int x){
+public Boolean atacar(Pasarela unaPasarela,int y,int x, Jugador jugador){
     
     if(rango.CalcularRangoBlanca(unaPasarela,y,x)){
 
-     unaPasarela.AtacadoPorTorreBlanca();
+     unaPasarela.AtacadoPorTorreBlanca(jugador);
      return true;
 
     }

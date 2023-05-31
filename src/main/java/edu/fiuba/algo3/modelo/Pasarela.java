@@ -24,14 +24,14 @@ public class Pasarela extends Casillero {
         this.enemigo = unEnemigo;
     }
 
-    public void AtacadoPorTorreBlanca(){
+    public void AtacadoPorTorreBlanca(Jugador jugador){
 
-        enemigo.AtacadoPorTorreBlanca();
+        enemigo.AtacadoPorTorreBlanca(jugador);
     }
 
-    public void AtacadoPorTorrePlateada(){
+    public void AtacadoPorTorrePlateada(Jugador jugador){
 
-        enemigo.AtacadoPorTorrePlateada();
+        enemigo.AtacadoPorTorrePlateada(jugador);
     }
 
     /////////////////En estos dos metodos se viola el encapsulamiento -> refactorizar ////////////////////
