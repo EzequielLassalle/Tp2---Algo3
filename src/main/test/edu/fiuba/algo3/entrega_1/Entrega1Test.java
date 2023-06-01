@@ -197,6 +197,14 @@ public class Entrega1Test {
     @Test
     public void test11NoSeEliminanLasUnidadesEnemigasYElJugadorNoMuereEntoncesGana(){
 
+        Juego juego = new Juego();
+
+		juego.pasarTurno();
+
+        juego.pasarTurno();
+
+		assertTrue(juego.gano());
+
     }
 
     @Test

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class Tierra extends Casillero{
 
-    Torre defensa;
+    Torre defensa = null;
 
     public Tierra(int nuevax,int nuevay){
 
@@ -28,7 +28,11 @@ public class Tierra extends Casillero{
     }
 
     public void pasarTurno(Casillero casillero, int posX, int posY, Jugador jugador) {
+        if(defensa != null){
 		defensa.atacar(casillero, posY, posX, jugador);
+        }
+
+        
 	}
     
 }
