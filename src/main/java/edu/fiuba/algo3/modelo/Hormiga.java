@@ -9,5 +9,10 @@ public class Hormiga extends Enemigo {
 
     }
 
+	//@Override
+	public Pasarela mover(Pasarela unaPasarela) {
+		return unaPasarela.obtenerSiguiente();
+	}
+
 
 }

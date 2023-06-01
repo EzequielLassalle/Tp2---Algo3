@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public class Enemigo {
+public abstract class Enemigo {
     
     int vida;
     int danio;
@@ -32,6 +32,8 @@ public class Enemigo {
         return(unaVida == this.vida);
 
     }
+
+	public abstract Pasarela mover(Pasarela unaPasarela);
 
     
     

@@ -135,10 +135,14 @@ public class Entrega1Test {
     public void test07EnemigosSeMuevenSoloPorLaParcelaAutorizada() {
 
         Pasarela pasarela1 = new Pasarela(3,3);
-        Enemigo enemigo = new Hormiga();
-        pasarela1.establecerEnemigo(enemigo);
         Pasarela pasarela2 = new Pasarela(4,4);
-        assertTrue(pasarela1.moverEnemigo(pasarela2));
+        Enemigo enemigo = new Hormiga();
+		pasarela1.establecerSiguiente(pasarela2);
+        pasarela1.establecerEnemigo(enemigo);
+
+		pasarela1.moverEnemigos();
+        assertTrue(pasarela1.vacio());
+        assertTrue(pasarela2.ocupado());
 
     }
 
@@ -158,6 +162,24 @@ public class Entrega1Test {
 
     @Test
     public void test09PasaUnTurnoYSeVerificaQueLasUnidadesEnemigasSeHayanMovidoSegunVelocidad() {
+		Hormiga enemigo1 = new Hormiga();
+		Arania enemigo2 = new Arania();
+
+		Pasarela pasarela1 = new Pasarela(0,0);
+		Pasarela pasarela2 = new Pasarela(1,0);
+		Pasarela pasarela3 = new Pasarela(2,0);
+
+		pasarela1.establecerSiguiente(pasarela2);
+		pasarela2.establecerSiguiente(pasarela3);
+
+		pasarela1.establecerEnemigo(enemigo1);
+		pasarela1.establecerEnemigo(enemigo2);
+
+		pasarela1.moverEnemigos();
+
+		assertTrue(pasarela1.vacio());
+		assertTrue(pasarela2.ocupado());
+		assertTrue(pasarela3.ocupado());
 
     }
 
@@ -201,3 +223,4 @@ public class Entrega1Test {
 
 
 }*/
+
