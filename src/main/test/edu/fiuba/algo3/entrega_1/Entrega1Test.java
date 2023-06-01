@@ -185,7 +185,13 @@ public class Entrega1Test {
 
     @Test
     public void test10SeEliminanTodosLosEnemigosYElJugadorGanaLaPartida() {
+		Juego juego = new Juego();
 
+		juego.construir(0,2,"Torre Plateada");
+
+		juego.pasarTurno();
+
+		assertTrue(juego.gano());
     }
 
     @Test

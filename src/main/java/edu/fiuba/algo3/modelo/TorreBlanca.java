@@ -16,6 +16,7 @@ public class TorreBlanca extends Torre {
         this.operativa = false;
         this.enConstruccion = true;
         this.tiempoConstruyendose = 0;
+		this.creditos = 10;
 
     }
 
@@ -46,12 +47,12 @@ public boolean operativa(){
 }
 
 @Override
-public Boolean atacar(Pasarela unaPasarela,int y,int x, Jugador jugador){
+public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
     
     if(rango.CalcularRangoBlanca(unaPasarela,y,x)){
 
-     unaPasarela.AtacadoPorTorreBlanca(jugador);
-     return true;
+    	unaPasarela.AtacadoPorTorreBlanca(jugador);
+    	return true;
 
     }
 

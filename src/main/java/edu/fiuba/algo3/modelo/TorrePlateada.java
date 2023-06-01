@@ -14,6 +14,7 @@ public class TorrePlateada extends Torre {
         this.operativa = false;
         this.enConstruccion = true;
         this.tiempoConstruyendose = 0;
+		this.creditos = 20;
 
     }
 
@@ -48,12 +49,12 @@ public class TorrePlateada extends Torre {
 
     
     @Override
-    public Boolean atacar(Pasarela unaPasarela,int y,int x, Jugador jugador){
+    public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
 
         if(rango.CalcularRangoPlateada(unaPasarela,y,x)){
 
-        unaPasarela.AtacadoPorTorrePlateada(jugador);
-        return true;
+			unaPasarela.AtacadoPorTorrePlateada(jugador);
+			return true;
 
         }
         

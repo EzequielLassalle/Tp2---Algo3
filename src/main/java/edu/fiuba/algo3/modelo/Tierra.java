@@ -4,7 +4,7 @@ public class Tierra extends Casillero{
 
     Torre defensa;
 
-    public Tierra(int nuevay,int nuevax){
+    public Tierra(int nuevax,int nuevay){
 
         this.x = nuevax;
         this.y = nuevay;
@@ -27,6 +27,8 @@ public class Tierra extends Casillero{
         return defensa.atacar(unaPasarela,this.x,this.y, jugador);
     }
 
-    
+    public void pasarTurno(Casillero casillero, int posX, int posY, Jugador jugador) {
+		defensa.atacar(casillero, posY, posX, jugador);
+	}
     
 }

@@ -6,10 +6,11 @@ public class Pasarela extends Casillero {
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
 
-    public Pasarela(int nuevay,int nuevax){
+    public Pasarela(int nuevax,int nuevay){
 
         this.x = nuevax;
         this.y = nuevay;
+		pasarelaSiguiente = null;
 
     }
 
@@ -41,11 +42,13 @@ public class Pasarela extends Casillero {
 
     /////////////////En estos dos metodos se viola el encapsulamiento -> refactorizar ////////////////////
 
+	@Override
     public int obtenerx(){
 
         return this.x;
     }
 
+	@Override
     public int obtenery(){
 
         return this.y;
@@ -82,9 +85,13 @@ public class Pasarela extends Casillero {
 		return pasarelaSiguiente;
 	}
 
-	public void mover(Enemigo enemigo) {
+	private void mover(Enemigo enemigo) {
 		Pasarela pasarelaDestino = enemigo.mover(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
+	}
+
+	public void pasarTurno(Jugador jugador) {
+		moverEnemigos();
 	}
 
 }

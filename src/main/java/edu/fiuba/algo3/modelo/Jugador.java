@@ -56,6 +56,20 @@ public class Jugador {
 
     }
 
+	public Torre construir(String torreString) {
+		Torre torreNueva = null;
+		if (torreString == "Torre Blanca") {
+			torreNueva = new TorreBlanca();
+			torreNueva.pagar(this);
+		}
+		if (torreString == "Torre Plateada") {
+			torreNueva = new TorrePlateada();
+			torreNueva.pagar(this);
+		}
+
+		return torreNueva;
+	}
+
 
     public boolean creditosIgualA(int creditos) {
         return this.credito == creditos;
@@ -64,4 +78,8 @@ public class Jugador {
     public void cobrar(int credito) {
         this.credito += credito;
     }
+
+	public void pagar(int costo) {
+		this.credito -= costo;
+	}
 }

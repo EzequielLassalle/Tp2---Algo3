@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class Rocosa extends Casillero {
 
-    public Rocosa (int nuevay, int nuevax) {
+    public Rocosa (int nuevax, int nuevay) {
 
         this.x = nuevax;
 

@@ -7,6 +7,7 @@ public class Torre {
     int tiempoDeConstruccion;
     int tiempoConstruyendose;
     Rango rango = new Rango();
+	int creditos;
     
 
     public Torre(){
@@ -23,14 +24,16 @@ public class Torre {
     }
 
 
-    public Boolean atacar(Pasarela unaPasarela,int y,int x, Jugador jugador){
+    public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
 
         return false;
 
     }
 
 
-        
+    public void pagar(Jugador unJugador) {
+		unJugador.pagar(creditos);
+	}
 
 
 
