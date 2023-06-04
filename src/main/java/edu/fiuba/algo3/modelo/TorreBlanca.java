@@ -6,6 +6,9 @@ public class TorreBlanca extends Torre {
     Boolean enConstruccion;
     int tiempoDeConstruccion = 1;
     int tiempoConstruyendose;
+    int y;
+    int x;
+    int danio;
     
    
     
@@ -17,6 +20,19 @@ public class TorreBlanca extends Torre {
         this.enConstruccion = true;
         this.tiempoConstruyendose = 0;
 		this.creditos = 10;
+
+    }
+
+    
+    public TorreBlanca(int unx,int uny){
+
+        this.operativa = false;
+        this.enConstruccion = true;
+        this.tiempoConstruyendose = 0;
+		this.creditos = 10;
+        this.y = uny;
+        this.x = unx;
+        this.danio = 1;
 
     }
 
@@ -59,7 +75,24 @@ public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
     return false;
 
 }
+
+
+
+    public int atacar2(Casillero unaPasarela){
+
+        int credito = 0;
+
+        if(rango.CalcularRangoBlanca(unaPasarela,this.y, this.x) ){
+            credito = unaPasarela.Atacado(this.danio);
+
+        }
+
+        return credito;
+
+    }
+
+}
     
 
     
-}
+

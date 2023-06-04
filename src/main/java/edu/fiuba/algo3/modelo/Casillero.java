@@ -49,4 +49,11 @@ public class Casillero {
 	}
 
 
+	
+	public int Atacado(int danio){
+
+		return 0;
+	}
+
+
 }

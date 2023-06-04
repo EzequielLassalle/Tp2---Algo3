@@ -94,4 +94,17 @@ public class Pasarela extends Casillero {
 		moverEnemigos();
 	}
 
+
+
+	public int Atacado(int danio){
+		int credito = 0;
+		
+		for (Enemigo enemigo : enemigos) {
+			credito = credito + enemigo.Atacado(danio);
+		}
+
+		return credito;
+
+	}
+
 }

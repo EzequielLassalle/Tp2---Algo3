@@ -25,16 +25,24 @@ public class Entrega1Test {
     @Test
     public void test02TiempoConstruccionDeDefensasEsElCorrespondienteYSonUtilizables() {
 
-        TorreBlanca torreBlanca = new TorreBlanca();
-        TorrePlateada torrePlateada = new TorrePlateada();
+        TorreBlanca torreBlanca = new TorreBlanca(0,0);
+        TorrePlateada torrePlateada = new TorrePlateada(0,0);
 
         torreBlanca.turno();
         torrePlateada.turno();
         torrePlateada.turno();
 
+        Pasarela pasarela1 = new Pasarela(1,1);
+        Pasarela pasarela2 = new Pasarela(1,1);
 
-        assertTrue(torreBlanca.operativa());
-        assertTrue(torrePlateada.operativa());
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Arania();
+
+        pasarela1.establecerEnemigo(enemigo1);
+        pasarela2.establecerEnemigo(enemigo2);
+
+        assertEquals(1,torreBlanca.atacar2(pasarela1));
+        assertEquals(2,torrePlateada.atacar2(pasarela2)); 
 
 
 

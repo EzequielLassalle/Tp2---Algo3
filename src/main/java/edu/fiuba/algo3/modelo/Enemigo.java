@@ -17,6 +17,18 @@ public abstract class Enemigo {
 
     }
 
+    public int Atacado(int unDanio){
+
+        this.vida = this.vida - unDanio;
+
+        if(this.vida <= 0 ){
+            return this.credito;
+        }
+
+        return 0;
+
+    }
+
     public void AtacadoPorTorrePlateada(Jugador jugador){
 
         this.vida = this.vida - 2;
