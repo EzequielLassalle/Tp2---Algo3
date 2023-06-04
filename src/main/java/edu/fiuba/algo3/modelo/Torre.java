@@ -8,6 +8,8 @@ public class Torre {
     int tiempoConstruyendose;
     Rango rango = new Rango();
 	int creditos;
+    int x;
+    int y;
     
 
     public Torre(){
@@ -34,6 +36,17 @@ public class Torre {
     public void pagar(Jugador unJugador) {
 		unJugador.pagar(creditos);
 	}
+
+
+    public int Atacar(Casillero unPasarela){
+        return 0;
+    }
+
+    public void setCoordenadas(int unX,int unY){
+        this.x = unX;
+        this.y = unY;
+
+    }
 
 
 

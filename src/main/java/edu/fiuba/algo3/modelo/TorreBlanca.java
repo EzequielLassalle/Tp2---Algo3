@@ -20,6 +20,7 @@ public class TorreBlanca extends Torre {
         this.enConstruccion = true;
         this.tiempoConstruyendose = 0;
 		this.creditos = 10;
+        this.danio = 1;
 
     }
 
@@ -77,7 +78,7 @@ public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
 }
 
 
-
+    @Override
     public int Atacar(Casillero unaPasarela){
 
         int credito = 0;

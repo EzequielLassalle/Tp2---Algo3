@@ -17,15 +17,24 @@ public class Tierra extends Casillero{
         return true;
     }
 
-
+    
     public void establecerDefensa(Torre unaTorre){
 
         this.defensa = unaTorre;
+        unaTorre.setCoordenadas(this.x,this.y);
     }
 
+    ///////// metodo de prueba ////////////
     public Boolean atacar(Pasarela unaPasarela, Jugador jugador){
         return defensa.atacar(unaPasarela,this.x,this.y, jugador);
+    }  
+
+    ////Metodo de ataque real/////////
+    
+    public int Atacar(Pasarela unaPasarela){
+        return defensa.Atacar(unaPasarela);
     }
+    
 
     public void pasarTurno(Casillero casillero, int posX, int posY, Jugador jugador) {
         if(defensa != null){

@@ -64,14 +64,15 @@ public class Entrega1Test {
     @Test
     public void test04SeVerificaQueSoloSePuedeConstruirSobreTierra() {
 
-        
         Jugador jugador = new Jugador();
 
 
         jugador.construirTorreBlanca(10, new Tierra(1,2));
+       
+        //////Agarrar excepcion///////
         jugador.construirTorrePlateada(20, new Rocosa(1,4));
 
-        assertEquals(90,jugador.credito().obtenerCreditoTotal());
+        assertEquals(90,jugador.credito().obtenerCreditoTotal()); 
 
 
     }
@@ -79,7 +80,7 @@ public class Entrega1Test {
     @Test
     public void test05SeVerificaQueLasDefensasAtaquenDentroDelRangoEsperado() {
 
-        Jugador jugador = new Jugador(100, 20);
+        Jugador jugador = new Jugador();
 
         Tierra tierraBlanca = new Tierra(1,1);
         Tierra tierraPlateada = new Tierra(1,1);
@@ -103,13 +104,14 @@ public class Entrega1Test {
         assertTrue(tierraBlanca.atacar(pasarela1, jugador));
         assertTrue(tierraPlateada.atacar(pasarela2, jugador));
 
+        /*  Este metodo se usa para verificar que se realizo el ataque pero el metodo de
+            ataque real es Atacar no atacar */
+
 
     }
 
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
-
-        Jugador jugador = new Jugador(100, 20);
 
         Tierra tierraBlanca = new Tierra(1,1);
         Tierra tierraPlateada = new Tierra(1,1);
@@ -130,8 +132,10 @@ public class Entrega1Test {
         pasarela2.establecerEnemigo(enemigo2);
 
 
-        tierraBlanca.atacar(pasarela1, jugador);
-        tierraPlateada.atacar(pasarela2, jugador);
+        tierraBlanca.Atacar(pasarela1);
+        tierraPlateada.Atacar(pasarela2);
+       ////torreBlanca.Atacar(pasarela1);
+        /////torrePlateada.Atacar(pasarela2);
 
         assertTrue(enemigo1.vida(0));
         assertTrue(enemigo2.vida(0)); 
@@ -222,27 +226,4 @@ public class Entrega1Test {
 }
 
 
-/*main(){
-    Jugador jugador new;
-    Juego juego new(jugador);
-
-    Mapa mapa new(JSON);
-    turno 1:
-    jugador.construir(casillero, construccion);
-    enemigos.aparecen(JSON);
-
-    ----------------------------
-    juego.pasarTurno()
-    ----------------------------
-    turno 2:
-
-
-
-    turno 3:
-
-
-
-
-
-}*/
 

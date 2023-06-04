@@ -18,6 +18,7 @@ public class TorrePlateada extends Torre {
         this.enConstruccion = true;
         this.tiempoConstruyendose = 0;
 		this.creditos = 20;
+        this.danio = 2;
 
     }
 
@@ -77,6 +78,7 @@ public class TorrePlateada extends Torre {
 
     }
 
+    @Override
     public int Atacar(Casillero unaPasarela){
 
         int credito = 0;

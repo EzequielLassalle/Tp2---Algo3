@@ -95,7 +95,7 @@ public class Pasarela extends Casillero {
 	}
 
 
-
+	@Override
 	public int Atacado(int danio){
 		int credito = 0;
 		

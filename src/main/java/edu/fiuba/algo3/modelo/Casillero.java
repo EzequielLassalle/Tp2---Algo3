@@ -55,5 +55,10 @@ public class Casillero {
 		return 0;
 	}
 
+	public int Atacar(Pasarela unPasarela){
+
+		return 0;
+	}
+
 
 }

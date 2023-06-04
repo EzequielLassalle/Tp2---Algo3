@@ -45,6 +45,7 @@ public abstract class Enemigo {
 
     }
 
+
 	public abstract Pasarela mover(Pasarela unaPasarela);
 
     
