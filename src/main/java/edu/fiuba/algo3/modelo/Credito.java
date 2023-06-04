@@ -21,5 +21,11 @@ public class Credito {
         return (this.credito);
     
     }
+
+    public void restar(int creditoRestar){
+
+        this.credito = (this.credito - creditoRestar);
+
+    }
     
 }

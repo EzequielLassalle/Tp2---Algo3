@@ -78,7 +78,7 @@ public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
 
 
 
-    public int atacar2(Casillero unaPasarela){
+    public int Atacar(Casillero unaPasarela){
 
         int credito = 0;
 

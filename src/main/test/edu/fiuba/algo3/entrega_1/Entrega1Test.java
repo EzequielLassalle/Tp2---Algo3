@@ -12,7 +12,6 @@ public class Entrega1Test {
     @Test
     public void test01EmpiezaPartidaYJugadorTieneVidaYCreditosCorrespondientes() {
 
-
         Jugador jugador1 = new Jugador();
 
         Jugador jugador2 = new Jugador();
@@ -41,8 +40,8 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo1);
         pasarela2.establecerEnemigo(enemigo2);
 
-        assertEquals(1,torreBlanca.atacar2(pasarela1));
-        assertEquals(2,torrePlateada.atacar2(pasarela2)); 
+        assertEquals(1,torreBlanca.Atacar(pasarela1));
+        assertEquals(2,torrePlateada.Atacar(pasarela2)); 
 
 
 
@@ -51,13 +50,13 @@ public class Entrega1Test {
     @Test
     public void test03VerificacionCreditosParaConstruir() {
 
-        Jugador jugador = new Jugador(100,20);
-
+        Jugador jugador = new Jugador();
 
         jugador.construirTorreBlanca(10, new Tierra(1,2));
+
         jugador.construirTorrePlateada(20, new Tierra(1,2));
 
-        assertTrue(jugador.creditoIgual(70));
+        assertEquals(70,jugador.credito().obtenerCreditoTotal());
 
 
     }
@@ -66,13 +65,13 @@ public class Entrega1Test {
     public void test04SeVerificaQueSoloSePuedeConstruirSobreTierra() {
 
         
-        Jugador jugador = new Jugador(100,20);
+        Jugador jugador = new Jugador();
 
 
         jugador.construirTorreBlanca(10, new Tierra(1,2));
         jugador.construirTorrePlateada(20, new Rocosa(1,4));
 
-        assertTrue(jugador.creditoIgual(90));
+        assertEquals(90,jugador.credito().obtenerCreditoTotal());
 
 
     }

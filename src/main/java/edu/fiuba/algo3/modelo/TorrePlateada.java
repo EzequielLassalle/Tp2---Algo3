@@ -77,7 +77,7 @@ public class TorrePlateada extends Torre {
 
     }
 
-    public int atacar2(Casillero unaPasarela){
+    public int Atacar(Casillero unaPasarela){
 
         int credito = 0;
 

@@ -38,8 +38,9 @@ public class Jugador {
 
     public TorreBlanca construirTorreBlanca(int creditoTorreBlanca, Casillero unCasillero){
         
-        if(this.credito > creditoTorreBlanca && unCasillero.esTierra()){
+        if(this.unCredito.obtenerCreditoTotal() > creditoTorreBlanca && unCasillero.esTierra()){
             
+            this.unCredito.restar(creditoTorreBlanca);
             this.credito = this.credito - creditoTorreBlanca;
             TorreBlanca torreNueva = new TorreBlanca();
             unCasillero.establecerDefensa(torreNueva);
@@ -53,8 +54,9 @@ public class Jugador {
 
     public TorrePlateada construirTorrePlateada(int creditoTorrePlateada, Casillero unCasillero){
 
-        if(this.credito > creditoTorrePlateada && unCasillero.esTierra()){
+        if(this.unCredito.obtenerCreditoTotal() > creditoTorrePlateada && unCasillero.esTierra()){
             
+            this.unCredito.restar(creditoTorrePlateada);
             this.credito = this.credito - creditoTorrePlateada;
             TorrePlateada torreNueva = new TorrePlateada();
             unCasillero.establecerDefensa(torreNueva);
