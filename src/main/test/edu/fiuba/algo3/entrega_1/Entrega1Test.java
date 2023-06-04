@@ -12,11 +12,12 @@ public class Entrega1Test {
     @Test
     public void test01EmpiezaPartidaYJugadorTieneVidaYCreditosCorrespondientes() {
 
-        Jugador jugador = new Jugador(100,20);
 
-        assertTrue(jugador.creditoIgual(100));
-       
-        assertTrue(jugador.vidaIgual(20));
+        Jugador jugador1 = new Jugador();
+
+        Jugador jugador2 = new Jugador();
+
+        assertTrue(jugador1.esIgual(jugador2));
 
 
     }

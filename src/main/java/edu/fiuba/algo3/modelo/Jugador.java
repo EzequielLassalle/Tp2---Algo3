@@ -5,6 +5,17 @@ public class Jugador {
 
     int credito;
     int vida;
+    Credito unCredito;
+    Vida unaVida;
+
+
+    public Jugador(){
+
+        this.unCredito = new Credito(100);
+        this.unaVida = new Vida(20);
+
+
+    }
 
     public Jugador(int nuevoCredito,int nuevaVida){
 
@@ -82,4 +93,24 @@ public class Jugador {
 	public void pagar(int costo) {
 		this.credito -= costo;
 	}
+
+
+    public Boolean esIgual(Jugador unJugador){
+
+        return (this.unaVida.igual(unJugador.vida()) && this.unCredito.igual(unJugador.credito()));
+
+    }
+
+    public Vida vida(){
+
+        return this.unaVida;
+    }
+
+    public Credito credito(){
+
+        return this.unCredito;
+
+    }
+
+
 }
