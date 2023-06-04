@@ -88,8 +88,8 @@ public class Jugador {
         return this.credito == creditos;
     }
 
-    public void cobrar(int credito) {
-        this.credito += credito;
+    public void cobrarCredito(int credito) {
+        this.unCredito.sumar(credito);
     }
 
 	public void pagar(int costo) {

@@ -12,7 +12,7 @@ public abstract class Enemigo {
         this.vida = this.vida - 1;
 
         if(this.vida <= 0){
-            jugador.cobrar(credito);
+            jugador.cobrarCredito(credito);
         }
 
     }
@@ -34,7 +34,7 @@ public abstract class Enemigo {
         this.vida = this.vida - 2;
 
         if(this.vida <= 0){
-            jugador.cobrar(credito);
+            jugador.cobrarCredito(credito);
         }
 
     }

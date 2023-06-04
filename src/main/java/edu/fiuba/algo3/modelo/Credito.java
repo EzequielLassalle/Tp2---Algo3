@@ -11,6 +11,10 @@ public class Credito {
 
     }
 
+    public void sumar(int unCredito){
+        this.credito = this.credito + unCredito;
+    }
+
     public Boolean igual(Credito unCredito){
 
         return(this.credito == unCredito.obtenerCreditoTotal());
