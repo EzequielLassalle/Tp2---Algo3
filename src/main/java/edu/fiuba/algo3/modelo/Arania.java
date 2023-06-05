@@ -5,6 +5,7 @@ public class Arania extends Enemigo {
     public Arania(){
         this.credito = 2;
         this.vida = 2;
+		this.danio = 2;
 
     }
 

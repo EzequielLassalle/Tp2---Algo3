@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.Message;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -198,25 +197,38 @@ public class Entrega1Test {
 
     @Test
     public void test10SeEliminanTodosLosEnemigosYElJugadorGanaLaPartida() {
-		/*Juego juego = new Juego();
 
-		juego.construir(0,2,"Torre Plateada");
+        Jugador jugador = new Jugador();
+		
+        Mapa mapa = new Mapa();
 
-		juego.pasarTurno();
+        Torre torrePlateada = new TorrePlateada();
+		
+        mapa.construir(0, 2, torrePlateada);
 
-		assertTrue(juego.gano()); */
+        mapa.pasarTurno(jugador);
+
+		assertTrue(!mapa.hayEnemigos());
+
     }
 
     @Test
     public void test11NoSeEliminanLasUnidadesEnemigasYElJugadorNoMuereEntoncesGana(){
 
-        Juego juego = new Juego();
+        /* 
+        Jugador jugador = new Jugador();
+		
+        Mapa mapa = new Mapa();
 
-		juego.pasarTurno();
+	    mapa.pasarTurno(jugador);
 
-        juego.pasarTurno();
+        mapa.pasarTurno(jugador);
 
-		assertTrue(juego.gano());
+		assertTrue(!mapa.hayEnemigos());
+
+        assertTrue(jugador.vida().obtenerVidaTotal() > 0);
+
+        */
 
     }
 

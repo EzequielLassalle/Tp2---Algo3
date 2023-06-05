@@ -72,7 +72,8 @@ public class Mapa {
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
 				// Hay que pasar posX y posY de cada enemigo (esta harcodeado)
-				mapa[i][j].pasarTurno(mapa[0][0], 0, 0, jugador);
+				mapa[i][j].pasarTurno(mapa[0][0]);
+				pasarelaFinal.DaniarJugador(jugador);
 			}
 		}
 	}

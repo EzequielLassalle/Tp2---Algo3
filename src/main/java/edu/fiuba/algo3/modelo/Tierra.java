@@ -35,10 +35,10 @@ public class Tierra extends Casillero{
         return defensa.Atacar(unaPasarela);
     }
     
-
-    public void pasarTurno(Casillero casillero, int posX, int posY, Jugador jugador) {
+    
+    public void pasarTurno(Casillero casillero) {
         if(defensa != null){
-		defensa.atacar(casillero, posY, posX, jugador);
+        defensa.Atacar(casillero);
         }
 
         

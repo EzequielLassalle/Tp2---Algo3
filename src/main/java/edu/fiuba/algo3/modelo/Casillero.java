@@ -32,7 +32,9 @@ public class Casillero {
 		return null;
 	}
 
-	public void pasarTurno(Casillero casillero, int posX, int posY, Jugador jugador){}
+	public void DaniarJugador(Jugador jugador){}
+
+	public void pasarTurno(Casillero casillero){}
 
 	public int obtenery() {
 		return 0;

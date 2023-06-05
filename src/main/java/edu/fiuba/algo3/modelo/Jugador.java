@@ -114,5 +114,10 @@ public class Jugador {
 
     }
 
+    public void atacado(int danio_total){
+
+        this.unaVida.restar(danio_total);
+    }
+
 
 }

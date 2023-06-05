@@ -26,7 +26,7 @@ public class Pasarela extends Casillero {
         this.enemigos.add(unEnemigo);
     }
 
-    public void AtacadoPorTorreBlanca(Jugador jugador){
+   /*  public void AtacadoPorTorreBlanca(Jugador jugador){
 
 		for (Enemigo enemigo : enemigos) {
 			enemigo.AtacadoPorTorreBlanca(jugador);
@@ -38,7 +38,7 @@ public class Pasarela extends Casillero {
 		for (Enemigo enemigo : enemigos) {
 			enemigo.AtacadoPorTorrePlateada(jugador);
 		}
-    }
+    } */
 
     /////////////////En estos dos metodos se viola el encapsulamiento -> refactorizar ////////////////////
 
@@ -96,6 +96,7 @@ public class Pasarela extends Casillero {
 
 
 	@Override
+
 	public int Atacado(int danio){
 		int credito = 0;
 		
@@ -104,6 +105,18 @@ public class Pasarela extends Casillero {
 		}
 
 		return credito;
+
+	}
+
+	@Override
+	public void DaniarJugador(Jugador jugador){
+
+		int danio_total = 0;
+		for (Enemigo enemigo : enemigos) {
+			danio_total = danio_total + enemigo.danio();
+		}
+		
+		jugador.atacado(danio_total);
 
 	}
 

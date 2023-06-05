@@ -37,7 +37,7 @@ public abstract class Enemigo {
             jugador.cobrarCredito(credito);
         }
 
-    }
+    } 
 
     public Boolean vida(int unaVida){
 
@@ -47,6 +47,11 @@ public abstract class Enemigo {
 
 
 	public abstract Pasarela mover(Pasarela unaPasarela);
+
+    public int danio(){
+
+        return this.danio;
+    }
 
     
     

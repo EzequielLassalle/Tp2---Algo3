@@ -12,7 +12,7 @@ public class Juego {
 	}
 
 	public boolean gano() {
-		return (!mapa.hayEnemigos() && !jugador.vidaIgual(0));
+		return (!mapa.hayEnemigos() && jugador.vida().obtenerVidaTotal() != 0);
 	}
 
 	public void construir(int posX, int posY, String torreString) {

@@ -20,5 +20,10 @@ public class Vida {
         return (this.vidaTotal);
     
     }
+
+    public void restar(int vida){
+
+       this.vidaTotal = this.vidaTotal - vida;
+    }
     
 }
