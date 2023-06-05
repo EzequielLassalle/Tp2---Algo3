@@ -122,4 +122,13 @@ public class Pasarela extends Casillero {
 
 	}
 
+	public void atacarJugador(Jugador jugador){
+		
+		for (Enemigo enemigo : enemigos) {
+			jugador.restarVida(enemigo.danio());
+			
+		}
+
+	}
+
 }

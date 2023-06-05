@@ -119,5 +119,9 @@ public class Jugador {
         this.unaVida.restar(danio_total);
     }
 
+    public void restarVida(int danio){
+        this.unaVida.restar(danio);
+    }
+
 
 }

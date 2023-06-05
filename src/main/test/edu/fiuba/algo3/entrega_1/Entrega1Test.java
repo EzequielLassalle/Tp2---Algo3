@@ -205,6 +205,7 @@ public class Entrega1Test {
         TorrePlateada torrePlateada = new TorrePlateada();
 
         Pasarela pasarela = new Pasarela(0,0);
+        
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Arania();
@@ -214,6 +215,7 @@ public class Entrega1Test {
 
         pasarela.establecerEnemigo(enemigo1);
         pasarela.establecerEnemigo(enemigo2);
+
 
 
         tierraBlanca.Atacar(pasarela);
@@ -227,20 +229,39 @@ public class Entrega1Test {
     @Test
     public void test11NoSeEliminanLasUnidadesEnemigasYElJugadorNoMuereEntoncesGana(){
 
-        
-        /*Jugador jugador = new Jugador();
-		
-        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador();
 
-	    mapa.pasarTurno(jugador);
+        Tierra tierraBlanca = new Tierra(1,1);
+        Tierra tierraPlateada = new Tierra(1,2);
 
-        mapa.pasarTurno(jugador);
+        TorreBlanca torreBlanca = new TorreBlanca();
+        TorrePlateada torrePlateada = new TorrePlateada();
 
-		assertTrue(!mapa.hayEnemigos());
+        Pasarela pasarela1 = new Pasarela(0,0);
+        Pasarela pasarela2 = new Pasarela(1,0);
 
-        assertTrue(jugador.vida().obtenerVidaTotal() > 0); */
+        pasarela1.establecerSiguiente(pasarela2);
 
-        
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Arania();
+        Enemigo enemigo3 = new Hormiga();
+
+        tierraBlanca.establecerDefensa(torreBlanca);
+        tierraPlateada.establecerDefensa(torrePlateada);
+
+        pasarela1.establecerEnemigo(enemigo1);
+        pasarela1.establecerEnemigo(enemigo2);
+        pasarela1.establecerEnemigo(enemigo3);
+
+        tierraBlanca.Atacar(pasarela1);
+        tierraPlateada.Atacar(pasarela1);
+
+        pasarela1.moverEnemigos();
+
+        pasarela2.atacarJugador(jugador);
+
+        assertEquals(19,jugador.vida().obtenerVidaTotal());
+
 
     }
 
