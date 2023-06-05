@@ -268,7 +268,35 @@ public class Entrega1Test {
     @Test
     public void test12UnidadesEnemigasLleganALaMetaYMatanAlJugadorEntoncesPierde(){
 
+        Jugador jugador = new Jugador();
+
+        Pasarela pasarela1 = new Pasarela(0,0);
+        Pasarela pasarela2 = new Pasarela(1,0);
+        Pasarela pasarela3 = new Pasarela(2,0);
+
+        pasarela1.establecerSiguiente(pasarela2);
+        pasarela2.establecerSiguiente(pasarela3);
+
+        Enemigo enemigo1 = new Arania();
+        Enemigo enemigo2 = new Arania();
+
+        pasarela1.establecerEnemigo(enemigo1);
+        pasarela1.establecerEnemigo(enemigo2);
+
+
+        pasarela1.moverEnemigos();
+
+        pasarela3.atacarJugador(jugador);
+        pasarela3.atacarJugador(jugador);
+        pasarela3.atacarJugador(jugador);
+        pasarela3.atacarJugador(jugador);
+        pasarela3.atacarJugador(jugador);
+
+        assertEquals(0,jugador.vida().obtenerVidaTotal());
+        
+
     }
+    
 }
 
 
