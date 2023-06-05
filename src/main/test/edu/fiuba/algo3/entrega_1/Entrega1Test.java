@@ -215,7 +215,7 @@ public class Entrega1Test {
     @Test
     public void test11NoSeEliminanLasUnidadesEnemigasYElJugadorNoMuereEntoncesGana(){
 
-        /* 
+        
         Jugador jugador = new Jugador();
 		
         Mapa mapa = new Mapa();
@@ -228,7 +228,7 @@ public class Entrega1Test {
 
         assertTrue(jugador.vida().obtenerVidaTotal() > 0);
 
-        */
+        
 
     }
 
