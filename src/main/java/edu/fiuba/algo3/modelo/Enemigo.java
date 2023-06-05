@@ -53,6 +53,11 @@ public abstract class Enemigo {
         return this.danio;
     }
 
+    public Boolean muerto(){
+
+        return (this.vida<=0);
+    }
+
     
     
 }

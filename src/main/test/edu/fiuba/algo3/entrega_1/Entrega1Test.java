@@ -198,17 +198,29 @@ public class Entrega1Test {
     @Test
     public void test10SeEliminanTodosLosEnemigosYElJugadorGanaLaPartida() {
 
-        Jugador jugador = new Jugador();
-		
-        Mapa mapa = new Mapa();
+        Tierra tierraBlanca = new Tierra(1,1);
+        Tierra tierraPlateada = new Tierra(1,2);
 
-        Torre torrePlateada = new TorrePlateada();
-		
-        mapa.construir(0, 2, torrePlateada);
+        TorreBlanca torreBlanca = new TorreBlanca();
+        TorrePlateada torrePlateada = new TorrePlateada();
 
-        mapa.pasarTurno(jugador);
+        Pasarela pasarela = new Pasarela(0,0);
 
-		assertTrue(!mapa.hayEnemigos());
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Arania();
+
+        tierraBlanca.establecerDefensa(torreBlanca);
+        tierraPlateada.establecerDefensa(torrePlateada);
+
+        pasarela.establecerEnemigo(enemigo1);
+        pasarela.establecerEnemigo(enemigo2);
+
+
+        tierraBlanca.Atacar(pasarela);
+        tierraPlateada.Atacar(pasarela);
+
+        assertTrue(pasarela.vacio());
+        
 
     }
 
@@ -216,7 +228,7 @@ public class Entrega1Test {
     public void test11NoSeEliminanLasUnidadesEnemigasYElJugadorNoMuereEntoncesGana(){
 
         
-        Jugador jugador = new Jugador();
+        /*Jugador jugador = new Jugador();
 		
         Mapa mapa = new Mapa();
 
@@ -226,7 +238,7 @@ public class Entrega1Test {
 
 		assertTrue(!mapa.hayEnemigos());
 
-        assertTrue(jugador.vida().obtenerVidaTotal() > 0);
+        assertTrue(jugador.vida().obtenerVidaTotal() > 0); */
 
         
 

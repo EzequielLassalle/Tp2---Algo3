@@ -100,8 +100,10 @@ public class Pasarela extends Casillero {
 	public int Atacado(int danio){
 		int credito = 0;
 		
-		for (Enemigo enemigo : enemigos) {
-			credito = credito + enemigo.Atacado(danio);
+		credito = credito + enemigos.get(0).Atacado(danio);
+		
+		if(enemigos.get(0).muerto()){
+			enemigos.remove(0);
 		}
 
 		return credito;
