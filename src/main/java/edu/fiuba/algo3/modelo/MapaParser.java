@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import javafx.util.converter.IntegerStringConverter;
 import org.json.simple.JSONObject;
@@ -40,6 +41,31 @@ public class MapaParser {
             lines.add(parsedLine);
         }
         return lines;
+    }
+
+    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{
+        JSONParser parser = new JSONParser();
+        FileReader reader = new FileReader(this.path);
+        Object obj = parser.parse(reader);
+        JSONObject jsonObj = (JSONObject) obj;
+        if(jsonObj.isEmpty()) {
+            throw new JSONVacio();
+        }
+        try{
+            JSONObject map = (JSONObject) jsonObj.get("Mapa");
+            for (int i = 0; i < 15; i++) {
+                JSONArray line = (JSONArray) map.get(Integer.toString(i + 1));
+                for (int x = 0; x < 15; x++) {
+                    String s = (String)line.get(x);
+                    if(!s.equals("Tierra") && !s.equals("Rocoso") && !s.equals("Pasarela")){
+                        throw new FormatoJSONInvalido();
+                    }
+                }
+            }
+        } catch (Exception e){
+            throw new FormatoJSONInvalido();
+        }
+
     }
 
 

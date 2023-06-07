@@ -21,10 +21,11 @@ public class Entrega2Test{
 
 
     }
-
+    @Test
     public void test14FormatoJSONdeMapaEsElCorrecto() {
 
- 
+        MapaParser parser = new MapaParser("src/json/mapa.json");
+        assertDoesNotThrow(parser::formatoCorrecto);
 
     }
 
