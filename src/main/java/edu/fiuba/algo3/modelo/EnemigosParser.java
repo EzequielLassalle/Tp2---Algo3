@@ -18,27 +18,48 @@ public class EnemigosParser {
         this.path = p;
     }
 
-    public void parsearEnemigos() throws IOException, ParseException {
+    private JSONArray setJSON()throws IOException, ParseException{
         JSONParser parser = new JSONParser();
         FileReader reader = new FileReader(this.path);
         Object obj = parser.parse(reader);
-        JSONArray map = (JSONArray) obj;
-        //System.out.println(turno.get("turno"));
-        List todos = new ArrayList();
+        JSONArray jsonArr = (JSONArray) obj;
+        reader.close();
+        return jsonArr;
+    }
+    public List<Enemigo> parsear(int t) throws IOException, ParseException {
+        JSONArray map = setJSON();
+        List<Enemigo> enemigos = new ArrayList<Enemigo>();
+        JSONObject turno = (JSONObject) map.get(t-1);
+        JSONObject e = (JSONObject) turno.get("enemigos");
+        Object hormiga = e.get("hormiga");
+        for(int i = 0; i < (Long) hormiga; i++){
 
-        for (int i = 0; i < map.size(); i++) {
-            JSONObject turno = (JSONObject) map.get(i);
+            enemigos.add(asignar("hormiga"));
+        }
+        Object arana = e.get("arana");
+        for(int i = 0; i < (Long) arana; i++){
 
+            enemigos.add(asignar("arana"));
 
         }
-        //return lines;
+        return enemigos;
+    }
+
+    private Enemigo asignar(String s){
+        Enemigo e = null;
+        switch (s){
+            case "arana":
+                e = new Arania();
+                break;
+            case "hormiga":
+                e = new Hormiga();
+                break;
+        }
+        return e;
     }
 
     public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{
-        JSONParser parser = new JSONParser();
-        FileReader reader = new FileReader(this.path);
-        Object obj = parser.parse(reader);
-        JSONArray map = (JSONArray) obj;
+        JSONArray map = setJSON();
         if(map.isEmpty()) {
             throw new JSONVacio();
         }

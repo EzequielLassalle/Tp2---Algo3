@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.entrega_2;
 
 import org.json.simple.parser.ParseException;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.function.Executable;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,16 +31,21 @@ public class Entrega2Test{
         assertDoesNotThrow(parser::formatoCorrecto);
 
     }
-
-    public void test15LecturaYconversionDeJSONdeEnemigos() {
-
-
+    @Test
+    public void test15LecturaYconversionDeJSONdeEnemigos() throws IOException, ParseException {
+        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+        List<Enemigo> lista = parser.parsear(1);
+        List<Enemigo> listaEsperada = new ArrayList<Enemigo>();
+        listaEsperada.add(new Hormiga());
+        assertEquals(listaEsperada.size(), lista.size());
+        assertEquals(listaEsperada.get(0).esHormiga(), lista.get(0).esHormiga());
 
     }
 
+
     public void test16LecturaYconversiondeJSONMapa() {
 
- 
+
 
     }
 

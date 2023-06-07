@@ -17,6 +17,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
+/*MapaParser parser = new MapaParser(mapa.json);
+Mapa mapa = new Mapa (parser.parsear());*/
+
 public class MapaParser {
     final int SIZE = 15;
     private String path;
@@ -34,7 +37,7 @@ public class MapaParser {
         return jsonObj;
     }
 
-    public Casillero[][] parsearMapa() throws IOException, ParseException {
+    public Casillero[][] parsear() throws IOException, ParseException {
         JSONObject jsonObj = setJSON();
         JSONObject map = (JSONObject) jsonObj.get("Mapa");
         Casillero[][] mapa = new Casillero[SIZE][SIZE];
