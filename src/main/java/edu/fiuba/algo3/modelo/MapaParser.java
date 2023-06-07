@@ -39,7 +39,6 @@ public class MapaParser {
             }
             lines.add(parsedLine);
         }
-        System.out.println(lines);
         return lines;
     }
 
