@@ -17,19 +17,41 @@ import org.json.simple.parser.ParseException;
 
 
 public class MapaParser {
-    /*public static void parsear (String path) throws ParseException, FileNotFoundException, IOException {
+
+    private String path;
+
+    public MapaParser(String p) {
+        this.path = p;
+    }
+
+    public List parsearMapa() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
-        FileReader reader = new FileReader(path);
+        FileReader reader = new FileReader(this.path);
         Object obj = parser.parse(reader);
         JSONObject jsonObj = (JSONObject) obj;
         JSONObject map = (JSONObject) jsonObj.get("Mapa");
-        List<JSONArray> lines = new ArrayList<>();
-        for(int i = 1; i <= 15; i++){
-            JSONArray line = (JSONArray) map.get(Integer.toString(i));
-            lines.add(line);
+        List lines = new ArrayList();
+        for (int i = 0; i < 15; i++) {
+            JSONArray line = (JSONArray) map.get(Integer.toString(i + 1));
+            List parsedLine = new ArrayList();
+            for (int x = 0; x < 15; x++) {
+                parsedLine.add(line.get(x));
+            }
+            lines.add(parsedLine);
         }
+        System.out.println(lines);
+        return lines;
+    }
+
+
+    /*private Casillero asignarTipo(String s, int x, int y){
+        Casillero c;
+        if(s == "Rocoso"){
+            c = new Rocosa();
+
+        }
+
     }*/
 }
-
 
 

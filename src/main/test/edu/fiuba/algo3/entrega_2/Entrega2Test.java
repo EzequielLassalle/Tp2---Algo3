@@ -12,9 +12,11 @@ import java.io.IOException;
 
 public class Entrega2Test{
     @Test
-    public void test13FormatoJSONdeEnemigosEsElCorrecto() /*throws ParseException, IOException*/ {
+    public void test13FormatoJSONdeEnemigosEsElCorrecto() throws ParseException, IOException {
         
-        /*MapaParser.parsear("src/json/mapa.json");*/
+        MapaParser parser = new MapaParser("src/json/mapa.json");
+        parser.parsearMapa();
+
 
     }
 
