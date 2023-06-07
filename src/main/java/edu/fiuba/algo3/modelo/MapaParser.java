@@ -63,7 +63,7 @@ public class MapaParser {
         return c;
     }
 
-    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{s
+    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{
         JSONObject jsonObj = setJSON();
         if(jsonObj.isEmpty()) {
             throw new JSONVacio();
