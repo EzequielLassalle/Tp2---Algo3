@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 public class Casillero {
-
+	String tipo;
     int y;
     int x;
     
@@ -13,7 +13,19 @@ public class Casillero {
 
     }
 
-    public void  establecerDefensa(Torre unaTorre){}
+	public boolean esIgual(Casillero c){
+		boolean ok = true;
+		ok &= c.tipo().equals(this.tipo());
+		ok &= c.obtenerx() == this.x;
+		ok &= c.obtenery() == this.y;
+		return ok;
+	}
+
+	public String tipo() {
+		return this.tipo;
+	}
+
+	public void  establecerDefensa(Torre unaTorre){}
 
     public void establecerEnemigo(Enemigo enemigo){}
 

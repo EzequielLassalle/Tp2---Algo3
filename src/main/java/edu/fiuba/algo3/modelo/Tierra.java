@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 public class Tierra extends Casillero{
-
     Torre defensa = null;
 
     public Tierra(int nuevax,int nuevay){
-
+        this.tipo = "Tierra";
         this.x = nuevax;
         this.y = nuevay;
     }

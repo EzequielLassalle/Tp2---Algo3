@@ -2,12 +2,11 @@ package edu.fiuba.algo3.modelo;
 import java.util.*;
 
 public class Pasarela extends Casillero {
-
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
 
     public Pasarela(int nuevax,int nuevay){
-
+		this.tipo = "Pasarela";
         this.x = nuevax;
         this.y = nuevay;
 		pasarelaSiguiente = null;

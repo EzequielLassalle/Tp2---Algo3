@@ -39,13 +39,23 @@ public class Entrega2Test{
         listaEsperada.add(new Hormiga());
         assertEquals(listaEsperada.size(), lista.size());
         assertEquals(listaEsperada.get(0).esHormiga(), lista.get(0).esHormiga());
-
     }
 
+    @Test
+    public void test16LecturaYConversionDeJSONMapa() throws IOException, ParseException, FormatoJSONInvalido {
 
-    public void test16LecturaYconversiondeJSONMapa() {
+        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
 
+        Casillero[][] mapa = mapaParser.parsear();
 
+        System.out.println(mapa[2][0].tipo());
+
+        assertTrue(mapa[0][0].esIgual(new Rocosa(0, 0)));
+        assertTrue(mapa[1][0].esIgual(new Pasarela(1, 0)));
+        //assertTrue(mapa[2][0].esIgual(new Tierra(2, 0)));
+        //assertTrue(mapa[3][0].esIgual(new Tierra(3, 0)));
+        assertTrue(mapa[4][0].esIgual(new Tierra(4, 0)));
+        /*assertTrue(mapa[5][0].esIgual(new Tierra(5, 0)));*/
 
     }
 

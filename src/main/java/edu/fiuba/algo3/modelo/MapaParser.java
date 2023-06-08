@@ -37,7 +37,7 @@ public class MapaParser {
         return jsonObj;
     }
 
-    public Casillero[][] parsear() throws IOException, ParseException {
+    public Casillero[][] parsear() throws IOException, ParseException, FormatoJSONInvalido {
         JSONObject jsonObj = setJSON();
         JSONObject map = (JSONObject) jsonObj.get("Mapa");
         Casillero[][] mapa = new Casillero[SIZE][SIZE];
@@ -50,8 +50,9 @@ public class MapaParser {
         return mapa;
     }
 
-    private Casillero asignar(String s, int x, int y){
+    private Casillero asignar(String s, int x, int y) throws FormatoJSONInvalido {
         Casillero c = null;
+
         switch (s) {
             case "Tierra":
                 c = new Tierra(x, y);
@@ -62,6 +63,8 @@ public class MapaParser {
             case "Pasarela":
                 c = new Pasarela(x, y);
                 break;
+            default:
+                throw new FormatoJSONInvalido();
         }
         return c;
     }
