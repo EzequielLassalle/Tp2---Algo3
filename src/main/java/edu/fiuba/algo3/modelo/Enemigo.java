@@ -58,6 +58,8 @@ public abstract class Enemigo {
         return (this.vida<=0);
     }
 
-    
-    
+
+    public boolean esHormiga() {
+        return false;
+    }
 }

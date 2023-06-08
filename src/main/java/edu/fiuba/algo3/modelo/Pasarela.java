@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Pasarela extends Casillero {
-
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
 
     public Pasarela(int nuevaX, int nuevaY){
 
-        super(nuevaX, nuevaY);
+		super(nuevaX, nuevaY);
+		this.tipo = "Pasarela";
 		this.pasarelaSiguiente = null;
 
     }
@@ -19,6 +19,11 @@ public class Pasarela extends Casillero {
 
         return true;
     }
+
+	@Override
+	public void establecerEnemigos( List<Enemigo> unaLista){
+		enemigos = unaLista;
+	}
 
     
     public void establecerEnemigo(Enemigo unEnemigo){

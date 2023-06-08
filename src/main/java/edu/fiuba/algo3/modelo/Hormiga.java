@@ -15,5 +15,10 @@ public class Hormiga extends Enemigo {
 		return unaPasarela.obtenerSiguiente();
 	}
 
+    @Override
+    public boolean esHormiga() {
+        return true;
+    }
+
 
 }

@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
 public class Tierra extends Casillero{
-
     Torre defensa = null;
 
     public Tierra(int nuevaX,int nuevaY){
 
         super(nuevaX, nuevaY);
+        this.tipo = "Tierra";
+
     }
 
 	@Override
@@ -42,5 +43,18 @@ public class Tierra extends Casillero{
 
         
 	}
+
+    @Override
+    public int obtenerX(){
+
+        return this.x;
+    }
+
+	@Override
+    public int obtenerY(){
+
+        return this.y;
+    }
+
     
 }
