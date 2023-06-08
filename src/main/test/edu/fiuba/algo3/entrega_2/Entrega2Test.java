@@ -97,13 +97,44 @@ public class Entrega2Test{
 
     }
 
-    public void test18JugadorJuegaYganaPartida() {
+    public void test18JugadorJuegaYganaPartida()throws IOException, ParseException, FormatoJSONInvalido {
+
+        int t = 1;
+
+        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+
+        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
+
+        Casillero[][] mapaParseado = mapaParser.parsear();
+
+        Mapa mapa = new Mapa(mapaParseado);
+
+        Jugador jugador = new Jugador();
+
+
+        do{
+            List<Enemigo> lista = parser.parsear(t);
+            
+            mapa.establecerEnemigos(lista);
+
+
+            /////procedimiento ////
+
+
+            t++;
+
+        }while(parser.parsear(t) != null);
+
+
+
 
  
 
     }
     
     public void test19JugadorJuegaYpierdePartida() {
+
+
 
  
 
@@ -112,6 +143,10 @@ public class Entrega2Test{
     public void test20VerificarSistemaLogParaEntrega3() {
 
  
+
+
+
+
 
     }
 
