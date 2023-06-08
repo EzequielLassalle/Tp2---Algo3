@@ -78,7 +78,8 @@ public class Pasarela extends Casillero {
 	public Boolean ocupado() {
 		return !enemigos.isEmpty();
 	}
-	
+
+	@Override
 	public Boolean vacio() {
 		return enemigos.isEmpty();
 	}

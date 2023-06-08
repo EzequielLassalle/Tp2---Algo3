@@ -19,6 +19,7 @@ public class Entrega2Test{
         
 
         EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+
         assertDoesNotThrow(parser::formatoCorrecto);
 
 
@@ -27,15 +28,19 @@ public class Entrega2Test{
     public void test14FormatoJSONdeMapaEsElCorrecto() {
 
         MapaParser parser = new MapaParser("src/json/mapa.json");
+
         assertDoesNotThrow(parser::formatoCorrecto);
 
     }
     @Test
     public void test15LecturaYconversionDeJSONdeEnemigos() throws IOException, ParseException {
+
         EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
         List<Enemigo> lista = parser.parsear(1);
+
         List<Enemigo> listaEsperada = new ArrayList<Enemigo>();
         listaEsperada.add(new Hormiga());
+
         assertEquals(listaEsperada.size(), lista.size());
         assertEquals(listaEsperada.get(0).esHormiga(), lista.get(0).esHormiga());
     }
@@ -56,6 +61,7 @@ public class Entrega2Test{
 
     }
 
+    @Test
     public void test17JuegoBienCreado()throws IOException, ParseException, FormatoJSONInvalido {
 
         EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
@@ -68,8 +74,9 @@ public class Entrega2Test{
 
         Mapa mapa = new Mapa(mapaParseado);
         
-        mapa.establecerEnemigos(lista);
+        assertTrue(mapa.establecerEnemigos(lista));
 
+        assertTrue(mapa.ocupado(0,1));
 
         ///asserts///
 

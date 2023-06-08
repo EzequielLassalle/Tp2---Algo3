@@ -17,8 +17,15 @@ public class Mapa {
 		establecerCamino();
 	}
 
-	public void establecerEnemigos(List<Enemigo> lista){
+	public Boolean establecerEnemigos(List<Enemigo> lista){
+
 		this.pasarelaInicial.establecerEnemigos(lista);
+		return true;
+	}
+
+	public Boolean ocupado(int y,int x){
+
+		return !mapa[y][x].vacio();
 	}
 
 	public void generarTerreno() {
