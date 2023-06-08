@@ -17,8 +17,7 @@ public class Entrega2Test{
     @Test
     public void test13FormatoJSONdeEnemigosEsElCorrecto() throws ParseException, IOException, JSONVacio, FormatoJSONInvalido {
         
-        //MapaParser parser = new MapaParser("src/json/mapa.json");
-        //parser.parsearMapa();
+
         EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
         assertDoesNotThrow(parser::formatoCorrecto);
 
@@ -48,14 +47,14 @@ public class Entrega2Test{
 
         Casillero[][] mapa = mapaParser.parsear();
 
-        System.out.println(mapa[2][0].tipo());
-
         assertTrue(mapa[0][0].esIgual(new Rocosa(0, 0)));
-        assertTrue(mapa[1][0].esIgual(new Pasarela(1, 0)));
-        //assertTrue(mapa[2][0].esIgual(new Tierra(2, 0)));
-        //assertTrue(mapa[3][0].esIgual(new Tierra(3, 0)));
-        assertTrue(mapa[4][0].esIgual(new Tierra(4, 0)));
-        /*assertTrue(mapa[5][0].esIgual(new Tierra(5, 0)));*/
+        assertTrue(mapa[0][1].esIgual(new Pasarela(1, 0)));
+        ///assertTrue(mapa[0][2].esIgual(new Tierra(2, 0)));
+        System.out.println(mapa[0][2]);
+        System.out.println(new Tierra(2,0));
+        assertTrue(mapa[0][3].esIgual(new Tierra(3, 0)));
+        assertTrue(mapa[0][4].esIgual(new Tierra(4, 0)));
+        assertTrue(mapa[0][5].esIgual(new Tierra(5, 0)));
 
     }
 

@@ -42,5 +42,18 @@ public class Tierra extends Casillero{
 
         
 	}
+
+    @Override
+    public int obtenerx(){
+
+        return this.x;
+    }
+
+	@Override
+    public int obtenery(){
+
+        return this.y;
+    }
+
     
 }

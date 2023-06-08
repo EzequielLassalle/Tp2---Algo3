@@ -44,7 +44,7 @@ public class MapaParser {
         for (int y = 0; y < SIZE; y++) {
             JSONArray line = (JSONArray) map.get(Integer.toString(y + 1));
             for (int x = 0; x < SIZE; x++) {
-                mapa[x][y] = asignar((String)line.get(x), x, y);
+                mapa[y][x] = asignar((String)line.get(x), x, y);
             }
         }
         return mapa;

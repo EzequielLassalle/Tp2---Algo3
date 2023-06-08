@@ -15,5 +15,18 @@ public class Rocosa extends Casillero {
         return false;
 
     }
+
+    @Override
+    public int obtenerx(){
+
+        return this.x;
+    }
+
+	@Override
+    public int obtenery(){
+
+        return this.y;
+    }
+
     
 }
