@@ -15,7 +15,7 @@ public class Rocosa extends Casillero {
         return false;
 		
     }
-
+    
     @Override
     public int obtenerX(){
 

@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import java.util.Scanner;
 
 
 public class Jugador {
@@ -95,5 +96,63 @@ public class Jugador {
 		return (this.unaVida.menorIgualQue(new Vida(0)));
 	}
 
+
+
+
+    ///////////sistema log////////////////////////
+
+    public void jugar(Mapa mapa){
+
+        System.out.println("ELEGI LAS SIGUIENTES OPCIONES:");
+        System.out.println("1. Construir");;
+        System.out.println("2. Pasar de turno");
+        System.out.println("3. Rendirse");
+
+
+        Scanner myObj = new Scanner(System.in);
+
+        int eleccion =  myObj.nextInt();
+
+        if(eleccion == 1){
+
+            System.out.println("Elegi las coordenadas");
+
+                int y = myObj.nextInt();
+
+                int x = myObj.nextInt();
+
+
+            System.out.println("Elegi que tipo de torre");
+            System.out.println("1. Plateada");
+            System.out.println("2. Blanca");
+
+            int Torre =  myObj.nextInt();
+
+            if(Torre == 1){
+
+                mapa.construir(x, y, new TorrePlateada());
+
+            } else if(Torre == 2){
+
+                mapa.construir(x, y,new TorreBlanca());
+            }
+
+        }
+
+
+
+
+
+        myObj.close();
+    }
+    
+
+    public Boolean gano(Mapa mapa){
+
+        return (!mapa.hayEnemigos());
+    }
+
+
+    
 
 }

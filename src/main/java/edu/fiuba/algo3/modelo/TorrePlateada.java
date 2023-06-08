@@ -4,7 +4,7 @@ public class TorrePlateada extends Torre {
 
 	static Credito costo = new Credito(20);
 
-    /* public TorrePlateada(){
+     public TorrePlateada(){
 
         this.operativa = false;
         this.enConstruccion = true;
@@ -13,7 +13,7 @@ public class TorrePlateada extends Torre {
 		this.rango = new RangoTorrePlateada();
         this.danio = 2;
 
-    } */
+    } 
 
     public TorrePlateada(int unX, int unY){
 

@@ -26,12 +26,23 @@ public class EnemigosParser {
         reader.close();
         return jsonArr;
     }
+
+
+    private int turno(int t){
+
+        return ((t-1) % 12) + 1;
+    }
+
+
     public List<Enemigo> parsear(int t) throws IOException, ParseException {
+        
+        t = this.turno(t);
         JSONArray map = setJSON();
         List<Enemigo> enemigos = new ArrayList<Enemigo>();
         JSONObject turno = (JSONObject) map.get(t-1);
         JSONObject e = (JSONObject) turno.get("enemigos");
         Object hormiga = e.get("hormiga");
+
         for(int i = 0; i < (Long) hormiga; i++){
 
             enemigos.add(asignar("hormiga"));
