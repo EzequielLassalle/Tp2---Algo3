@@ -12,6 +12,15 @@ public class Mapa {
 		generarEnemigos();
 	}
 
+	public Mapa(Casillero[][] unMapa){
+		mapa = unMapa;
+		establecerCamino();
+	}
+
+	public void establecerEnemigos(List<Enemigo> lista){
+		this.pasarelaInicial.establecerEnemigos(lista);
+	}
+
 	public void generarTerreno() {
 		//mapa = Parser.generarTerreno();
 		mapa = new Casillero[2][3];

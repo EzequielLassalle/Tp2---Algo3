@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import java.util.*;
 
 public class Casillero {
 	String tipo;
@@ -72,6 +73,10 @@ public class Casillero {
 	public int Atacar(Pasarela unPasarela){
 
 		return 0;
+	}
+
+	public void establecerEnemigos(List<Enemigo> unaLista){
+
 	}
 
 

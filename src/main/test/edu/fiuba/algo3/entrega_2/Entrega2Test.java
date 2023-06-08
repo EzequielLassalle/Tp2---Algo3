@@ -56,7 +56,23 @@ public class Entrega2Test{
 
     }
 
-    public void test17JuegoBienCreado() {
+    public void test17JuegoBienCreado()throws IOException, ParseException, FormatoJSONInvalido {
+
+        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+       
+        List<Enemigo> lista = parser.parsear(1);
+
+        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
+
+        Casillero[][] mapaParseado = mapaParser.parsear();
+
+        Mapa mapa = new Mapa(mapaParseado);
+        
+        mapa.establecerEnemigos(lista);
+
+
+        ///asserts///
+
 
  
 

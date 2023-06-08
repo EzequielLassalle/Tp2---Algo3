@@ -19,6 +19,11 @@ public class Pasarela extends Casillero {
         return true;
     }
 
+	@Override
+	public void establecerEnemigos( List<Enemigo> unaLista){
+		enemigos = unaLista;
+	}
+
     
     public void establecerEnemigo(Enemigo unEnemigo){
 
