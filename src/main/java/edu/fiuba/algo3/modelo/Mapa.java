@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.*;
 
 public class Mapa {
-	Casillero mapa[][];
+	Casillero[][] mapa;
 	List<Pasarela> camino = new ArrayList<Pasarela>();
 	Casillero pasarelaInicial;
 	Casillero pasarelaFinal;
@@ -87,13 +87,7 @@ public class Mapa {
 	public void pasarTurno(Jugador jugador) {
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
-			
-				// Hay que pasar posX y posY de cada enemigo (esta harcodeado)
-			/* 	for(int z  = 0;  z < camino.size();z++){
-					int x = camino.get(z).obtenerX();
-					int y = camino.get(z).obtenerY();
-			} */
-				mapa[i][j].pasarTurno(mapa[0][0]);
+				mapa[i][j].pasarTurno(camino);
 			}
 		}
 

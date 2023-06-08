@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import java.util.List;
 
 public class Tierra extends Casillero{
     Torre defensa = null;
@@ -33,15 +34,13 @@ public class Tierra extends Casillero{
 		
     }
     
-    
-    public void pasarTurno(Casillero casillero) {
+    @Override
+    public void pasarTurno(List<Pasarela> camino) {
         if(defensa != null){
-
-        	defensa.Atacar(casillero);
-
+			for (Pasarela pasarela : camino) {
+				defensa.Atacar(pasarela);
+			}
         }
-
-        
 	}
 
     @Override

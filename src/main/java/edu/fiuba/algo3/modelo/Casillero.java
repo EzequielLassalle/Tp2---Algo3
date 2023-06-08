@@ -55,7 +55,7 @@ public class Casillero {
 
 	public void daniarJugador(Jugador jugador){}
 
-	public void pasarTurno(Casillero casillero){}
+	public void pasarTurno(List<Pasarela> camino){}
 
 	public int obtenerY() {
 		return 0;
