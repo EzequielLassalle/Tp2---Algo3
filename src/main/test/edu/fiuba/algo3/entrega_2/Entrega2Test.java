@@ -49,9 +49,7 @@ public class Entrega2Test{
 
         assertTrue(mapa[0][0].esIgual(new Rocosa(0, 0)));
         assertTrue(mapa[0][1].esIgual(new Pasarela(1, 0)));
-        ///assertTrue(mapa[0][2].esIgual(new Tierra(2, 0)));
-        System.out.println(mapa[0][2]);
-        System.out.println(new Tierra(2,0));
+        assertTrue(mapa[0][2].esIgual(new Tierra(2, 0)));
         assertTrue(mapa[0][3].esIgual(new Tierra(3, 0)));
         assertTrue(mapa[0][4].esIgual(new Tierra(4, 0)));
         assertTrue(mapa[0][5].esIgual(new Tierra(5, 0)));
