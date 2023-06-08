@@ -21,9 +21,13 @@ public class Vida {
     
     }
 
-    public void restar(int vida){
+    public void restar(Vida unaVida){
 
-       this.vidaTotal = this.vidaTotal - vida;
+       this.vidaTotal -= unaVida.obtenerVidaTotal();
     }
+
+	public Boolean menorIgualQue(Vida unaVida) {
+		return (vidaTotal <= unaVida.obtenerVidaTotal());
+	}
     
 }

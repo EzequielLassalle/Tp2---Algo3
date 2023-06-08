@@ -23,15 +23,15 @@ public class Entrega1Test {
     @Test
     public void test02TiempoConstruccionDeDefensasEsElCorrespondienteYSonUtilizables() {
 
-        TorreBlanca torreBlanca = new TorreBlanca(0,0);
-        TorrePlateada torrePlateada = new TorrePlateada(0,0);
+        TorreBlanca torreBlanca = new TorreBlanca(0, 0);
+        TorrePlateada torrePlateada = new TorrePlateada(0, 0);
 
         torreBlanca.turno();
         torrePlateada.turno();
         torrePlateada.turno();
 
-        Pasarela pasarela1 = new Pasarela(1,1);
-        Pasarela pasarela2 = new Pasarela(1,1);
+        Pasarela pasarela1 = new Pasarela(1, 1);
+        Pasarela pasarela2 = new Pasarela(1, 1);
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Arania();
@@ -39,10 +39,14 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo1);
         pasarela2.establecerEnemigo(enemigo2);
 
-        assertEquals(1,torreBlanca.Atacar(pasarela1));
-        assertEquals(2,torrePlateada.Atacar(pasarela2)); 
+		Credito creditoEsperadoHormiga = new Credito(1);
+		Credito creditoEsperadoArania = new Credito(2);
 
+        //assertEquals(new Credito(1),);
+        //assertEquals(new Credito(1),torrePlateada.Atacar(pasarela2)); 
 
+		assertTrue(creditoEsperadoHormiga.igual(torreBlanca.Atacar(pasarela1)));
+		assertTrue(creditoEsperadoArania.igual(torrePlateada.Atacar(pasarela2)));
 
     }
 
@@ -51,13 +55,15 @@ public class Entrega1Test {
 
         Jugador jugador = new Jugador();
 
-        jugador.construirTorreBlanca(10, new Tierra(1,2));
+        jugador.construirTorreBlanca(new Tierra(1, 2));
 
-        jugador.construirTorrePlateada(20, new Tierra(1,2));
+        jugador.construirTorrePlateada(new Tierra(1, 2));
 
-        assertEquals(70,jugador.credito().obtenerCreditoTotal());
+		Credito creditoEsperado = new Credito(70);
 
-
+        //assertEquals(70,jugador.credito().obtenerCreditoTotal());
+		assertTrue(creditoEsperado.igual(jugador.credito()));
+		
     }
 
     @Test
@@ -65,30 +71,29 @@ public class Entrega1Test {
 
         Jugador jugador = new Jugador();
 
-
-        jugador.construirTorreBlanca(10, new Tierra(1,2));
+        jugador.construirTorreBlanca(new Tierra(1, 2));
        
         //////Agarrar excepcion///////
-        jugador.construirTorrePlateada(20, new Rocosa(1,4));
+        jugador.construirTorrePlateada(new Rocosa(1, 4));
 
-        assertEquals(90,jugador.credito().obtenerCreditoTotal()); 
+		Credito creditoEsperado = new Credito(90);
 
+        //assertEquals(90,jugador.credito().obtenerCreditoTotal()); 
+		assertTrue(creditoEsperado.igual(jugador.credito()));
 
     }
 
     @Test
     public void test05SeVerificaQueLasDefensasAtaquenDentroDelRangoEsperado() {
 
-        Jugador jugador = new Jugador();
+        Tierra tierraBlanca = new Tierra(1, 1);
+        Tierra tierraPlateada = new Tierra(1, 1);
 
-        Tierra tierraBlanca = new Tierra(1,1);
-        Tierra tierraPlateada = new Tierra(1,1);
+        TorreBlanca torreBlanca = new TorreBlanca(1, 1);
+        TorrePlateada torrePlateada = new TorrePlateada(1, 1);
 
-        TorreBlanca torreBlanca = new TorreBlanca();
-        TorrePlateada torrePlateada = new TorrePlateada();
-
-        Pasarela pasarela1 = new Pasarela(3,3);
-        Pasarela pasarela2 = new Pasarela(5,5);
+        Pasarela pasarela1 = new Pasarela(3, 3);
+        Pasarela pasarela2 = new Pasarela(4, 4);
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Arania();
@@ -99,27 +104,26 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo1);
         pasarela2.establecerEnemigo(enemigo2);
 
+		Credito creditoEsperadoHormiga = new Credito(1);
+		Credito creditoEsperadoArania = new Credito(2);
 
-        assertTrue(tierraBlanca.atacar(pasarela1, jugador));
-        assertTrue(tierraPlateada.atacar(pasarela2, jugador));
 
-        /*  Este metodo se usa para verificar que se realizo el ataque pero el metodo de
-            ataque real es Atacar no atacar */
-
+		assertTrue(creditoEsperadoHormiga.igual(tierraBlanca.Atacar(pasarela1)));
+		assertTrue(creditoEsperadoArania.igual(tierraPlateada.Atacar(pasarela2)));
 
     }
 
     @Test
     public void test06EnemigosRecibenElDanioEsperado() {
 
-        Tierra tierraBlanca = new Tierra(1,1);
-        Tierra tierraPlateada = new Tierra(1,1);
+        Tierra tierraBlanca = new Tierra(1, 1);
+        Tierra tierraPlateada = new Tierra(1, 1);
 
-        TorreBlanca torreBlanca = new TorreBlanca();
-        TorrePlateada torrePlateada = new TorrePlateada();
+        TorreBlanca torreBlanca = new TorreBlanca(1, 1);
+        TorrePlateada torrePlateada = new TorrePlateada(1, 1);
 
-        Pasarela pasarela1 = new Pasarela(3,3);
-        Pasarela pasarela2 = new Pasarela(5,5);
+        Pasarela pasarela1 = new Pasarela(3, 3);
+        Pasarela pasarela2 = new Pasarela(4, 4);
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Arania();
@@ -133,11 +137,11 @@ public class Entrega1Test {
 
         tierraBlanca.Atacar(pasarela1);
         tierraPlateada.Atacar(pasarela2);
-       ////torreBlanca.Atacar(pasarela1);
-        /////torrePlateada.Atacar(pasarela2);
+    	//torreBlanca.Atacar(pasarela1);
+        //torrePlateada.Atacar(pasarela2);
 
-        assertTrue(enemigo1.vida(0));
-        assertTrue(enemigo2.vida(0)); 
+        assertTrue(enemigo1.muerto());
+        assertTrue(enemigo2.muerto()); 
 
 
     }
@@ -145,8 +149,8 @@ public class Entrega1Test {
     @Test
     public void test07EnemigosSeMuevenSoloPorLaParcelaAutorizada() {
 
-        Pasarela pasarela1 = new Pasarela(3,3);
-        Pasarela pasarela2 = new Pasarela(4,4);
+        Pasarela pasarela1 = new Pasarela(3, 3);
+        Pasarela pasarela2 = new Pasarela(4, 4);
         Enemigo enemigo = new Hormiga();
 		pasarela1.establecerSiguiente(pasarela2);
         pasarela1.establecerEnemigo(enemigo);
@@ -161,15 +165,24 @@ public class Entrega1Test {
     public void test08SeDestruyeUnidadEnemigaYJugadorCobraCreditosCorrespondientes() {
 
         Jugador jugador = new Jugador();
-        Tierra tierraBlanca = new Tierra(1,1);
-        TorreBlanca torreBlanca = new TorreBlanca();
-        Pasarela pasarela1 = new Pasarela(3,3);
+
+        Tierra tierraBlanca = new Tierra(1, 1);
+        TorreBlanca torreBlanca = new TorreBlanca(1, 1);
+
+        Pasarela pasarela1 = new Pasarela(3, 3);
         Enemigo enemigo1 = new Hormiga();
+
         tierraBlanca.establecerDefensa(torreBlanca);
         pasarela1.establecerEnemigo(enemigo1);
-        int credito = tierraBlanca.Atacar(pasarela1);
+
+        Credito credito = tierraBlanca.Atacar(pasarela1);
+
         jugador.cobrarCredito(credito);
-        assertEquals(101,jugador.credito().obtenerCreditoTotal());
+
+		Credito creditoEsperado = new Credito(101);
+
+        //assertEquals(101,jugador.credito().obtenerCreditoTotal());
+		assertTrue(creditoEsperado.igual(jugador.credito()));
     }
 
     @Test
@@ -177,9 +190,9 @@ public class Entrega1Test {
 		Hormiga enemigo1 = new Hormiga();
 		Arania enemigo2 = new Arania();
 
-		Pasarela pasarela1 = new Pasarela(0,0);
-		Pasarela pasarela2 = new Pasarela(1,0);
-		Pasarela pasarela3 = new Pasarela(2,0);
+		Pasarela pasarela1 = new Pasarela(0, 0);
+		Pasarela pasarela2 = new Pasarela(1, 0);
+		Pasarela pasarela3 = new Pasarela(2, 0);
 
 		pasarela1.establecerSiguiente(pasarela2);
 		pasarela2.establecerSiguiente(pasarela3);
@@ -198,13 +211,13 @@ public class Entrega1Test {
     @Test
     public void test10SeEliminanTodosLosEnemigosYElJugadorGanaLaPartida() {
 
-        Tierra tierraBlanca = new Tierra(1,1);
-        Tierra tierraPlateada = new Tierra(1,2);
+        Tierra tierraBlanca = new Tierra(1, 1);
+        Tierra tierraPlateada = new Tierra(1, 2);
 
-        TorreBlanca torreBlanca = new TorreBlanca();
-        TorrePlateada torrePlateada = new TorrePlateada();
+        TorreBlanca torreBlanca = new TorreBlanca(1, 1);
+        TorrePlateada torrePlateada = new TorrePlateada(1, 2);
 
-        Pasarela pasarela = new Pasarela(0,0);
+        Pasarela pasarela = new Pasarela(0, 0);
         
 
         Enemigo enemigo1 = new Hormiga();
@@ -216,14 +229,11 @@ public class Entrega1Test {
         pasarela.establecerEnemigo(enemigo1);
         pasarela.establecerEnemigo(enemigo2);
 
-
-
         tierraBlanca.Atacar(pasarela);
         tierraPlateada.Atacar(pasarela);
 
         assertTrue(pasarela.vacio());
         
-
     }
 
     @Test
@@ -231,14 +241,14 @@ public class Entrega1Test {
 
         Jugador jugador = new Jugador();
 
-        Tierra tierraBlanca = new Tierra(1,1);
-        Tierra tierraPlateada = new Tierra(1,2);
+        Tierra tierraBlanca = new Tierra(1, 1);
+        Tierra tierraPlateada = new Tierra(1, 2);
 
-        TorreBlanca torreBlanca = new TorreBlanca();
-        TorrePlateada torrePlateada = new TorrePlateada();
+        TorreBlanca torreBlanca = new TorreBlanca(1, 1);
+        TorrePlateada torrePlateada = new TorrePlateada(1, 2);
 
-        Pasarela pasarela1 = new Pasarela(0,0);
-        Pasarela pasarela2 = new Pasarela(1,0);
+        Pasarela pasarela1 = new Pasarela(0, 0);
+        Pasarela pasarela2 = new Pasarela(1, 0);
 
         pasarela1.establecerSiguiente(pasarela2);
 
@@ -260,8 +270,9 @@ public class Entrega1Test {
 
         pasarela2.atacarJugador(jugador);
 
-        assertEquals(19,jugador.vida().obtenerVidaTotal());
+		Vida vidaEsperada = new Vida(19);
 
+		assertTrue(vidaEsperada.igual(jugador.vida()));
 
     }
 
@@ -270,9 +281,9 @@ public class Entrega1Test {
 
         Jugador jugador = new Jugador();
 
-        Pasarela pasarela1 = new Pasarela(0,0);
-        Pasarela pasarela2 = new Pasarela(1,0);
-        Pasarela pasarela3 = new Pasarela(2,0);
+        Pasarela pasarela1 = new Pasarela(0, 0);
+        Pasarela pasarela2 = new Pasarela(1, 0);
+        Pasarela pasarela3 = new Pasarela(2, 0);
 
         pasarela1.establecerSiguiente(pasarela2);
         pasarela2.establecerSiguiente(pasarela3);
@@ -292,8 +303,7 @@ public class Entrega1Test {
         pasarela3.atacarJugador(jugador);
         pasarela3.atacarJugador(jugador);
 
-        assertEquals(0,jugador.vida().obtenerVidaTotal());
-        
+        assertTrue(jugador.muerto());
 
     }
     

@@ -2,45 +2,53 @@ package edu.fiuba.algo3.modelo;
 
 public class Casillero {
 
-    int y;
     int x;
-    
-    
+    int y;
 
-    public Boolean esTierra(){
+	public Casillero (int nuevaX, int nuevaY) {
 
-        return null;
+		this.x = nuevaX;
+		this.y = nuevaY;
 
-    }
+	}
 
-    public void  establecerDefensa(Torre unaTorre){}
+    public Boolean esTierra() {
 
+		return false;
+
+	}
+
+    public Boolean esPasarela() {
+
+		return false;
+
+	}
+	
+    public void establecerDefensa(Torre unaTorre){}
+	
     public void establecerEnemigo(Enemigo enemigo){}
-
+	
 	public void establecerSiguiente(Casillero unaPasarela) {}
 
-    public Boolean esPasarela(){
-
-        return false;
-    }
-
 	public Boolean vacio() {
+
 		return true;
+		
 	}
 
 	public Casillero obtenerSiguiente() {
 		return null;
 	}
 
-	public void DaniarJugador(Jugador jugador){}
+	public void daniarJugador(Jugador jugador){}
 
 	public void pasarTurno(Casillero casillero){}
 
-	public int obtenery() {
+	public int obtenerY() {
 		return 0;
 	}
 
-	public int obtenerx() {
+	public int obtenerX() {
 		return 0;
 	}
 
@@ -52,14 +60,14 @@ public class Casillero {
 
 
 	
-	public int Atacado(int danio){
+	public Credito Atacado(int danio){
 
-		return 0;
+		return null;
 	}
 
-	public int Atacar(Pasarela unPasarela){
+	public Credito Atacar(Pasarela unPasarela){
 
-		return 0;
+		return null;
 	}
 
 

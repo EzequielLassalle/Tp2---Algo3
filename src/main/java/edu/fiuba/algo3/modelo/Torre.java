@@ -1,48 +1,58 @@
 package edu.fiuba.algo3.modelo;
 
-public class Torre {
+public abstract class Torre {
     
     Boolean operativa;
     Boolean enConstruccion;
     int tiempoDeConstruccion;
     int tiempoConstruyendose;
-    Rango rango = new Rango();
-	int creditos;
+    Rango rango;
+	static Credito costo;
     int x;
     int y;
-    
-
-    public Torre(){
-
-    }
+    int danio;
 
     public void turno(){
 
+		if (enConstruccion){
+
+			this.tiempoConstruyendose++;
+
+		}
+
+		estado();
     
     }
     
     public void estado(){
 
+		if(tiempoConstruyendose == tiempoDeConstruccion){
+
+			this.enConstruccion = false;
+			this.operativa = true;
+			//this.tiempoConstruyendose = 0;
+
+		}
+
     }
 
+	public boolean operativa(){
 
-    public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
-
-        return false;
-
-    }
-
+		return this.operativa;
+		
+	}
 
     public void pagar(Jugador unJugador) {
-		unJugador.pagar(creditos);
+
+		unJugador.pagar(costo);
+
 	}
 
 
-    public int Atacar(Casillero unPasarela){
-        return 0;
-    }
+    public abstract Credito Atacar(Casillero unPasarela);
 
-    public void setCoordenadas(int unX,int unY){
+    public void setCoordenadas(int unX, int unY){
+
         this.x = unX;
         this.y = unY;
 

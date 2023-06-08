@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.modelo;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Pasarela extends Casillero {
 
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
 
-    public Pasarela(int nuevax,int nuevay){
+    public Pasarela(int nuevaX, int nuevaY){
 
-        this.x = nuevax;
-        this.y = nuevay;
-		pasarelaSiguiente = null;
+        super(nuevaX, nuevaY);
+		this.pasarelaSiguiente = null;
 
     }
 
@@ -24,6 +24,7 @@ public class Pasarela extends Casillero {
     public void establecerEnemigo(Enemigo unEnemigo){
 
         this.enemigos.add(unEnemigo);
+
     }
 
    /*  public void AtacadoPorTorreBlanca(Jugador jugador){
@@ -43,13 +44,13 @@ public class Pasarela extends Casillero {
     /////////////////En estos dos metodos se viola el encapsulamiento -> refactorizar ////////////////////
 
 	@Override
-    public int obtenerx(){
+    public int obtenerX(){
 
         return this.x;
     }
 
 	@Override
-    public int obtenery(){
+    public int obtenerY(){
 
         return this.y;
     }
@@ -96,11 +97,10 @@ public class Pasarela extends Casillero {
 
 
 	@Override
-
-	public int Atacado(int danio){
-		int credito = 0;
+	public Credito Atacado(int danio){
+		Credito credito = new Credito(0);
 		
-		credito = credito + enemigos.get(0).Atacado(danio);
+		credito.sumar(enemigos.get(0).Atacado(danio));
 		
 		if(enemigos.get(0).muerto()){
 			enemigos.remove(0);
@@ -111,21 +111,21 @@ public class Pasarela extends Casillero {
 	}
 
 	@Override
-	public void DaniarJugador(Jugador jugador){
+	public void daniarJugador(Jugador jugador){
 
 		int danio_total = 0;
 		for (Enemigo enemigo : enemigos) {
-			danio_total = danio_total + enemigo.danio();
+			danio_total += enemigo.danio();
 		}
 		
-		jugador.atacado(danio_total);
+		jugador.atacado(new Vida(danio_total));
 
 	}
 
 	public void atacarJugador(Jugador jugador){
 		
 		for (Enemigo enemigo : enemigos) {
-			jugador.restarVida(enemigo.danio());
+			jugador.restarVida(new Vida(enemigo.danio()));
 			
 		}
 

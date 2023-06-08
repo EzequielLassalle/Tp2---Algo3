@@ -4,7 +4,7 @@ public class Hormiga extends Enemigo {
 
     
     public Hormiga(){
-        this.credito = 1;
+        this.credito = new Credito(1);
         this.vida = 1;
         this.danio = 1;
 

@@ -11,8 +11,8 @@ public class Credito {
 
     }
 
-    public void sumar(int unCredito){
-        this.credito = this.credito + unCredito;
+    public void sumar(Credito unCredito){
+        this.credito += unCredito.obtenerCreditoTotal();
     }
 
     public Boolean igual(Credito unCredito){
@@ -20,15 +20,19 @@ public class Credito {
         return(this.credito == unCredito.obtenerCreditoTotal());
     }
 
+	public Boolean mayorQue(Credito unCredito) {
+		return (this.credito > unCredito.obtenerCreditoTotal());
+	}
+
     public int obtenerCreditoTotal(){
 
         return (this.credito);
     
     }
 
-    public void restar(int creditoRestar){
+    public void restar(Credito unCredito){
 
-        this.credito = (this.credito - creditoRestar);
+        this.credito -= unCredito.obtenerCreditoTotal();
 
     }
     

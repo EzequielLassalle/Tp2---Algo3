@@ -3,46 +3,29 @@ package edu.fiuba.algo3.modelo;
 
 public class Jugador {
 
-    int credito;
+    int unCredito;
     int vida;
-    Credito unCredito;
+    Credito credito;
     Vida unaVida;
 
 
     public Jugador(){
 
-        this.unCredito = new Credito(100);
+        this.credito = new Credito(100);
         this.unaVida = new Vida(20);
 
 
     }
 
-    public Jugador(int nuevoCredito,int nuevaVida){
 
-        this.credito = nuevoCredito;
-        this.vida = nuevaVida;
+    public TorreBlanca construirTorreBlanca(Casillero unCasillero){
 
-    }
-
-    public Boolean creditoIgual(int unCredito){
-
-        return this.credito == unCredito;
-
-    }
-
-    public Boolean vidaIgual(int unaVida){
-
-        return (this.vida == unaVida);
-
-    }
-
-    public TorreBlanca construirTorreBlanca(int creditoTorreBlanca, Casillero unCasillero){
+		Credito costo = TorreBlanca.costo();
         
-        if(this.unCredito.obtenerCreditoTotal() > creditoTorreBlanca && unCasillero.esTierra()){
+        if(this.credito.mayorQue(costo) && unCasillero.esTierra()){
             
-            this.unCredito.restar(creditoTorreBlanca);
-            this.credito = this.credito - creditoTorreBlanca;
-            TorreBlanca torreNueva = new TorreBlanca();
+            this.credito.restar(costo);
+            TorreBlanca torreNueva = new TorreBlanca(unCasillero.obtenerX(), unCasillero.obtenerY());
             unCasillero.establecerDefensa(torreNueva);
             return (torreNueva);
             
@@ -52,54 +35,39 @@ public class Jugador {
     }
 
 
-    public TorrePlateada construirTorrePlateada(int creditoTorrePlateada, Casillero unCasillero){
+    public TorrePlateada construirTorrePlateada(Casillero unCasillero){
 
-        if(this.unCredito.obtenerCreditoTotal() > creditoTorrePlateada && unCasillero.esTierra()){
+		Credito costo = TorrePlateada.costo();
+
+        if(this.credito.mayorQue(costo) && unCasillero.esTierra()){
             
-            this.unCredito.restar(creditoTorrePlateada);
-            this.credito = this.credito - creditoTorrePlateada;
-            TorrePlateada torreNueva = new TorrePlateada();
+            this.credito.restar(TorrePlateada.costo());
+            TorrePlateada torreNueva = new TorrePlateada(unCasillero.obtenerX(), unCasillero.obtenerY());
             unCasillero.establecerDefensa(torreNueva);
             return (torreNueva);
 
         }
 
-    
         return null;
 
     }
-
-	public Torre construir(String torreString) {
-		Torre torreNueva = null;
-		if (torreString == "Torre Blanca") {
-			torreNueva = new TorreBlanca();
-			torreNueva.pagar(this);
-		}
-		if (torreString == "Torre Plateada") {
-			torreNueva = new TorrePlateada();
-			torreNueva.pagar(this);
-		}
-
-		return torreNueva;
-	}
-
 
     public boolean creditosIgualA(int creditos) {
-        return this.credito == creditos;
+        return this.unCredito == creditos;
     }
 
-    public void cobrarCredito(int credito) {
-        this.unCredito.sumar(credito);
+    public void cobrarCredito(Credito credito) {
+        this.credito.sumar(credito);
     }
 
-	public void pagar(int costo) {
-		this.credito -= costo;
+	public void pagar(Credito costo) {
+		this.credito.restar(costo);
 	}
 
 
     public Boolean esIgual(Jugador unJugador){
 
-        return (this.unaVida.igual(unJugador.vida()) && this.unCredito.igual(unJugador.credito()));
+        return (this.unaVida.igual(unJugador.vida()) && this.credito.igual(unJugador.credito()));
 
     }
 
@@ -110,18 +78,22 @@ public class Jugador {
 
     public Credito credito(){
 
-        return this.unCredito;
+        return this.credito;
 
     }
 
-    public void atacado(int danio_total){
+    public void atacado(Vida danio_total){
 
         this.unaVida.restar(danio_total);
     }
 
-    public void restarVida(int danio){
+    public void restarVida(Vida danio){
         this.unaVida.restar(danio);
     }
+
+	public Boolean muerto() {
+		return (this.unaVida.menorIgualQue(new Vida(0)));
+	}
 
 
 }

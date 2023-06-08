@@ -1,89 +1,74 @@
 package edu.fiuba.algo3.modelo;
 
 public class TorrePlateada extends Torre {
-    
-    Boolean operativa;
-    Boolean enConstruccion;
-    int tiempoDeConstruccion = 2;
-    int tiempoConstruyendose;
-    int x;
-    int y;
-    int danio;
-    
 
+	static Credito costo = new Credito(20);
 
-    public TorrePlateada(){
+    /* public TorrePlateada(){
 
         this.operativa = false;
         this.enConstruccion = true;
+		this.tiempoDeConstruccion = 2;
         this.tiempoConstruyendose = 0;
-		this.creditos = 20;
+		this.rango = new RangoTorrePlateada();
+        this.danio = 2;
+
+    } */
+
+    public TorrePlateada(int unX, int unY){
+
+        this.operativa = false;
+        this.enConstruccion = true;
+		this.tiempoDeConstruccion = 2;
+        this.tiempoConstruyendose = 0;
+		this.rango = new RangoTorrePlateada();
+        this.x = unX;
+        this.y = unY;
         this.danio = 2;
 
     }
 
-    public TorrePlateada(int unx,int uny){
-
-        this.operativa = false;
-        this.enConstruccion = true;
-        this.tiempoConstruyendose = 0;
-		this.creditos = 10;
-        this.y = uny;
-        this.x = unx;
-        this.danio = 2;
-
-    }
-
+	public static Credito costo() {
+		return costo;
+	}
     
-    public void turno(){
-        if (enConstruccion == true){
-            this.tiempoConstruyendose = this.tiempoConstruyendose+1;
+    /* public void turno(){
+
+        if (enConstruccion){
+
+            this.tiempoConstruyendose++;
+
         }
     
         estado();
 
     }
 
-
     public void estado(){
+
         if(tiempoConstruyendose == tiempoDeConstruccion){
+
             this.enConstruccion = false;
             this.operativa = true;
-            this.tiempoConstruyendose = 0;
-         return;
+            //this.tiempoConstruyendose = 0;
+
         }
         
-
-
-        }
+    }
 
     public boolean operativa(){
 
-            return this.operativa;
-        }
-
-
-    
-    @Override
-    public Boolean atacar(Casillero unaPasarela,int y,int x, Jugador jugador){
-
-        if(rango.CalcularRangoPlateada(unaPasarela,y,x)){
-
-			unaPasarela.AtacadoPorTorrePlateada(jugador);
-			return true;
-
-        }
-        
-        return false;
-
-    }
+        return this.operativa;
+		
+    } */
 
     @Override
-    public int Atacar(Casillero unaPasarela){
+    public Credito Atacar(Casillero unaPasarela){
 
-        int credito = 0;
+        Credito credito = new Credito(0);
 
-        if(rango.CalcularRangoPlateada(unaPasarela,this.y, this.x) ){
+        if(rango.calcularRango(unaPasarela, this.x, this.y) ){
+
             credito = unaPasarela.Atacado(this.danio);
 
         }

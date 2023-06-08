@@ -2,18 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 public class Rocosa extends Casillero {
 
-    public Rocosa (int nuevax, int nuevay) {
+    public Rocosa (int nuevaX, int nuevaY) {
 
-        this.x = nuevax;
-
-        this.y = nuevay;
-    }
-
-    
-    public Boolean esTierra(){
-
-        return false;
-
+        super(nuevaX, nuevaY);
+		
     }
     
 }

@@ -5,7 +5,7 @@ public abstract class Enemigo {
     int vida;
     int danio;
     int energia;
-    int credito;
+    Credito credito;
 
     public void AtacadoPorTorreBlanca(Jugador jugador){
 
@@ -17,15 +17,15 @@ public abstract class Enemigo {
 
     }
 
-    public int Atacado(int unDanio){
+    public Credito Atacado(int unDanio){
 
-        this.vida = this.vida - unDanio;
+        this.vida -= unDanio;
 
-        if(this.vida <= 0 ){
+        if(this.vida <= 0){
             return this.credito;
         }
 
-        return 0;
+        return new Credito(0);
 
     }
 
