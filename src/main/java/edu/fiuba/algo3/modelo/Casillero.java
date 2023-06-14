@@ -57,6 +57,9 @@ public class Casillero {
 
 	public void pasarTurno(Casillero casillero){}
 
+	public void pasarTurno(Jugador jugador){}
+
+
 	public int obtenerY() {
 		return 0;
 	}
@@ -78,7 +81,7 @@ public class Casillero {
 		return null;
 	}
 
-	public Credito Atacar(Pasarela unPasarela){
+	public Credito Atacar(Casillero unPasarela){
 
 		return null;
 	}

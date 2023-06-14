@@ -17,6 +17,10 @@ public class Mapa {
 		establecerCamino();
 	}
 
+	public void establecerMapa(Casillero[][] unMapa){
+		this.mapa = unMapa;
+	}
+
 	public Boolean establecerEnemigos(List<Enemigo> lista){
 
 		this.pasarelaInicial.establecerEnemigos(lista);
@@ -42,6 +46,7 @@ public class Mapa {
 	}
 
 	public void establecerCamino() {
+
 		Boolean primeraPasarela = false;
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
@@ -87,21 +92,45 @@ public class Mapa {
 	public void pasarTurno(Jugador jugador) {
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
+
+				this.AtacarEnemigos(mapa[i][j],jugador);
+
+				this.moverEnemigos(mapa[i][j], jugador);
+
 			
-				// Hay que pasar posX y posY de cada enemigo (esta harcodeado)
-			/* 	for(int z  = 0;  z < camino.size();z++){
-					int x = camino.get(z).obtenerX();
-					int y = camino.get(z).obtenerY();
-			} */
-				mapa[i][j].pasarTurno(mapa[0][0]);
 			}
 		}
 
-		////Atacar Enemeigos
-		////enemigos se mueven
 		this.atacarJugador(jugador);
 		
 	}
+
+		/* Esta implementado asi porque es necesario saber que Casillero es Tierra y cual es Pasarela
+			para controlar los tiempos en que se mueven y se ataca a los enemigos */
+		
+		public void AtacarEnemigos(Casillero casillero,Jugador jugador){
+			
+		if(casillero.esTierra()){
+
+		for(int z  = 0;  z < camino.size();z++){
+				int x = camino.get(z).obtenerX();
+				int y = camino.get(z).obtenerY();
+				jugador.cobrarCredito(casillero.Atacar(mapa[x][y]));
+
+
+			} 
+		}
+
+		}
+
+		public void moverEnemigos(Casillero casillero,Jugador jugador){
+
+			if(casillero.esPasarela()){
+				casillero.pasarTurno(jugador);
+
+			}
+
+		}
 
 
 	public void atacarJugador(Jugador jugador){

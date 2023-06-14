@@ -27,7 +27,7 @@ public class Tierra extends Casillero{
 
     ////Metodo de ataque real/////////
     
-    public Credito Atacar(Pasarela unaPasarela){
+    public Credito Atacar(Casillero unaPasarela){
 
         return defensa.Atacar(unaPasarela);
 		
@@ -37,7 +37,7 @@ public class Tierra extends Casillero{
     public void pasarTurno(Casillero casillero) {
         if(defensa != null){
 
-        	defensa.Atacar(casillero);
+            defensa.Atacar(casillero);
 
         }
 

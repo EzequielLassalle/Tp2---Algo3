@@ -104,34 +104,9 @@ public class Entrega2Test{
     
     public void test18JugadorJuegaYganaPartida()throws IOException, ParseException, FormatoJSONInvalido {
 
-        int t = 1;
+        Juego juego = new Juego();
 
-        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
-
-        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
-
-        Casillero[][] mapaParseado = mapaParser.parsear();
-
-        Mapa mapa = new Mapa(mapaParseado);
-
-        Jugador jugador = new Jugador();
-
-
-        do{
-
-            List<Enemigo> lista = parser.parsear(t);
-            
-            mapa.establecerEnemigos(lista);
-
-            jugador.jugar(mapa);
-
-            mapa.pasarTurno(jugador);
-
-            t++;
-
-        } while(jugador.gano(mapa) || jugador.muerto());
-
-        assertTrue(jugador.gano(mapa));
+        assertTrue(juego.gano());
 
 
 
@@ -139,32 +114,9 @@ public class Entrega2Test{
     
     public void test19JugadorJuegaYpierdePartida()throws IOException, ParseException, FormatoJSONInvalido {
 
-            int t = 1;
+        Juego juego = new Juego();
     
-            EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
-    
-            MapaParser mapaParser = new MapaParser("src/json/mapa.json");
-    
-            Casillero[][] mapaParseado = mapaParser.parsear();
-    
-            Mapa mapa = new Mapa(mapaParseado);
-    
-            Jugador jugador = new Jugador();
-    
-    
-            do{
-    
-                List<Enemigo> lista = parser.parsear(t);
-                
-                mapa.establecerEnemigos(lista);
-    
-                mapa.pasarTurno(jugador);
-    
-                t++;
-    
-            } while(jugador.gano(mapa) || jugador.muerto());
-    
-            assertTrue(jugador.muerto());
+        assertTrue(juego.perdio());
 
  
 

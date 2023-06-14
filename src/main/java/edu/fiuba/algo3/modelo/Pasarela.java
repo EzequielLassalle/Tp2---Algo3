@@ -97,6 +97,8 @@ public class Pasarela extends Casillero {
 		pasarelaDestino.establecerEnemigo(enemigo);
 	}
 
+
+	@Override
 	public void pasarTurno(Jugador jugador) {
 		moverEnemigos();
 	}
