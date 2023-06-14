@@ -29,7 +29,6 @@ public class EnemigosParser {
 
 
     private int turno(int t){
-
         return ((t-1) % 12) + 1;
     }
 

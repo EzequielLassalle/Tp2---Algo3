@@ -20,5 +20,9 @@ public class Hormiga extends Enemigo {
         return true;
     }
 
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
 
 }
