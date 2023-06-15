@@ -31,6 +31,25 @@ public class Topo extends Enemigo {
 	
     }
 
+    @Override
+    public int danio(){
+
+        if(this.turno% 2 == 0){
+            this.danio = 2;
+            return this.danio;
+        }
+
+        this.danio = 5;
+        return danio;
+    }
+
+    @Override
+    public Credito Atacado(int unDanio){
+
+        return new Credito(0);
+
+    }
+
 }
 
 
