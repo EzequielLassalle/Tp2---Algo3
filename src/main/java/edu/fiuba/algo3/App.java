@@ -49,9 +49,6 @@ public class App extends Application {
                 layout.getChildren().add(cell);
             }
         }
-
-
-
         stage.setScene(scene);
         stage.show();
 
