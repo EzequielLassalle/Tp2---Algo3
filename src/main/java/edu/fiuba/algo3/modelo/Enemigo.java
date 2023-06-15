@@ -23,7 +23,9 @@ public abstract class Enemigo {
 
         if(this.vida <= 0){
             return this.credito;
-        }
+
+       
+    }
 
         return new Credito(0);
 

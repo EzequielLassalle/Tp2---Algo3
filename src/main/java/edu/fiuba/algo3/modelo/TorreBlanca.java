@@ -72,6 +72,8 @@ public class TorreBlanca extends Torre {
 
             credito = unaPasarela.Atacado(this.danio);
 
+			System.out.println("Torre Blanca ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
+
         }
 
         return credito;

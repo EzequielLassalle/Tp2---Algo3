@@ -38,6 +38,8 @@ public class Pasarela extends Casillero {
         this.trampaArenosa = unaTorre;
         unaTorre.setCoordenadas(this.x,this.y);
 
+		System.out.println("Torre construida exitosamente");
+
     }
 
    /*  public void AtacadoPorTorreBlanca(Jugador jugador){
