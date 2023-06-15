@@ -88,8 +88,12 @@ public class Pasarela extends Casillero {
 		pasarelaSiguiente = unaPasarela;
 	}
 
+	@Override
 	public Pasarela obtenerSiguiente() {
-		return pasarelaSiguiente;
+		if(pasarelaSiguiente != null){
+			return pasarelaSiguiente;
+		}
+		return this;
 	}
 
 	private void mover(Enemigo enemigo) {

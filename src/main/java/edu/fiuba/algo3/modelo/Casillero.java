@@ -6,6 +6,7 @@ public class Casillero {
 	String tipo;
     int x;
     int y;
+	Lechuza lechuza;
 
 	public Casillero (int nuevaX, int nuevaY) {
 

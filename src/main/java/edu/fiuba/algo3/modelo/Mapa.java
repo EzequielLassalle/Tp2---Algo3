@@ -105,8 +105,6 @@ public class Mapa {
 		
 	}
 
-		/* Esta implementado asi porque es necesario saber que Casillero es Tierra y cual es Pasarela
-			para controlar los tiempos en que se mueven y se ataca a los enemigos */
 		
 		public void AtacarEnemigos(Casillero casillero,Jugador jugador){
 			
@@ -127,8 +125,9 @@ public class Mapa {
 
 			if(casillero.esPasarela()){
 				casillero.pasarTurno(jugador);
-
 			}
+
+			
 
 		}
 
