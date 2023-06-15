@@ -23,6 +23,11 @@ public class Lechuza extends Enemigo {
 
         } 
 
+    public Pasarela moverRelantizado(Pasarela unPasarela){
+
+        return unPasarela;
+    }
+
 
 	
 

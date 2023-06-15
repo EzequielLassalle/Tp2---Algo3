@@ -58,6 +58,15 @@ public abstract class Torre {
 
     }
 
+    public void relantizar(){
+
+
+    }
+
+    public void sumarTurno(){
+      
+    }
+
 
 
 }

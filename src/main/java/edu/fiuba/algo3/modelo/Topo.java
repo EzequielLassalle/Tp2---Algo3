@@ -2,33 +2,64 @@ package edu.fiuba.algo3.modelo;
 
 public class Topo extends Enemigo {
     int turno;
+    int relantizado;
 
     public Topo(){
         this.credito = new Credito(2);
         this.vida = 2;
 		this.danio = 2;
-        this.turno = 1;
+        this.turno = 0;
+        this.relantizado = 0;
 
 
     }
 
 	public Pasarela mover(Pasarela unaPasarela) {
 		
+        this.turno = this.turno + 1;
+        
         if(this.turno <5){
-            this.turno = this.turno + 1;
-           return unaPasarela.obtenerSiguiente();
-
+            return unaPasarela.obtenerSiguiente();
         }else if(this.turno < 11){
-            this.turno = this.turno+1;
 			return unaPasarela = unaPasarela.obtenerSiguiente().obtenerSiguiente();
 
 		}else{
-            this.turno = this.turno +1;
 			return unaPasarela.obtenerSiguiente().obtenerSiguiente().obtenerSiguiente(); 
         } 
 
 
+
 	
+    }
+
+    public Pasarela moverRelantizado(Pasarela unaPasarela){
+
+        this.turno = this.turno+1;
+
+        if(this.turno <5){
+          
+		this.relantizado = this.relantizado + 1;
+
+        if(this.relantizado%2 == 0){
+		    return unaPasarela.obtenerSiguiente();
+         
+        } else{
+            return unaPasarela;
+         }
+
+        }else if(this.turno < 11){
+            
+			return unaPasarela = unaPasarela.obtenerSiguiente();
+
+		}else{
+
+			return unaPasarela.obtenerSiguiente().obtenerSiguiente(); 
+        }  
+
+
+
+
+
     }
 
     @Override

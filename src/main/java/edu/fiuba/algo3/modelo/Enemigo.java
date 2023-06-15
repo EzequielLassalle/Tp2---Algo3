@@ -62,4 +62,6 @@ public abstract class Enemigo {
     public boolean esHormiga() {
         return false;
     }
+
+    public abstract Pasarela moverRelantizado(Pasarela unaPasarela);
 }

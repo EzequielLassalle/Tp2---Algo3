@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Pasarela extends Casillero {
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
+	Torre trampaArenosa = new TrampaArenosa();
 
     public Pasarela(int nuevaX, int nuevaY){
 
@@ -29,6 +30,13 @@ public class Pasarela extends Casillero {
     public void establecerEnemigo(Enemigo unEnemigo){
 
         this.enemigos.add(unEnemigo);
+
+    }
+
+	public void establecerDefensa(Torre unaTorre){
+
+        this.trampaArenosa = unaTorre;
+        unaTorre.setCoordenadas(this.x,this.y);
 
     }
 
@@ -97,8 +105,18 @@ public class Pasarela extends Casillero {
 	}
 
 	private void mover(Enemigo enemigo) {
+
+	if(trampaArenosa.operativa() && trampaArenosa != null){
+		Pasarela pasarelaDestino = enemigo.moverRelantizado(pasarelaSiguiente);
+		pasarelaDestino.establecerEnemigo(enemigo);
+		trampaArenosa.sumarTurno();
+
+	}else{
+
 		Pasarela pasarelaDestino = enemigo.mover(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
+
+		}
 	}
 
 
