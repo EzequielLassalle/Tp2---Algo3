@@ -2,16 +2,17 @@ package edu.fiuba.algo3.modelo;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
-
-import org.json.simple.parser.ParseException;
 
 public class Juego {
 	Jugador jugador;
 	Mapa mapa;
 	int turno;
+	private EnemyRepository enemyParser;
+	private MapRepository mapParser;
 
-	public Juego() {
+	public Juego(EnemyRepository enemyParser, MapRepository mapParser) {
+		this.enemyParser = enemyParser;
+		this.mapParser = mapParser;
 		jugador = new Jugador();
 		mapa = new Mapa();
 		turno = 0;
@@ -27,21 +28,17 @@ public class Juego {
 		turno++;
 	}
 
-	public void jugar()throws IOException, ParseException, FormatoJSONInvalido{
+	public void jugar()throws IOException, FormatoJSONInvalido{
 
 		this.turno = 1;
 
-        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
-
-        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
-
-        Casillero[][] mapaParseado = mapaParser.parsear();
+        Casillero[][] mapaParseado = mapParser.parsear();
 
         this.mapa.establecerMapa(mapaParseado);
 
         do{
 
-            List<Enemigo> lista = parser.parsear(this.turno);
+            List<Enemigo> lista = enemyParser.parsear(this.turno);
             
             this.mapa.establecerEnemigos(lista);
 

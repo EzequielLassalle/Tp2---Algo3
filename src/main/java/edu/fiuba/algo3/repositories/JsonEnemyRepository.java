@@ -1,6 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.repositories;
 ////import org.json.simple.JSONobject;
 
+import edu.fiuba.algo3.modelo.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,10 +12,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnemigosParser {
+public class JsonEnemyRepository implements EnemyRepository {
     private String path;
 
-    public EnemigosParser(String p) {
+    public JsonEnemyRepository(String p) {
         this.path = p;
     }
 
@@ -29,14 +30,20 @@ public class EnemigosParser {
 
 
     private int turno(int t){
+
         return ((t-1) % 12) + 1;
     }
 
 
-    public List<Enemigo> parsear(int t) throws IOException, ParseException {
+    public List<Enemigo> parsear(int t) throws IOException {
         
         t = this.turno(t);
-        JSONArray map = setJSON();
+        JSONArray map = null;
+        try {
+            map = setJSON();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         List<Enemigo> enemigos = new ArrayList<Enemigo>();
         JSONObject turno = (JSONObject) map.get(t-1);
         JSONObject e = (JSONObject) turno.get("enemigos");
@@ -68,7 +75,7 @@ public class EnemigosParser {
         return e;
     }
 
-    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{
+    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido {
         JSONArray map = setJSON();
         if(map.isEmpty()) {
             throw new JSONVacio();
