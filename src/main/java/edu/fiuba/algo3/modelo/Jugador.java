@@ -104,7 +104,7 @@ public class Jugador {
     public void jugar(Mapa mapa){
 
         System.out.println("ELEGI LAS SIGUIENTES OPCIONES:");
-        System.out.println("1. Construir");;
+        System.out.println("1. Construir");
         System.out.println("2. Pasar de turno");
         System.out.println("3. Rendirse");
 
@@ -136,6 +136,12 @@ public class Jugador {
 
                 mapa.construir(x, y,new TorreBlanca());
             }
+
+        }
+
+        if(eleccion == 2){
+            
+             System.out.println("Turno Pasado");
 
         }
 

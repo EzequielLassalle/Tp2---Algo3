@@ -68,11 +68,17 @@ public class TorreBlanca extends Torre {
 
         Credito credito = new Credito(0);
 
-        if(rango.calcularRango(unaPasarela, this.x, this.y)){
+        if(rango.calcularRango(unaPasarela, this.x, this.y ) && operativa() == true){
 
             credito = unaPasarela.Atacado(this.danio);
 
-        }
+			System.out.println("Torre Blanca ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
+
+        } else if(operativa() == false){
+
+			this.turno();
+
+		}
 
         return credito;
 

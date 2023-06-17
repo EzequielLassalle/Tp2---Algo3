@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Pasarela extends Casillero {
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
+	Torre trampaArenosa;
 
     public Pasarela(int nuevaX, int nuevaY){
 
 		super(nuevaX, nuevaY);
 		this.tipo = "Pasarela";
 		this.pasarelaSiguiente = null;
+		this.trampaArenosa = null;
 
     }
 
@@ -29,6 +31,15 @@ public class Pasarela extends Casillero {
     public void establecerEnemigo(Enemigo unEnemigo){
 
         this.enemigos.add(unEnemigo);
+
+    }
+
+	public void establecerDefensa(Torre unaTorre){
+
+        this.trampaArenosa = unaTorre;
+        unaTorre.setCoordenadas(this.x,this.y);
+
+		System.out.println("Torre construida exitosamente");
 
     }
 
@@ -60,8 +71,6 @@ public class Pasarela extends Casillero {
         return this.y;
     }
 
-    //////// En el refactor Casillero de por si va a conocer si siguiente //////////////
-
     
     public void moverEnemigos() {
 
@@ -88,17 +97,34 @@ public class Pasarela extends Casillero {
 		pasarelaSiguiente = unaPasarela;
 	}
 
+	@Override
 	public Pasarela obtenerSiguiente() {
-		return pasarelaSiguiente;
+		if(pasarelaSiguiente != null){
+			return pasarelaSiguiente;
+		}
+		return this;
 	}
 
 	private void mover(Enemigo enemigo) {
+
+	if(trampaArenosa != null){
+		if(trampaArenosa.operativa()){
+		Pasarela pasarelaDestino = enemigo.moverRelantizado(this);
+		pasarelaDestino.establecerEnemigo(enemigo);
+		trampaArenosa.sumarTurno();
+		}
+
+	}else{
+
 		Pasarela pasarelaDestino = enemigo.mover(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
+
+		}
 	}
 
+
 	@Override
-	public void pasarTurno(List<Pasarela> camino) {
+	public void pasarTurno(Jugador jugador) {
 		moverEnemigos();
 	}
 

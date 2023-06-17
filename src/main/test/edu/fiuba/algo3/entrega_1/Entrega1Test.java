@@ -107,6 +107,11 @@ public class Entrega1Test {
 		Credito creditoEsperadoHormiga = new Credito(1);
 		Credito creditoEsperadoArania = new Credito(2);
 
+        tierraBlanca.Atacar(pasarela1);
+
+        tierraPlateada.Atacar(pasarela2);
+        tierraPlateada.Atacar(pasarela2);
+
 
 		assertTrue(creditoEsperadoHormiga.igual(tierraBlanca.Atacar(pasarela1)));
 		assertTrue(creditoEsperadoArania.igual(tierraPlateada.Atacar(pasarela2)));
@@ -136,6 +141,10 @@ public class Entrega1Test {
 
 
         tierraBlanca.Atacar(pasarela1);
+        tierraBlanca.Atacar(pasarela1);
+
+        tierraPlateada.Atacar(pasarela2);
+        tierraPlateada.Atacar(pasarela2);
         tierraPlateada.Atacar(pasarela2);
     	//torreBlanca.Atacar(pasarela1);
         //torrePlateada.Atacar(pasarela2);
@@ -176,6 +185,8 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo1);
 
         Credito credito = tierraBlanca.Atacar(pasarela1);
+        /// por el turno de construccion ///
+        credito = tierraBlanca.Atacar(pasarela1);
 
         jugador.cobrarCredito(credito);
 
@@ -229,7 +240,13 @@ public class Entrega1Test {
         pasarela.establecerEnemigo(enemigo1);
         pasarela.establecerEnemigo(enemigo2);
 
+
+        /////Por los turnos en construccion los primeros Atacar no ataca ///
         tierraBlanca.Atacar(pasarela);
+        tierraBlanca.Atacar(pasarela);
+
+        tierraPlateada.Atacar(pasarela);
+        tierraPlateada.Atacar(pasarela);
         tierraPlateada.Atacar(pasarela);
 
         assertTrue(pasarela.vacio());
@@ -264,6 +281,10 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo3);
 
         tierraBlanca.Atacar(pasarela1);
+        tierraBlanca.Atacar(pasarela1);
+
+        tierraPlateada.Atacar(pasarela1);
+        tierraPlateada.Atacar(pasarela1);
         tierraPlateada.Atacar(pasarela1);
 
         pasarela1.moverEnemigos();

@@ -28,18 +28,18 @@ public class Tierra extends Casillero{
 
     ////Metodo de ataque real/////////
     
-    public Credito Atacar(Pasarela unaPasarela){
+    public Credito Atacar(Casillero unaPasarela){
 
         return defensa.Atacar(unaPasarela);
 		
     }
     
-    @Override
-    public void pasarTurno(List<Pasarela> camino) {
+    
+    public void pasarTurno(Casillero casillero) {
         if(defensa != null){
-			for (Pasarela pasarela : camino) {
-				defensa.Atacar(pasarela);
-			}
+
+            defensa.Atacar(casillero);
+
         }
 	}
 

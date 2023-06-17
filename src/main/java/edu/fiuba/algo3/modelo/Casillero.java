@@ -6,6 +6,7 @@ public class Casillero {
 	String tipo;
     int x;
     int y;
+	Lechuza lechuza;
 
 	public Casillero (int nuevaX, int nuevaY) {
 
@@ -57,6 +58,9 @@ public class Casillero {
 
 	public void pasarTurno(List<Pasarela> camino){}
 
+	public void pasarTurno(Jugador jugador){}
+
+
 	public int obtenerY() {
 		return 0;
 	}
@@ -78,7 +82,7 @@ public class Casillero {
 		return null;
 	}
 
-	public Credito Atacar(Pasarela unPasarela){
+	public Credito Atacar(Casillero unPasarela){
 
 		return null;
 	}
