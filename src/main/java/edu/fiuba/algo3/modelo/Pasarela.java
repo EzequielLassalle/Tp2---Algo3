@@ -5,13 +5,14 @@ import java.util.ArrayList;
 public class Pasarela extends Casillero {
     List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
-	Torre trampaArenosa = new TrampaArenosa();
+	Torre trampaArenosa;
 
     public Pasarela(int nuevaX, int nuevaY){
 
 		super(nuevaX, nuevaY);
 		this.tipo = "Pasarela";
 		this.pasarelaSiguiente = null;
+		this.trampaArenosa = null;
 
     }
 
@@ -70,8 +71,6 @@ public class Pasarela extends Casillero {
         return this.y;
     }
 
-    //////// En el refactor Casillero de por si va a conocer si siguiente //////////////
-
     
     public void moverEnemigos() {
 
@@ -108,10 +107,12 @@ public class Pasarela extends Casillero {
 
 	private void mover(Enemigo enemigo) {
 
-	if(trampaArenosa.operativa() && trampaArenosa != null){
-		Pasarela pasarelaDestino = enemigo.moverRelantizado(pasarelaSiguiente);
+	if(trampaArenosa != null){
+		if(trampaArenosa.operativa()){
+		Pasarela pasarelaDestino = enemigo.moverRelantizado(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
 		trampaArenosa.sumarTurno();
+		}
 
 	}else{
 
