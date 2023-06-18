@@ -82,7 +82,7 @@ public class Mapa {
 			pasarela = pasarela.obtenerSiguiente();
 		} while (pasarela != null && vacio);
 
-		return vacio;
+		return !vacio;
 	}
 
 	public void construir(int posX, int posY, Torre unaTorre) {

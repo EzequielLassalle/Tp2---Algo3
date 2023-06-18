@@ -108,6 +108,8 @@ public class Entrega2Test{
 
         Juego juego = new Juego(parser, mapaParser);
 
+        juego.jugar();
+
         assertTrue(juego.gano());
 
 
@@ -119,6 +121,8 @@ public class Entrega2Test{
         JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
         Juego juego = new Juego(parser, mapaParser);
+
+        ////juego.jugar();
     
         assertTrue(juego.perdio());
 
