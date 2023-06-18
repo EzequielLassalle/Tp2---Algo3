@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.repositories.JsonEnemyRepository;
+import edu.fiuba.algo3.repositories.JsonMapRepository;
 import org.json.simple.parser.ParseException;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.modelo.*;
-import org.junit.jupiter.api.function.Executable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Entrega2Test{
     public void test13FormatoJSONdeEnemigosEsElCorrecto() throws ParseException, IOException, JSONVacio, FormatoJSONInvalido {
         
 
-        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
 
         assertDoesNotThrow(parser::formatoCorrecto);
 
@@ -27,7 +27,7 @@ public class Entrega2Test{
     @Test
     public void test14FormatoJSONdeMapaEsElCorrecto() {
 
-        MapaParser parser = new MapaParser("src/json/mapa.json");
+        JsonMapRepository parser = new JsonMapRepository("src/json/mapa.json");
 
         assertDoesNotThrow(parser::formatoCorrecto);
 
@@ -35,7 +35,7 @@ public class Entrega2Test{
     @Test
     public void test15LecturaYconversionDeJSONdeEnemigos() throws IOException, ParseException {
 
-        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
         List<Enemigo> lista = parser.parsear(1);
 
         List<Enemigo> listaEsperada = new ArrayList<Enemigo>();
@@ -48,7 +48,7 @@ public class Entrega2Test{
     @Test
     public void test16LecturaYConversionDeJSONMapa() throws IOException, ParseException, FormatoJSONInvalido {
 
-        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
         Casillero[][] mapa = mapaParser.parsear();
 
@@ -69,11 +69,11 @@ public class Entrega2Test{
     @Test
     public void test17JuegoBienCreado()throws IOException, ParseException, FormatoJSONInvalido {
 
-        EnemigosParser parser = new EnemigosParser("src/json/enemigos.json");
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
        
         List<Enemigo> lista = parser.parsear(1);
 
-        MapaParser mapaParser = new MapaParser("src/json/mapa.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
         Casillero[][] mapaParseado = mapaParser.parsear();
 
@@ -103,8 +103,10 @@ public class Entrega2Test{
 
     
     public void test18JugadorJuegaYganaPartida()throws IOException, ParseException, FormatoJSONInvalido {
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
-        Juego juego = new Juego();
+        Juego juego = new Juego(parser, mapaParser);
 
         assertTrue(juego.gano());
 
@@ -113,8 +115,10 @@ public class Entrega2Test{
     }
     
     public void test19JugadorJuegaYpierdePartida()throws IOException, ParseException, FormatoJSONInvalido {
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
-        Juego juego = new Juego();
+        Juego juego = new Juego(parser, mapaParser);
     
         assertTrue(juego.perdio());
 

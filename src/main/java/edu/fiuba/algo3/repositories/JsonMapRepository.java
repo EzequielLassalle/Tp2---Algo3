@@ -1,16 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.repositories;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
-import javafx.util.converter.IntegerStringConverter;
+import edu.fiuba.algo3.modelo.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -20,15 +13,15 @@ import org.json.simple.parser.ParseException;
 /*MapaParser parser = new MapaParser(mapa.json);
 Mapa mapa = new Mapa (parser.parsear());*/
 
-public class MapaParser {
+public class JsonMapRepository implements MapRepository {
     final int SIZE = 15;
     private String path;
 
-    public MapaParser(String p) {
+    public JsonMapRepository(String p) {
         this.path = p;
     }
 
-    private JSONObject setJSON()throws IOException, ParseException{
+    private JSONObject setJSON() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         FileReader reader = new FileReader(this.path);
         Object obj = parser.parse(reader);
@@ -37,14 +30,19 @@ public class MapaParser {
         return jsonObj;
     }
 
-    public Casillero[][] parsear() throws IOException, ParseException, FormatoJSONInvalido {
-        JSONObject jsonObj = setJSON();
+    public Casillero[][] parsear() throws IOException, FormatoJSONInvalido {
+        JSONObject jsonObj = null;
+        try {
+            jsonObj = setJSON();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         JSONObject map = (JSONObject) jsonObj.get("Mapa");
         Casillero[][] mapa = new Casillero[SIZE][SIZE];
         for (int y = 0; y < SIZE; y++) {
             JSONArray line = (JSONArray) map.get(Integer.toString(y + 1));
             for (int x = 0; x < SIZE; x++) {
-                mapa[y][x] = asignar((String)line.get(x), x, y);
+                mapa[y][x] = asignar((String) line.get(x), x, y);
             }
         }
         return mapa;
@@ -69,23 +67,23 @@ public class MapaParser {
         return c;
     }
 
-    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido{
+    public void formatoCorrecto() throws IOException, ParseException, JSONVacio, FormatoJSONInvalido {
         JSONObject jsonObj = setJSON();
-        if(jsonObj.isEmpty()) {
+        if (jsonObj.isEmpty()) {
             throw new JSONVacio();
         }
-        try{
+        try {
             JSONObject map = (JSONObject) jsonObj.get("Mapa");
             for (int i = 0; i < SIZE; i++) {
                 JSONArray line = (JSONArray) map.get(Integer.toString(i + 1));
                 for (int x = 0; x < SIZE; x++) {
-                    String s = (String)line.get(x);
-                    if(!s.equals("Tierra") && !s.equals("Rocoso") && !s.equals("Pasarela")){
+                    String s = (String) line.get(x);
+                    if (!s.equals("Tierra") && !s.equals("Rocoso") && !s.equals("Pasarela")) {
                         throw new FormatoJSONInvalido();
                     }
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new FormatoJSONInvalido();
         }
 
