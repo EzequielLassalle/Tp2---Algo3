@@ -47,6 +47,10 @@ public abstract class Enemigo {
 
     }
 
+    public Boolean soyLechuza(){
+        return false;
+    }
+
 
 	public abstract Casillero mover(Casillero unaPasarela);
 

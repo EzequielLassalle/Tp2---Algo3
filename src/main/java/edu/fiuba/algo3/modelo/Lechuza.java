@@ -43,6 +43,12 @@ public class Lechuza extends Enemigo {
 
     }
 
+    @Override
+    public Boolean soyLechuza(){
+
+        return true;
+    }
+
 	
 
 

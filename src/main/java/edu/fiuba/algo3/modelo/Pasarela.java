@@ -136,4 +136,28 @@ public class Pasarela extends Casillero {
 
 	}
 
+	@Override
+	public void AtacarTorres(Jugador jugador,List<Casillero> torres){
+
+		Casillero unaTorre;
+
+		if(hay_Lechuza()){
+			unaTorre = torres.get(0);
+			unaTorre.eliminarDefensa();
+			torres.remove(0);
+
+		}
+
+	}
+
+
+	private Boolean hay_Lechuza(){
+		
+		for(Enemigo enemigo : enemigos){
+			if(enemigo.soyLechuza())
+			return true;
+		}
+		return false;
+	}
+
 }

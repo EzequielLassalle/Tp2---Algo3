@@ -18,6 +18,11 @@ public class Tierra extends Casillero{
 
     }
 
+    @Override
+    public void eliminarDefensa(){
+		defensa = null;
+	}
+
     
     public void establecerDefensa(Torre unaTorre){
 

@@ -83,6 +83,10 @@ public class Casillero {
 		return null;
 	}
 
+	public void eliminarDefensa(){
+
+	}
+
 	public void daniarJugador(Jugador jugador){}
 
 	public void pasarTurno(List<Pasarela> camino){}
@@ -151,6 +155,12 @@ public class Casillero {
 	public void establecerEnemigos(List<Enemigo> unaLista){
 
 	}
+	public void AtacarTorres(Jugador jugador,List<Casillero> torres){
+
+
+	}
+
+
 
 	
 
