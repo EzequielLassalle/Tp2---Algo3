@@ -12,7 +12,7 @@ public class Arania extends Enemigo {
 
     }
 
-	public Pasarela mover(Pasarela unaPasarela) {
+	public Casillero mover(Casillero unaPasarela) {
 		
 		for (int i = 0; i < velocidad; i += 1) {
 			unaPasarela = unaPasarela.obtenerSiguiente();
@@ -20,7 +20,7 @@ public class Arania extends Enemigo {
 		return unaPasarela;
 	}
 
-	public Pasarela moverRelantizado(Pasarela unaPasarela){
+	public Casillero moverRelantizado(Casillero unaPasarela){
 
 		unaPasarela = unaPasarela.obtenerSiguiente();
 		

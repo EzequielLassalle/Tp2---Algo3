@@ -14,7 +14,7 @@ public class Topo extends Enemigo {
 
     }
 
-	public Pasarela mover(Pasarela unaPasarela) {
+	public Casillero mover(Casillero unaPasarela) {
 		
         this.turno = this.turno + 1;
         
@@ -32,7 +32,7 @@ public class Topo extends Enemigo {
 	
     }
 
-    public Pasarela moverRelantizado(Pasarela unaPasarela){
+    public Casillero moverRelantizado(Casillero unaPasarela){
 
         this.turno = this.turno+1;
 

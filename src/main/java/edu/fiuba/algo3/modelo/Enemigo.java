@@ -48,7 +48,9 @@ public abstract class Enemigo {
     }
 
 
-	public abstract Pasarela mover(Pasarela unaPasarela);
+	public abstract Casillero mover(Casillero unaPasarela);
+
+    public  abstract Casillero moverRelantizado(Casillero unaPasarela);
 
     public int danio(){
 
@@ -65,5 +67,19 @@ public abstract class Enemigo {
         return false;
     }
 
-    public abstract Pasarela moverRelantizado(Pasarela unaPasarela);
+
+    
+    public Casillero volar(Casillero unCasillero){
+
+        return unCasillero;
+    }
+
+    
+    public Casillero volarRelantizado(Casillero unCasillero){
+
+
+        return unCasillero;
+    }
+
+ 
 }

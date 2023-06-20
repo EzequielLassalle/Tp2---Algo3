@@ -15,7 +15,7 @@ public class Hormiga extends Enemigo {
     }
 
 	//@Override
-	public Pasarela mover(Pasarela unaPasarela) {
+	public Casillero mover(Casillero unaPasarela) {
 		return unaPasarela.obtenerSiguiente();
 	}
 
@@ -29,7 +29,7 @@ public class Hormiga extends Enemigo {
         return o.getClass().equals(this.getClass());
     }
 
-    public Pasarela moverRelantizado(Pasarela unaPasarela){
+    public Casillero moverRelantizado(Casillero unaPasarela){
 
 		this.relantizado = this.relantizado + 1;
 

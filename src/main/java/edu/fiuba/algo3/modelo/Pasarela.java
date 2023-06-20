@@ -109,14 +109,14 @@ public class Pasarela extends Casillero {
 
 	if(trampaArenosa != null){
 		if(trampaArenosa.operativa()){
-		Pasarela pasarelaDestino = enemigo.moverRelantizado(this);
+		Casillero pasarelaDestino = enemigo.moverRelantizado(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
 		trampaArenosa.sumarTurno();
 		}
 
 	}else{
 
-		Pasarela pasarelaDestino = enemigo.mover(this);
+		Casillero pasarelaDestino = enemigo.mover(this);
 		pasarelaDestino.establecerEnemigo(enemigo);
 
 		}
