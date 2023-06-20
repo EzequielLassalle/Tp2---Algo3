@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Pasarela extends Casillero {
-    List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Pasarela pasarelaSiguiente;
 	Torre trampaArenosa;
 

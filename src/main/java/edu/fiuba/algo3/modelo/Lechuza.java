@@ -13,9 +13,11 @@ public class Lechuza extends Enemigo {
 
 	public Casillero mover(Casillero unaPasarela) {
 		
+
         if(vida > 3){
 
-
+            unaPasarela = unaPasarela.obtenerAbajo().obtenerAbajo().obtenerAbajo().obtenerDerecha().obtenerDerecha();
+       
         }else{
 
         }
@@ -23,22 +25,23 @@ public class Lechuza extends Enemigo {
 
         return unaPasarela;
 
-    } 
+    }
 
-
-
-
-    public Casillero moverRelantizado(Casillero unPasarela){
+    	public Casillero moverRelantizado(Casillero unaPasarela) {
+		
 
         if(vida > 3){
 
+            unaPasarela = unaPasarela.obtenerAbajo().obtenerAbajo().obtenerAbajo().obtenerDerecha().obtenerDerecha();
+       
         }else{
-            
+
         }
+        
 
-        return unPasarela;
+        return unaPasarela;
+
     }
-
 
 	
 

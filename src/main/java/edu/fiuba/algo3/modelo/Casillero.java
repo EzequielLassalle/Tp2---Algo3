@@ -55,6 +55,16 @@ public class Casillero {
 		return false;
 
 	}
+
+	public Casillero obtenerAbajo(){
+
+		return casilleroAbajo;
+	}
+
+	public Casillero obtenerDerecha(){
+
+		return casilleroDerecha;
+	}
 	
     public void establecerDefensa(Torre unaTorre){}
 
