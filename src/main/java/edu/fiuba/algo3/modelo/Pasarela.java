@@ -27,7 +27,7 @@ public class Pasarela extends Casillero {
 		enemigos = unaLista;
 	}
 
-    
+    @Override
     public void establecerEnemigo(Enemigo unEnemigo){
 
         this.enemigos.add(unEnemigo);

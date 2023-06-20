@@ -6,7 +6,9 @@ public class Casillero {
 	String tipo;
     int x;
     int y;
-	Lechuza lechuza;
+	Casillero casilleroAbajo;
+	Casillero casilleroDerecha;
+	List<Enemigo> enemigos = new ArrayList<Enemigo>();
 
 	public Casillero (int nuevaX, int nuevaY) {
 
@@ -15,8 +17,24 @@ public class Casillero {
 
 	}
 
+	public void establecerEnemigo(Enemigo unEnemigo){
+
+        this.enemigos.add(unEnemigo);
+
+    }
+
     public Boolean esTierra() {
 		return null;
+	}
+
+	public void establecerAbajo(Casillero unCasillero){
+
+		casilleroAbajo = unCasillero;
+	}
+
+	public void establecerDerecha(Casillero unCasillero){
+
+		casilleroDerecha = unCasillero;
 	}
 
 	public boolean esIgual(Casillero c){
@@ -39,8 +57,7 @@ public class Casillero {
 	}
 	
     public void establecerDefensa(Torre unaTorre){}
-	
-    public void establecerEnemigo(Enemigo enemigo){}
+
 	
 	public void establecerSiguiente(Casillero unaPasarela) {}
 

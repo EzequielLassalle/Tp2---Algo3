@@ -43,6 +43,7 @@ public class Mapa {
 		mapa[1][2] = new Pasarela(1,2);
 
 		establecerCamino();
+		establecerSiguiente();
 	}
 
 	public void establecerCamino() {
@@ -68,19 +69,25 @@ public class Mapa {
 		}
 	}
 
-	/*public void establecerSiguiente(){
+	public void establecerSiguiente(){
 
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++){
 
+				if(i < mapa.length){
+					mapa[i][j].establecerAbajo(mapa[i + 1][j]);
+					
+				}
 
+				if(j < mapa[i].length){
+					mapa[i][j].establecerDerecha(mapa[i][j+1]);
+				}
 
 
 			}
 		}
 
-
-	} */
+	} 
 
 	public void generarEnemigos() {
 		pasarelaInicial.establecerEnemigo(new Hormiga());
