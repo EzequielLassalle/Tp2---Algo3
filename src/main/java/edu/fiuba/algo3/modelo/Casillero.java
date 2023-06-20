@@ -9,11 +9,13 @@ public class Casillero {
 	Casillero casilleroAbajo;
 	Casillero casilleroDerecha;
 	List<Enemigo> enemigos = new ArrayList<Enemigo>();
+	Torre trampaArenosa;
 
 	public Casillero (int nuevaX, int nuevaY) {
 
 		this.x = nuevaX;
 		this.y = nuevaY;
+		this.trampaArenosa = null;
 
 	}
 
@@ -85,8 +87,40 @@ public class Casillero {
 
 	public void pasarTurno(List<Pasarela> camino){}
 
-	public void pasarTurno(Jugador jugador){}
+		public void pasarTurno(Jugador jugador) {
+		if(!enemigos.isEmpty()){
+			moverEnemigos();
+		}
+	}
 
+	    public void moverEnemigos() {
+
+		for (Enemigo enemigo : enemigos) {
+			this.mover(enemigo);
+			//enemigo = null;
+			//enemigos.remove(enemigo);
+		}
+
+		enemigos.removeAll(enemigos);
+
+    }
+
+	private void mover(Enemigo enemigo) {
+
+		if(trampaArenosa != null){
+			if(trampaArenosa.operativa()){
+			Casillero pasarelaDestino = enemigo.moverRelantizado(this);
+			pasarelaDestino.establecerEnemigo(enemigo);
+			trampaArenosa.sumarTurno();
+			}
+
+		}else{
+
+			Casillero pasarelaDestino = enemigo.mover(this);
+			pasarelaDestino.establecerEnemigo(enemigo);
+
+		}
+	}
 
 	public int obtenerY() {
 		return 0;

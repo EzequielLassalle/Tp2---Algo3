@@ -6,6 +6,7 @@ public class Mapa {
 	List<Pasarela> camino = new ArrayList<Pasarela>();
 	Casillero pasarelaInicial;
 	Casillero pasarelaFinal;
+	List<Casillero> torres = new ArrayList<Casillero>();
 
 	public Mapa() {
 		generarTerreno();
@@ -108,6 +109,7 @@ public class Mapa {
 
 	public void construir(int posX, int posY, Torre unaTorre) {
 		mapa[posX][posY].establecerDefensa(unaTorre);
+		torres.add(mapa[posX][posY]);
 	}
 
 	public void pasarTurno(Jugador jugador) {
@@ -144,9 +146,9 @@ public class Mapa {
 
 		public void moverEnemigos(Casillero casillero,Jugador jugador){
 
-			if(casillero.esPasarela()){
-				casillero.pasarTurno(jugador);
-			}
+		
+			casillero.pasarTurno(jugador);
+			
 
 			
 

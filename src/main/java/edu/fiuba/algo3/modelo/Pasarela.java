@@ -71,17 +71,7 @@ public class Pasarela extends Casillero {
     }
 
     
-    public void moverEnemigos() {
 
-		for (Enemigo enemigo : enemigos) {
-			this.mover(enemigo);
-			//enemigo = null;
-			//enemigos.remove(enemigo);
-		}
-
-		enemigos.removeAll(enemigos);
-
-    }
 
 	public Boolean ocupado() {
 		return !enemigos.isEmpty();
@@ -104,28 +94,11 @@ public class Pasarela extends Casillero {
 		return this;
 	}
 
-	private void mover(Enemigo enemigo) {
-
-	if(trampaArenosa != null){
-		if(trampaArenosa.operativa()){
-		Casillero pasarelaDestino = enemigo.moverRelantizado(this);
-		pasarelaDestino.establecerEnemigo(enemigo);
-		trampaArenosa.sumarTurno();
-		}
-
-	}else{
-
-		Casillero pasarelaDestino = enemigo.mover(this);
-		pasarelaDestino.establecerEnemigo(enemigo);
-
-		}
-	}
 
 
-	@Override
-	public void pasarTurno(Jugador jugador) {
-		moverEnemigos();
-	}
+
+	
+
 
 
 	@Override
