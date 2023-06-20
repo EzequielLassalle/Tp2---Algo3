@@ -68,13 +68,19 @@ public class Mapa {
 		}
 	}
 
-	////public void establecerSiguiente(){
+	/*public void establecerSiguiente(){
 
-		
+		for (int i = 0; i < mapa.length; i++) {
+			for (int j = 0; j < mapa[i].length; j++){
 
 
 
-	///}
+
+			}
+		}
+
+
+	} */
 
 	public void generarEnemigos() {
 		pasarelaInicial.establecerEnemigo(new Hormiga());
