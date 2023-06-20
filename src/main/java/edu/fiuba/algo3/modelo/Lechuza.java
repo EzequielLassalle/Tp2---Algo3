@@ -11,19 +11,17 @@ public class Lechuza extends Enemigo {
 
     }
 
-	public Pasarela mover(Pasarela unaPasarela) {
+	public Casillero mover(Casillero unaPasarela) {
 		
-        Pasarela pasarelaDestino = unaPasarela;
+        
+        return unaPasarela;
 
-        for(int i = 0;i<5;i++){
-		    pasarelaDestino = unaPasarela.obtenerSiguiente(); 
-        }
+    } 
 
-        return pasarelaDestino;
 
-        } 
 
-    public Pasarela moverRelantizado(Pasarela unPasarela){
+
+    public Casillero moverRelantizado(Casillero unPasarela){
 
         return unPasarela;
     }

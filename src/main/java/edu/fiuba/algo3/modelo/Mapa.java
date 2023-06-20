@@ -68,6 +68,14 @@ public class Mapa {
 		}
 	}
 
+	////public void establecerSiguiente(){
+
+		
+
+
+
+	///}
+
 	public void generarEnemigos() {
 		pasarelaInicial.establecerEnemigo(new Hormiga());
 		pasarelaInicial.establecerEnemigo(new Arania());
