@@ -11,17 +11,43 @@ public class Casillero {
 	List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Torre trampaArenosa;
 	Casillero siguienteHipotenusa;
+	Pasarela pasarelaSiguiente;
 
 	public Casillero (int nuevaX, int nuevaY) {
 
 		this.x = nuevaX;
 		this.y = nuevaY;
 		this.trampaArenosa = null;
+		this.casilleroAbajo = null;
+		this.casilleroDerecha = null;
+		this.pasarelaSiguiente = null;
+		this.siguienteHipotenusa = null;
 
+	}
+
+	public void establecerSiguiente(Pasarela unaPasarela) {
+		pasarelaSiguiente = unaPasarela;
+	}
+
+	
+	public Casillero obtenerSiguiente() {
+		if(pasarelaSiguiente != null){
+			return pasarelaSiguiente;
+		}
+
+		return this;
 	}
 
 	public void establecerHipotenusa(Casillero unCasillero){
 		this.siguienteHipotenusa = unCasillero;
+	}
+
+
+	public Casillero obtenerSiguienteHipotenusa(){
+		if(siguienteHipotenusa != null){
+			return siguienteHipotenusa;
+		}
+		return this;
 	}
 
 	public void establecerEnemigo(Enemigo unEnemigo){
@@ -64,13 +90,22 @@ public class Casillero {
 	}
 
 	public Casillero obtenerAbajo(){
+		if( casilleroAbajo != null){
 
 		return casilleroAbajo;
+
+		}
+
+		return this;
 	}
 
 	public Casillero obtenerDerecha(){
+		if(casilleroDerecha != null){
 
-		return casilleroDerecha;
+			return casilleroDerecha;
+		}
+
+		return this;
 	}
 	
     public void establecerDefensa(Torre unaTorre){}
@@ -82,10 +117,6 @@ public class Casillero {
 
 		return true;
 		
-	}
-
-	public Casillero obtenerSiguiente() {
-		return null;
 	}
 
 	public void eliminarDefensa(){

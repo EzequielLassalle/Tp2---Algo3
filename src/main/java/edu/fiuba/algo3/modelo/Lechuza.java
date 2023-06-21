@@ -20,7 +20,7 @@ public class Lechuza extends Enemigo {
         }else{
 
 
-            
+            unaPasarela = unaPasarela.obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa();
 
         }
         
@@ -42,7 +42,7 @@ public class Lechuza extends Enemigo {
         }else{
 
 
-
+            unaPasarela = unaPasarela.obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa().obtenerSiguienteHipotenusa();
         }
         
 

@@ -82,17 +82,7 @@ public class Pasarela extends Casillero {
 		return enemigos.isEmpty();
 	}
 
-	public void establecerSiguiente(Pasarela unaPasarela) {
-		pasarelaSiguiente = unaPasarela;
-	}
 
-	@Override
-	public Pasarela obtenerSiguiente() {
-		if(pasarelaSiguiente != null){
-			return pasarelaSiguiente;
-		}
-		return this;
-	}
 
 
 
