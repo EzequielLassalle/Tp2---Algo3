@@ -76,7 +76,7 @@ public class Mapa {
 			for (int j = 0; j < mapa[i].length; j++){
 
 				if(i < mapa.length){
-					mapa[i][j].establecerAbajo(mapa[i + 1][j]);
+					mapa[i][j].establecerAbajo(mapa[i+1][j]);
 					
 				}
 
@@ -89,6 +89,45 @@ public class Mapa {
 		}
 
 	} 
+
+	public void establecerHipotenusaAPasarela(){
+
+
+		for(int i = 0; i < mapa.length; i++){
+			for(int j = 0; j< mapa[i].length;j++){
+
+
+				mapa[i][j].establecerHipotenusa(calcularDistanciaAMeta(mapa[i+1][j], mapa[i][j+1], mapa[i+1][j+1]));
+
+			}
+
+		}
+	}
+	public Casillero calcularDistanciaAMeta(Casillero casilleroAbajo,Casillero casilleroDerecha,Casillero casilleroDiagonal){
+
+		Casillero seleccionado = null;
+
+		double distanciaAbajo = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroAbajo.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroAbajo.obtenerX(), 2));
+
+		double distanciaDerecha = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroDerecha.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroDerecha.obtenerX(), 2));
+
+		double distanciaDiagonal = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroDiagonal.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroDiagonal.obtenerX(), 2));
+
+		if(distanciaAbajo > distanciaDerecha && distanciaAbajo > distanciaDiagonal){
+			seleccionado = casilleroAbajo;
+
+		}else if( distanciaDerecha > distanciaAbajo && distanciaDerecha > distanciaDiagonal){
+			
+			seleccionado = casilleroDerecha;
+		}else{
+			
+			seleccionado = casilleroDiagonal;
+		}
+
+		return seleccionado;
+
+
+	}
 
 	public void generarEnemigos() {
 		pasarelaInicial.establecerEnemigo(new Hormiga());

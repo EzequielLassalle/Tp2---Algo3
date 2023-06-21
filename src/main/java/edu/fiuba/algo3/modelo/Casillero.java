@@ -10,6 +10,7 @@ public class Casillero {
 	Casillero casilleroDerecha;
 	List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Torre trampaArenosa;
+	Casillero siguienteHipotenusa;
 
 	public Casillero (int nuevaX, int nuevaY) {
 
@@ -17,6 +18,10 @@ public class Casillero {
 		this.y = nuevaY;
 		this.trampaArenosa = null;
 
+	}
+
+	public void establecerHipotenusa(Casillero unCasillero){
+		this.siguienteHipotenusa = unCasillero;
 	}
 
 	public void establecerEnemigo(Enemigo unEnemigo){
@@ -109,6 +114,9 @@ public class Casillero {
 
     }
 
+
+	///Implementar aca el corrector
+
 	private void mover(Enemigo enemigo) {
 
 		if(trampaArenosa != null){
@@ -124,6 +132,8 @@ public class Casillero {
 			pasarelaDestino.establecerEnemigo(enemigo);
 
 		}
+
+
 	}
 
 	public int obtenerY() {

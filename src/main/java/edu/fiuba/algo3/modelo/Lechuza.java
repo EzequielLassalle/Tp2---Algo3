@@ -7,7 +7,6 @@ public class Lechuza extends Enemigo {
         this.credito = new Credito(5);
         this.vida = 5;
 		this.danio = 0;
-        
 
     }
 
@@ -20,12 +19,18 @@ public class Lechuza extends Enemigo {
        
         }else{
 
+
+            
+
         }
         
 
         return unaPasarela;
 
     }
+
+
+    /////implementacion se queda asi por si en el futuro se quiere relantizar a la lechuza de alguna forma ////
 
     	public Casillero moverRelantizado(Casillero unaPasarela) {
 		
@@ -35,6 +40,8 @@ public class Lechuza extends Enemigo {
             unaPasarela = unaPasarela.obtenerAbajo().obtenerAbajo().obtenerAbajo().obtenerDerecha().obtenerDerecha();
        
         }else{
+
+
 
         }
         
