@@ -171,16 +171,16 @@ public class Mapa {
 		public void AtacarEnemigos(Casillero casillero,Jugador jugador){
 			
 		if(casillero.esTierra()){
+			for (int i = 0; i < mapa.length; i++) {
+				for (int j = 0; j < mapa[i].length; j++) {
+				
+				jugador.cobrarCredito(casillero.Atacar(mapa[i][j]));
 
-		for(int z  = 0;  z < camino.size();z++){
-				int x = camino.get(z).obtenerX();
-				int y = camino.get(z).obtenerY();
-				jugador.cobrarCredito(casillero.Atacar(mapa[x][y]));
 
-
-			} 
-		}
-
+			
+					}
+				}
+			}
 		}
 
 		public void moverEnemigos(Casillero casillero,Jugador jugador){

@@ -91,19 +91,6 @@ public class Pasarela extends Casillero {
 
 
 
-	@Override
-	public Credito Atacado(int danio){
-		Credito credito = new Credito(0);
-		
-		credito.sumar(enemigos.get(0).Atacado(danio));
-		
-		if(enemigos.get(0).muerto()){
-			enemigos.remove(0);
-		}
-
-		return credito;
-
-	}
 
 	@Override
 	public void daniarJugador(Jugador jugador){

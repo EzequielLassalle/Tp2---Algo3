@@ -167,6 +167,24 @@ public class Casillero {
 
 	}
 
+
+	public Credito Atacado(int danio){
+		Credito credito = new Credito(0);
+		
+		if(!enemigos.isEmpty()){
+			credito.sumar(enemigos.get(0).Atacado(danio));
+		
+			if(enemigos.get(0).muerto()){
+				enemigos.remove(0);
+			}
+		}
+
+		return credito;
+
+	}
+
+
+
 	public int obtenerY() {
 		return 0;
 	}
@@ -179,13 +197,6 @@ public class Casillero {
 	}
 
 	public void AtacadoPorTorrePlateada(Jugador jugador) {
-	}
-
-
-	
-	public Credito Atacado(int danio){
-
-		return null;
 	}
 
 	public Credito Atacar(Casillero unPasarela){

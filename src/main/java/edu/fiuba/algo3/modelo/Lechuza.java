@@ -10,6 +10,8 @@ public class Lechuza extends Enemigo {
 
     }
 
+    
+
 	public Casillero mover(Casillero unaPasarela) {
 		
 
