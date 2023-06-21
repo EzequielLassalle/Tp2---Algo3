@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.handlers;
 
 import edu.fiuba.algo3.App;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
 
-import java.util.Objects;
 
 
 public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
@@ -15,7 +13,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
     private String u;
     private Label error;
 
-    public BotonJugarEventHandler(String usuario, Label e){
+    public BotonJugarEventHandler(String usuario, Label e, Application App){
         this.u = usuario.trim();
         this.error = e;
 

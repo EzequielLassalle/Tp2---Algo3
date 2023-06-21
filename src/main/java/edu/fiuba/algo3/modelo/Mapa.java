@@ -8,10 +8,6 @@ public class Mapa {
 	Casillero pasarelaFinal;
 	List<Casillero> torres = new ArrayList<Casillero>();
 
-	public Mapa() {
-		generarTerreno();
-		generarEnemigos();
-	}
 
 	public Mapa(Casillero[][] unMapa){
 		mapa = unMapa;

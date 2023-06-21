@@ -19,7 +19,7 @@ import edu.fiuba.algo3.handlers.BotonJugarEventHandler;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class App extends Application{
     private static class Casillero extends StackPane{
 
         private Rectangle bg;
@@ -36,7 +36,6 @@ public class App extends Application {
     private static final int CELL_SIZE = 50;
     private static final int GRID_SIZE_IN_CELLS = 15;
 
-
     public static void jugar() {
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
@@ -51,8 +50,6 @@ public class App extends Application {
         }
         stage.setScene(scene);
         stage.show();
-
-
     }
 
     @Override
@@ -72,7 +69,7 @@ public class App extends Application {
 
         var jugarButton = new Button();
         jugarButton.setText("JUGAR");
-        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario.getText(), error);
+        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario.getText(), error, this);
         jugarButton.setOnAction(botonJugarEventHandler);
 
         layout.getChildren().add(welcome);
