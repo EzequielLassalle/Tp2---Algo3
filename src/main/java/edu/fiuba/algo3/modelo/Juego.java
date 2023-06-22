@@ -10,11 +10,11 @@ public class Juego {
 	private EnemyRepository enemyParser;
 	private MapRepository mapParser;
 
-	public Juego(EnemyRepository enemyParser, MapRepository mapParser) {
+	public Juego(EnemyRepository enemyParser, MapRepository mapParser) throws IOException, FormatoJSONInvalido {
 		this.enemyParser = enemyParser;
 		this.mapParser = mapParser;
 		jugador = new Jugador();
-		mapa = new Mapa();
+		mapa = this.mapParser.parsear();
 		turno = 0;
 	}
 
@@ -31,10 +31,6 @@ public class Juego {
 	public void jugar()throws IOException, FormatoJSONInvalido{
 
 		this.turno = 1;
-
-        Casillero[][] mapaParseado = mapParser.parsear();
-
-        this.mapa.establecerMapa(mapaParseado);
 
         do{
 

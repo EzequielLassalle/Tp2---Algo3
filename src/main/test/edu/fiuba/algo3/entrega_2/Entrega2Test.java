@@ -50,19 +50,19 @@ public class Entrega2Test{
 
         JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
-        Casillero[][] mapa = mapaParser.parsear();
+        Mapa mapa = mapaParser.parsear();
 
-        assertTrue(mapa[0][0].esIgual(new Rocosa(0, 0)));
+        assertTrue(mapa.posicion(0, 0).esIgual(new Rocosa(0, 0)));
 
-        assertTrue(mapa[0][1].esIgual(new Pasarela(1, 0)));
+        assertTrue(mapa.posicion(0, 1).esIgual(new Pasarela(1, 0)));
 
-        assertTrue(mapa[0][2].esIgual(new Tierra(2, 0)));
+        assertTrue(mapa.posicion(0,2).esIgual(new Tierra(2, 0)));
 
-        assertTrue(mapa[0][3].esIgual(new Tierra(3, 0)));
+        assertTrue(mapa.posicion(0, 3).esIgual(new Tierra(3, 0)));
 
-        assertTrue(mapa[0][4].esIgual(new Tierra(4, 0)));
+        assertTrue(mapa.posicion(0,4).esIgual(new Tierra(4, 0)));
 
-        assertTrue(mapa[0][5].esIgual(new Tierra(5, 0)));
+        assertTrue(mapa.posicion(0,5).esIgual(new Tierra(5, 0)));
 
     }
 
@@ -75,23 +75,22 @@ public class Entrega2Test{
 
         JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
 
-        Casillero[][] mapaParseado = mapaParser.parsear();
+        Mapa mapa = mapaParser.parsear();
 
-        Mapa mapa = new Mapa(mapaParseado);
         
         assertTrue(mapa.establecerEnemigos(lista));
 
         assertTrue(mapa.ocupado(0,1));
 
-        assertTrue(mapaParseado[0][0].esIgual(new Rocosa(0, 0)));
+        assertTrue(mapa.posicion(0, 0).esIgual(new Rocosa(0, 0)));
 
-        assertTrue(mapaParseado[10][4].esIgual(new Tierra(4,10)));
+        assertTrue(mapa.posicion(10, 4).esIgual(new Tierra(4,10)));
 
-        assertTrue(mapaParseado[10][14].esIgual(new Pasarela(14, 10)));
+        assertTrue(mapa.posicion(10,14).esIgual(new Pasarela(14, 10)));
 
-        assertTrue(mapaParseado[14][4].esIgual(new Rocosa(4, 14)));
+        assertTrue(mapa.posicion(14, 4).esIgual(new Rocosa(4, 14)));
 
-        assertTrue(mapaParseado[12][10].esIgual(new Tierra(10, 12)));
+        assertTrue(mapa.posicion(12, 10).esIgual(new Tierra(10, 12)));
         
  
 

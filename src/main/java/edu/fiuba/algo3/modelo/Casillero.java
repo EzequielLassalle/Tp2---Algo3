@@ -170,6 +170,10 @@ public class Casillero {
 
 	}
 
+	public boolean equals(Casillero c){
+        return this.getClass() == c.getClass();
+    }
+
 
 	public Credito Atacado(int danio){
 		Credito credito = new Credito(0);

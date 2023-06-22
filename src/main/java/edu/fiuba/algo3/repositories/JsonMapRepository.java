@@ -30,7 +30,7 @@ public class JsonMapRepository implements MapRepository {
         return jsonObj;
     }
 
-    public Casillero[][] parsear() throws IOException, FormatoJSONInvalido {
+    public Mapa parsear() throws IOException, FormatoJSONInvalido {
         JSONObject jsonObj = null;
         try {
             jsonObj = setJSON();
@@ -45,8 +45,10 @@ public class JsonMapRepository implements MapRepository {
                 mapa[y][x] = asignar((String) line.get(x), x, y);
             }
         }
-        return mapa;
+        Mapa m = new Mapa(mapa);
+        return m;
     }
+
 
     private Casillero asignar(String s, int x, int y) throws FormatoJSONInvalido {
         Casillero c = null;

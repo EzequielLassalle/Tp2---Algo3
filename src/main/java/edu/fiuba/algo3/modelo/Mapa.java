@@ -13,6 +13,10 @@ public class Mapa {
 		generarEnemigos();
 	}
 
+	public Casillero posicion(int x, int y){
+        return mapa[x][y];
+    }
+
 	public Mapa(Casillero[][] unMapa){
 		mapa = unMapa;
 		establecerCamino();
