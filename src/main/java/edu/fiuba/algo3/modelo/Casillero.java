@@ -127,7 +127,7 @@ public class Casillero {
 
 	public void pasarTurno(List<Pasarela> camino){}
 
-		public void pasarTurno(Jugador jugador) {
+	public void pasarTurno(Jugador jugador) {
 		if(!enemigos.isEmpty()){
 			moverEnemigos();
 		}
@@ -150,19 +150,22 @@ public class Casillero {
 
 	private void mover(Enemigo enemigo) {
 
+		Casillero pasarelaDestino = null;
+
 		if(trampaArenosa != null){
 			if(trampaArenosa.operativa()){
-			Casillero pasarelaDestino = enemigo.moverRelantizado(this);
-			pasarelaDestino.establecerEnemigo(enemigo);
+			pasarelaDestino = enemigo.moverRelantizado(this);
 			trampaArenosa.sumarTurno();
 			}
 
 		}else{
 
-			Casillero pasarelaDestino = enemigo.mover(this);
-			pasarelaDestino.establecerEnemigo(enemigo);
+			pasarelaDestino = enemigo.mover(this);
+			
 
 		}
+
+		pasarelaDestino.establecerEnemigo(enemigo);
 
 
 	}

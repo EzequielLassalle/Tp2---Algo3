@@ -6,6 +6,7 @@ public class Rocosa extends Casillero {
 
 		super(nuevaX, nuevaY);
         this.tipo = "Rocosa";
+        this.pasarelaSiguiente = null;
 
     }
 

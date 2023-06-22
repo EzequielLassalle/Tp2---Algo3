@@ -8,6 +8,7 @@ public class Tierra extends Casillero{
 
         super(nuevaX, nuevaY);
         this.tipo = "Tierra";
+        this.pasarelaSiguiente = null;
 
     }
 
