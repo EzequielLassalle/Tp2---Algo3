@@ -122,25 +122,25 @@ public class Mapa {
 
 		double distanciaDiagonalArriba = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - CasilleroDiagonalArriba.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - CasilleroDiagonalArriba.obtenerX(), 2));
 
-		
 
-		if(distanciaAbajo < distanciaArriba && distanciaAbajo < distanciaDerecha && distanciaAbajo < distanciaDiagonal && distanciaAbajo < distanciaDiagonalArriba){
+
+		if(distanciaAbajo <= distanciaArriba && distanciaAbajo <= distanciaDerecha && distanciaAbajo <= distanciaDiagonal && distanciaAbajo <= distanciaDiagonalArriba){
 			
 			seleccionado = casilleroAbajo;
 
-		}else if(distanciaDerecha < distanciaArriba && distanciaDerecha < distanciaAbajo && distanciaDerecha < distanciaDiagonal && distanciaDerecha < distanciaDiagonalArriba){
+		}else if(distanciaDerecha <= distanciaArriba && distanciaDerecha <= distanciaAbajo && distanciaDerecha <= distanciaDiagonal && distanciaDerecha <= distanciaDiagonalArriba){
 			
 			seleccionado = casilleroDerecha;
 
-		}else if(distanciaDiagonalArriba < distanciaArriba && distanciaDiagonalArriba < distanciaAbajo && distanciaDiagonalArriba<distanciaDiagonal && distanciaDiagonalArriba < distanciaDerecha ){
+		}else if(distanciaDiagonalArriba <= distanciaArriba && distanciaDiagonalArriba <= distanciaAbajo && distanciaDiagonalArriba<=distanciaDiagonal && distanciaDiagonalArriba <= distanciaDerecha ){
 		
 			seleccionado = CasilleroDiagonalArriba;
 
-		}else if(distanciaArriba < distanciaDiagonalArriba && distanciaArriba < distanciaAbajo && distanciaArriba< distanciaDerecha && distanciaArriba < distanciaDiagonal ){
+		}else if(distanciaArriba <= distanciaDiagonalArriba && distanciaArriba <= distanciaAbajo && distanciaArriba<= distanciaDerecha && distanciaArriba <= distanciaDiagonal ){
 
 			seleccionado = casilleroArriba;
 
-		}else if(distanciaDiagonal < distanciaDiagonalArriba && distanciaDiagonal < distanciaArriba && distanciaDiagonal< distanciaDerecha && distanciaDiagonal < distanciaAbajo ){
+		}else if(distanciaDiagonal <= distanciaDiagonalArriba && distanciaDiagonal <= distanciaArriba && distanciaDiagonal<= distanciaDerecha && distanciaDiagonal <= distanciaAbajo ){
 
 			seleccionado = casilleroDiagonal;
 
