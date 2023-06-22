@@ -1,0 +1,64 @@
+@startuml
+
+abstract Enemigo {
+    - int vida
+    - int danio
+    - int energia
+    - int velocidad
+    - Credito credito
+
+    + Credito atacado(int unDanio)
+    + {abstract} Casillero mover(Casillero unCasillero)
+    + {abstract} Casillero moverRalentizado(Casillero unCasillero)
+    + Casillero volar(Casillero unCasillero)
+    + Casillero volarRalentizado(Casillero unCasillero)
+}
+
+class Hormiga {
+    - int vida
+    - int danio
+    - int energia
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Arania {
+    - int vida
+    - int danio
+    - int energia
+    - int velocidad
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Topo {
+    - int vida
+    - int danio
+    - int energia
+    - int turno
+    - Credito credito
+
+    + Credito atacado(int unDanio)
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Lechuza {
+    - int vida
+    - int danio
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+Enemigo <|-- Hormiga
+Enemigo <|-- Arania
+Enemigo <|-- Topo
+Enemigo <|-- Lechuza
+
+@enduml
