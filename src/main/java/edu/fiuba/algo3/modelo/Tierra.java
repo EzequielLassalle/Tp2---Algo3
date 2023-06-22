@@ -35,7 +35,14 @@ public class Tierra extends Casillero{
     
     public Credito Atacar(Casillero unaPasarela){
 
-        return defensa.Atacar(unaPasarela);
+            if(defensa != null){
+
+             return defensa.Atacar(unaPasarela);
+           
+            }
+
+            return new Credito(0);
+        
 		
     }
     

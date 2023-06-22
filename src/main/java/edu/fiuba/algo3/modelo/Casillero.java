@@ -201,7 +201,7 @@ public class Casillero {
 
 	public Credito Atacar(Casillero unPasarela){
 
-		return null;
+		return new Credito(0);
 	}
 
 	public void establecerEnemigos(List<Enemigo> unaLista){

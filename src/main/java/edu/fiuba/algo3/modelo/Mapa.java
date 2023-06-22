@@ -16,6 +16,8 @@ public class Mapa {
 	public Mapa(Casillero[][] unMapa){
 		mapa = unMapa;
 		establecerCamino();
+		establecerSiguiente();
+		establecerHipotenusaAPasarela();
 	}
 
 	public void establecerMapa(Casillero[][] unMapa){
@@ -45,6 +47,7 @@ public class Mapa {
 
 		establecerCamino();
 		establecerSiguiente();
+		establecerHipotenusaAPasarela();
 	}
 
 	public void establecerCamino() {
@@ -75,12 +78,12 @@ public class Mapa {
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++){
 
-				if(i < mapa.length){
+				if(i < mapa.length - 1){
 					mapa[i][j].establecerAbajo(mapa[i+1][j]);
 					
 				}
 
-				if(j < mapa[i].length){
+				if(j < mapa[i].length - 1){
 					mapa[i][j].establecerDerecha(mapa[i][j+1]);
 				}
 
@@ -96,16 +99,20 @@ public class Mapa {
 		for(int i = 0; i < mapa.length; i++){
 			for(int j = 0; j< mapa[i].length;j++){
 
-
-				mapa[i][j].establecerHipotenusa(calcularDistanciaAMeta(mapa[i+1][j], mapa[i][j+1], mapa[i+1][j+1]));
-
+				if( i < mapa.length - 1 && j < mapa[i].length -1 && i >0 && j>0){
+				mapa[i][j].establecerHipotenusa(calcularDistanciaAMeta(mapa[i-1][j], mapa[i+1][j], mapa[i][j+1], mapa[i+1][j+1],mapa[i-1][j-1]));
+				}
 			}
+			
+			
+		}	
 
-		}
 	}
-	public Casillero calcularDistanciaAMeta(Casillero casilleroAbajo,Casillero casilleroDerecha,Casillero casilleroDiagonal){
+	public Casillero calcularDistanciaAMeta(Casillero casilleroArriba,Casillero casilleroAbajo,Casillero casilleroDerecha,Casillero casilleroDiagonal,Casillero CasilleroDiagonalArriba){
 
-		Casillero seleccionado = null;
+		Casillero seleccionado = null; 
+
+		double distanciaArriba = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroArriba.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroArriba.obtenerX(), 2));
 
 		double distanciaAbajo = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroAbajo.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroAbajo.obtenerX(), 2));
 
@@ -113,15 +120,30 @@ public class Mapa {
 
 		double distanciaDiagonal = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - casilleroDiagonal.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - casilleroDiagonal.obtenerX(), 2));
 
-		if(distanciaAbajo > distanciaDerecha && distanciaAbajo > distanciaDiagonal){
+		double distanciaDiagonalArriba = Math.sqrt(Math.pow(pasarelaFinal.obtenerY() - CasilleroDiagonalArriba.obtenerY(), 2) + Math.pow(pasarelaFinal.obtenerX() - CasilleroDiagonalArriba.obtenerX(), 2));
+
+		
+
+		if(distanciaAbajo < distanciaArriba && distanciaAbajo < distanciaDerecha && distanciaAbajo < distanciaDiagonal && distanciaAbajo < distanciaDiagonalArriba){
+			
 			seleccionado = casilleroAbajo;
 
-		}else if( distanciaDerecha > distanciaAbajo && distanciaDerecha > distanciaDiagonal){
+		}else if(distanciaDerecha < distanciaArriba && distanciaDerecha < distanciaAbajo && distanciaDerecha < distanciaDiagonal && distanciaDerecha < distanciaDiagonalArriba){
 			
 			seleccionado = casilleroDerecha;
-		}else{
-			
+
+		}else if(distanciaDiagonalArriba < distanciaArriba && distanciaDiagonalArriba < distanciaAbajo && distanciaDiagonalArriba<distanciaDiagonal && distanciaDiagonalArriba < distanciaDerecha ){
+		
+			seleccionado = CasilleroDiagonalArriba;
+
+		}else if(distanciaArriba < distanciaDiagonalArriba && distanciaArriba < distanciaAbajo && distanciaArriba< distanciaDerecha && distanciaArriba < distanciaDiagonal ){
+
+			seleccionado = casilleroArriba;
+
+		}else if(distanciaDiagonal < distanciaDiagonalArriba && distanciaDiagonal < distanciaArriba && distanciaDiagonal< distanciaDerecha && distanciaDiagonal < distanciaAbajo ){
+
 			seleccionado = casilleroDiagonal;
+
 		}
 
 		return seleccionado;
@@ -200,3 +222,36 @@ public class Mapa {
 	}
 
 }
+
+
+
+
+
+
+		
+
+	/*public void javafxCreador(Mapa mapa){
+
+
+		for(int x = 0,x< mapa.length,x++){
+			for(int y = 0; y< mapa.length,y++){
+
+				if(mapa[x][y].equals(PASARELA)){
+					layout.getChildren.add()
+				}if(mapa[x][y].equals(TIERRA)){
+					tierra
+				}
+				torres
+
+				hayEnemigos
+
+
+			}
+		}
+
+		[] [ ] [] [] [] [] []
+		[] [] 
+
+	} */
+
+ 			
