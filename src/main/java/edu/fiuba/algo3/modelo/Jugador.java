@@ -103,11 +103,6 @@ public class Jugador {
 
     public void jugar(Mapa mapa){
 
-        System.out.println("ELEGI LAS SIGUIENTES OPCIONES:");
-        System.out.println("1. Construir");
-        System.out.println("2. Pasar de turno");
-        System.out.println("3. Rendirse");
-
 
         Scanner myObj = new Scanner(System.in);
 
@@ -115,16 +110,10 @@ public class Jugador {
 
         if(eleccion == 1){
 
-            System.out.println("Elegi las coordenadas");
-
                 int y = myObj.nextInt();
 
                 int x = myObj.nextInt();
 
-
-            System.out.println("Elegi que tipo de torre");
-            System.out.println("1. Plateada");
-            System.out.println("2. Blanca");
 
             int Torre =  myObj.nextInt();
 

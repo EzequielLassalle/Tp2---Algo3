@@ -23,11 +23,7 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 
     @Override
     public void handle(ActionEvent actionEvent){
-       /* if(this.u.equals("grupo11")){
-            App.jugar();
-        } else {
-            this.error.setText("Usuario invalido, reintente");
-        }*/
+
         App.jugar();
     }
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3;
  
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.Pasarela;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -43,6 +42,38 @@ public class App extends Application{
     private static Mapa mapa;
  
     public static void jugar() {
+
+
+        /*jugarReal
+         
+        int turno = 1;
+
+        do{
+
+            List<Enemigo> lista = juego.enemyParser.parsear(turno);
+            
+            Juego.mapa.establecerEnemigos(lista);
+
+            Botom handlers Pidiendo a jugador que construya y construyendo()
+
+            Juego.mapa.pasarTurno(this.jugador);
+
+            turno++;
+
+            MostrarMapa
+
+        } while(Juego.gano() || Juego.perdio());
+
+
+
+
+
+         */
+
+
+
+         
+         ////MostrarMapa
 
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
@@ -103,7 +134,7 @@ public class App extends Application{
                                 cell = new Lechuza(x,y imagenLechuza);
                        }
 
-                            */
+                        */
 
                     }
                 }

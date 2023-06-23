@@ -56,6 +56,10 @@ public class Tierra extends Casillero{
         }
 	}
 
+    public Torre defensa(){
+        return this.defensa;
+    }
+
     @Override
     public int obtenerX(){
 
