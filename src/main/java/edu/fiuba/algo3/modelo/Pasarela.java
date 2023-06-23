@@ -86,7 +86,6 @@ public class Pasarela extends Casillero {
 
 
 
-
 	
 
 
@@ -128,13 +127,6 @@ public class Pasarela extends Casillero {
 	}
 
 
-	private Boolean hay_Lechuza(){
-		
-		for(Enemigo enemigo : enemigos){
-			if(enemigo.soyLechuza())
-			return true;
-		}
-		return false;
-	}
+
 
 }

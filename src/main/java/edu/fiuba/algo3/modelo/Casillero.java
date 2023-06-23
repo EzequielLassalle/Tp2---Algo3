@@ -219,6 +219,20 @@ public class Casillero {
 
 	}
 
+	
+	public Enemigo enemigo(){
+		return enemigos.get(0);
+	}
+
+	public Boolean hay_Lechuza(){
+		
+		for(Enemigo enemigo : enemigos){
+			if(enemigo.soyLechuza())
+			return true;
+		}
+		return false;
+	}
+
 
 
 	
