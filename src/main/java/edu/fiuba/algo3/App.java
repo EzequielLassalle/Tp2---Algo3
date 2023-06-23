@@ -22,6 +22,7 @@ import edu.fiuba.algo3.handlers.BotonJugarEventHandler;
  * JavaFX App
  */
 public class App extends Application{
+    
     private static class Casillero extends StackPane{
  
         private Rectangle bg;
@@ -33,6 +34,8 @@ public class App extends Application{
             getChildren().add(bg);
         }
     }
+
+
  
     private static final int CELL_SIZE = 50;
     private static final int GRID_SIZE_IN_CELLS = 15;
@@ -40,6 +43,7 @@ public class App extends Application{
     private static Mapa mapa;
  
     public static void jugar() {
+
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
         var scene = new Scene(layout);
@@ -47,20 +51,39 @@ public class App extends Application{
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                 Casillero cell = new Casillero(x, y, Color.YELLOW);
-                if(mapa.posicion(y, x).equals(new Pasarela(x, y))){
-                    cell = new Casillero(x, y, Color.GREEN);
+                if(mapa.posicion(y, x).equals(new Pasarela(x, y)) ){
+                    if(!mapa.ocupado(y, x)){
+                        cell = new Casillero(x, y, Color.GREEN);
+                    }else{
+
+                        /// cell = new Enemigo(x,y, imagen)
+
+                    }
                 }
-                else if(mapa.posicion(y, x).equals(new Tierra(x, y))){
-                    cell = new Casillero(x, y, Color.BROWN);
+                else if(mapa.posicion(y, x).equals(new Tierra(x, y)) ){
+                    if(!mapa.ocupado(y, x)){
+                        cell = new Casillero(x, y, Color.BROWN);
+                    }else{
+
+                        //// cell = new Torre(x,y,imagen)
+
+                    }
                 }
-                else if(mapa.posicion(y, x).equals(new Rocosa(x, y))){
-                    cell = new Casillero(x, y, Color.GRAY);
+                else if(mapa.posicion(y, x).equals(new Rocosa(x, y)) ){
+                    if(!mapa.ocupado(y, x)){
+                        cell = new Casillero(x, y, Color.GRAY);
+                    }else{
+
+                        ///// cell = new Lechuza(x,y imagen)
+
+                    }
                 }
                 layout.getChildren().add(cell);
             }
         }
         stage.setScene(scene);
         stage.show();
+
     }
  
     @Override

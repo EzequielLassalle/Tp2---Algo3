@@ -14,9 +14,10 @@ public class Main {
                         new JsonMapRepository("src/json/mapa.json"));
         /*PantallaInicial init = new PantallaInicial();
         Handler handler = new Handler(juego, init);*/
-        Mapa map = new JsonMapRepository("src/json/mapa.json").parsear();
+        Mapa map =  new JsonMapRepository("src/json/mapa.json").parsear();
         System.out.println(map);
         App.main(args, map);
     }
+    
 }
  

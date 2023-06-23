@@ -68,5 +68,10 @@ public class Tierra extends Casillero{
         return this.y;
     }
 
+    @Override
+    public Boolean vacio(){
+        return (this.enemigos.isEmpty() && this.defensa == null);
+    }
+
     
 }
