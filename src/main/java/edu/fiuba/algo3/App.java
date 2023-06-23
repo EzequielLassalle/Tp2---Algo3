@@ -70,9 +70,6 @@ public class App extends Application{
 
          */
 
-
-
-         
          ////MostrarMapa
 
         var layout = new Pane();
@@ -87,7 +84,7 @@ public class App extends Application{
                         cell = new Casillero(x, y, Color.GREEN);
                     }else{
 
-                        /* 
+                     /* 
                         if(mapa.posicion(y,x).enemigo().equals(New Hormiga())){
                             cell = new VistaEnemigo(x,y,imagenHormiga);
                         }
@@ -101,7 +98,7 @@ public class App extends Application{
                            cell = new VistaEnemigo(x,y,imagenLechuza); 
                         }
 
-                        */
+                    */
 
                     }
                 }else if(mapa.posicion(y, x).equals(new Tierra(x, y)) ){
@@ -110,7 +107,9 @@ public class App extends Application{
                         cell = new Casillero(x, y, Color.BROWN);
 
                     }else{
+
                        /* 
+
                         if(mapa.ocupado(y, x).enemigo().equals(New Lechuza()){
                             cell = new VistaEnemigo(x,y,imagenLechuza);
 
@@ -120,8 +119,7 @@ public class App extends Application{
                        }else if(mapa.ocupado(y,x).defensa().equals(New TorrePlateada()){
                             cell = new VistaTorre(x,y,imagenTorrePlateada)
                        }
-                        
-                                               
+
                        */
                     }
                 }
@@ -130,7 +128,8 @@ public class App extends Application{
                         cell = new Casillero(x, y, Color.GRAY);
                     }else{
 
-                       /*  if(mapa.ocupado(y,x).enemigo().equals(New Lechuza()){
+                       /* 
+                        if(mapa.ocupado(y,x).enemigo().equals(New Lechuza()){
                                 cell = new Lechuza(x,y imagenLechuza);
                        }
 
@@ -138,11 +137,16 @@ public class App extends Application{
 
                     }
                 }
+
+                
+
+
                 layout.getChildren().add(cell);
             }
         }
-        stage.setScene(scene);
-        stage.show();
+
+            stage.setScene(scene);
+            stage.show();
 
     }
  
