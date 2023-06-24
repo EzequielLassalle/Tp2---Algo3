@@ -1,4 +1,4 @@
 package edu.fiuba.algo3.vistas;
 
-public class Juego {
+public class vistaJuego {
 }

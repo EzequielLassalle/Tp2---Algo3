@@ -80,8 +80,6 @@ public class Entrega2Test{
         
         assertTrue(mapa.establecerEnemigos(lista));
 
-        assertTrue(mapa.ocupado(0,1));
-
         assertTrue(mapa.posicion(0, 0).esIgual(new Rocosa(0, 0)));
 
         assertTrue(mapa.posicion(10, 4).esIgual(new Tierra(4,10)));

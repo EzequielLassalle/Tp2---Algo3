@@ -167,8 +167,8 @@ public class App extends Application{
  
         var jugarButton = new Button();
         jugarButton.setText("JUGAR");
-        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario.getText(), error);
-        jugarButton.setOnAction(botonJugarEventHandler);
+        /// BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario.getText(), error);
+       //// jugarButton.setOnAction(botonJugarEventHandler);
  
         layout.getChildren().add(welcome);
         layout.getChildren().add(usuario);
