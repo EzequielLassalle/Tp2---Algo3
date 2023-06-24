@@ -126,7 +126,7 @@ public class Casillero {
 
 	public void daniarJugador(Jugador jugador){}
 
-	public void pasarTurno(List<Pasarela> camino){}
+	////public void pasarTurno(List<Pasarela> camino){}
 
 	public void pasarTurno(Jugador jugador) {
 		if(!enemigos.isEmpty()){
