@@ -43,10 +43,6 @@ public class VistaMapa extends Pane {
 
     public Pane crearMapa() {
 
-
-
-        ////MostrarMapa
-
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
@@ -76,6 +72,8 @@ public class VistaMapa extends Pane {
 
 
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
+        
+        ///Pedirle a jugador que construya torres y construirlas
         this.juego.jugar();
         this.layoutEnemigosYDefensas = this.update();
 
@@ -89,7 +87,6 @@ public class VistaMapa extends Pane {
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                 if(mapa.posicion(y, x).hayEnemigos()){
-
                     if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
                         VistaHormiga vistaEnemigo = new VistaHormiga();
                         Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
@@ -126,6 +123,7 @@ public class VistaMapa extends Pane {
                         }
 
                 } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
+
                         if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
                             VistaTrampaArenosa vistaTorre = new VistaTrampaArenosa();
                             Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
