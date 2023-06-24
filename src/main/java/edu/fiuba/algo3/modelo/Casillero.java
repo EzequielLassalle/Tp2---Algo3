@@ -219,6 +219,8 @@ public class Casillero {
 
 	public void establecerEnemigos(List<Enemigo> unaLista){
 
+		enemigos = unaLista;
+
 	}
 	public void AtacarTorres(Jugador jugador,List<Casillero> torres){
 
