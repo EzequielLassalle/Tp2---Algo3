@@ -22,6 +22,16 @@ public class Pasarela extends Casillero {
         return true;
     }
 
+	@Override
+    public Boolean hayDefensa(){
+
+       if(trampaArenosa == null){
+		return false;
+	   }
+	   return true;
+
+    }
+
 	/*@Override
 	public void establecerEnemigos( Stack<Enemigo> unaPila){
 		enemigos = unaPila;

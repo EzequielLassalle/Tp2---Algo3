@@ -44,33 +44,6 @@ public class App extends Application{
     public static void jugar() {
 
 
-        /*jugarReal
-         
-        int turno = 1;
-
-        do{
-
-            List<Enemigo> lista = juego.enemyParser.parsear(turno);
-            
-            Juego.mapa.establecerEnemigos(lista);
-
-            Botom handlers Pidiendo a jugador que construya y construyendo()
-
-            Juego.mapa.pasarTurno(this.jugador);
-
-            turno++;
-
-            MostrarMapa
-
-        } while(Juego.gano() || Juego.perdio());
-
-
-
-
-
-         */
-
-         ////MostrarMapa
 
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);

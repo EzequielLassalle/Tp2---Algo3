@@ -126,13 +126,48 @@ public class VistaMapa extends Pane {
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                 if(mapa.posicion(y, x).hayEnemigos()){
-                    VistaEnemigo vistaEnemigo = new VistaEnemigo();
-                    Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                    cell.getChildren().add(vistaEnemigo);
+                    if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
+                        VistaEnemigo vistaEnemigo = new VistaEnemigo();
+                        ////VistaHormiga vistaEnemigo = new VistaHormiga();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaEnemigo);
+
+                    }else if(mapa.posicion(y, x).enemigo().equals(new Arania())){
+                        /* VistaArania vistaEnemigo = new VistaHormiga();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaEnemigo); */
+
+                    }else if(mapa.posicion(y, x).enemigo().equals(new Topo())){
+                        /* VistaTopo vistaEnemigo = new VistaTopo();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaEnemigo); */
+
+                    }else if(mapa.posicion(y, x).enemigo().equals(new Lechuza())){
+                       /*  VistaLechuza vistaEnemigo = new VistaLechuza();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaEnemigo); */
+
+                    }
+                }else if(mapa.posicion(y, x).equals(new Tierra(x,y)) && mapa.posicion(y, x).hayDefensa()){
+
+                        if(mapa.posicion(y,x).defensa().equals(new TorreBlanca(x,y))) {
+                        /*  VistaTorreBlanca vistaTorre = new VistaTorreBlanca();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaTorre); */
+
+                        }else if(mapa.posicion(y,x).defensa().equals(new TorrePlateada(x,y))){
+                        /*  VistaTorrePlateada vistaTorre = new VistaTorrePlateada();
+                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
+                        cell.getChildren().add(vistaTorre); */
+
+                        }
+
+                    }
                 }
             }
+            return layout;
         }
 
-        return layout;
-    }
 }
+    
+ 

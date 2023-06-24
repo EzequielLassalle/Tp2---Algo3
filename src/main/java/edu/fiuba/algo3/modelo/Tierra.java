@@ -56,6 +56,7 @@ public class Tierra extends Casillero{
         }
 	}
 
+    @Override
     public Torre defensa(){
         return this.defensa;
     }
@@ -72,10 +73,24 @@ public class Tierra extends Casillero{
         return this.y;
     }
 
+
+
     @Override
     public Boolean vacio(){
         return (this.enemigos.isEmpty() && this.defensa == null);
     }
+
+    @Override
+    public Boolean hayDefensa(){
+
+        if(this.defensa == null){
+            return false;
+        }
+
+        return true;
+
+    }
+
 
     
 }

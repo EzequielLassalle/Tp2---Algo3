@@ -230,6 +230,10 @@ public class Casillero {
 		return enemigos.get(0);
 	}
 
+	public Torre defensa(){
+		return this.trampaArenosa;
+	}
+
 	public Boolean hay_Lechuza(){
 		
 		for(Enemigo enemigo : enemigos){
@@ -242,6 +246,13 @@ public class Casillero {
 	public Boolean hayEnemigos(){
 		return !enemigos.isEmpty();
 	}
+
+
+    public Boolean hayDefensa(){
+
+        return false;
+
+    }
 
 
 
