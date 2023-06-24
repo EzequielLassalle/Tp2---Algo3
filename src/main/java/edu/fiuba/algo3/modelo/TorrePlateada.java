@@ -28,6 +28,11 @@ public class TorrePlateada extends Torre {
 
     }
 
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
+
 	public static Credito costo() {
 		return costo;
 	}

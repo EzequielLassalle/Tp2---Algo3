@@ -12,6 +12,11 @@ public class Arania extends Enemigo {
 
     }
 
+	@Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
+
 	public Casillero mover(Casillero unaPasarela) {
 		
 		for (int i = 0; i < velocidad; i += 1) {

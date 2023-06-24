@@ -14,6 +14,11 @@ public class TorreBlanca extends Torre {
         this.danio = 1;
 
     } 
+
+	@Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
     
     public TorreBlanca(int unX,int unY){
 

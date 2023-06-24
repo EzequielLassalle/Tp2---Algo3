@@ -12,6 +12,11 @@ public class TrampaArenosa extends Torre {
         this.turno = 0;
 
     }
+
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
     
 
     public Credito Atacar(Casillero unPasarela){

@@ -10,6 +10,11 @@ public class Lechuza extends Enemigo {
 
     }
 
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
+
     
 
 	public Casillero mover(Casillero unaPasarela) {
