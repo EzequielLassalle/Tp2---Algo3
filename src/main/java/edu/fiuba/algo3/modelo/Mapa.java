@@ -196,14 +196,10 @@ public class Mapa {
 		
 		public void AtacarEnemigos(Casillero casillero,Jugador jugador){
 			
-		if(casillero.esTierra()){
-			for (int i = 0; i < mapa.length; i++) {
-				for (int j = 0; j < mapa[i].length; j++) {
-				
-				jugador.cobrarCredito(casillero.Atacar(mapa[i][j]));
-
-
-			
+			if(casillero.esTierra()){
+				for (int i = 0; i < mapa.length; i++) {
+					for (int j = 0; j < mapa[i].length; j++) {
+						jugador.cobrarCredito(casillero.Atacar(mapa[i][j]));
 					}
 				}
 			}

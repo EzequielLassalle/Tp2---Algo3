@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Pasarela extends Casillero {
 	Pasarela pasarelaSiguiente;
@@ -21,10 +22,10 @@ public class Pasarela extends Casillero {
         return true;
     }
 
-	@Override
-	public void establecerEnemigos( List<Enemigo> unaLista){
-		enemigos = unaLista;
-	}
+	/*@Override
+	public void establecerEnemigos( Stack<Enemigo> unaPila){
+		enemigos = unaPila;
+	}*/
 
     @Override
     public void establecerEnemigo(Enemigo unEnemigo){

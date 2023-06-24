@@ -30,21 +30,19 @@ public class Juego {
 
 	public void jugar()throws IOException, FormatoJSONInvalido{
 
+		/* hay que sacar el do while. Se hace el pasar turno con el handler del boton.*/
+
 		this.turno = 1;
 
-        do{
+		List<Enemigo> lista = enemyParser.parsear(this.turno);
 
-            List<Enemigo> lista = enemyParser.parsear(this.turno);
-            
-            this.mapa.establecerEnemigos(lista);
+		this.mapa.establecerEnemigos(lista);
 
-            this.jugador.jugar(this.mapa);
+		//this.jugador.jugar(this.mapa);
 
-            this.mapa.pasarTurno(this.jugador);
+		this.mapa.pasarTurno(this.jugador);
 
-            this.turno++;
-
-        } while(this.gano() || this.perdio());
+		this.turno++;
 
 
 	}
@@ -54,4 +52,7 @@ public class Juego {
 	}
 
 
+	public Mapa mapa() {
+		return this.mapa;
+	}
 }

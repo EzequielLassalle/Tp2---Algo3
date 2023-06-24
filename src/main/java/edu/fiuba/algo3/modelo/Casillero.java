@@ -8,7 +8,7 @@ public class Casillero {
     int y;
 	Casillero casilleroAbajo;
 	Casillero casilleroDerecha;
-	List<Enemigo> enemigos = new ArrayList<Enemigo>();
+	Stack<Enemigo> enemigos = new Stack<Enemigo>();
 	Torre trampaArenosa;
 	Casillero siguienteHipotenusa;
 	Pasarela pasarelaSiguiente;
@@ -57,7 +57,7 @@ public class Casillero {
     }
 
     public Boolean esTierra() {
-		return null;
+		return false;
 	}
 
 	public void establecerAbajo(Casillero unCasillero){
@@ -133,16 +133,14 @@ public class Casillero {
 		}
 	}
 
-	    public void moverEnemigos() {
+	public void moverEnemigos() {
 
-		for (Enemigo enemigo : enemigos) {
+		while (!enemigos.isEmpty()) {
+			Enemigo enemigo = enemigos.pop();
 			this.mover(enemigo);
 			//enemigo = null;
 			//enemigos.remove(enemigo);
 		}
-
-		enemigos.removeAll(enemigos);
-
     }
 
 
@@ -154,20 +152,13 @@ public class Casillero {
 
 		if(trampaArenosa != null){
 			if(trampaArenosa.operativa()){
-			pasarelaDestino = enemigo.moverRelantizado(this);
-			trampaArenosa.sumarTurno();
+				pasarelaDestino = enemigo.moverRelantizado(this);
+				trampaArenosa.sumarTurno();
 			}
-
 		}else{
-
 			pasarelaDestino = enemigo.mover(this);
-			
-
 		}
-
 		pasarelaDestino.establecerEnemigo(enemigo);
-
-
 	}
 
 	public boolean equals(Casillero c){
@@ -231,6 +222,10 @@ public class Casillero {
 			return true;
 		}
 		return false;
+	}
+
+	public Boolean hayEnemigos(){
+		return !enemigos.isEmpty();
 	}
 
 
