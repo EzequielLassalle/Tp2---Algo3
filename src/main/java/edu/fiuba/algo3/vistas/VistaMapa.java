@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.*;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Box;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VistaMapa extends Pane {
 
@@ -20,29 +20,40 @@ public class VistaMapa extends Pane {
 
         private Rectangle bg;
         Casillero(int x, int y, Color c){
+
             setTranslateX(x * CELL_SIZE);
             setTranslateY(y * CELL_SIZE);
             bg = new Rectangle(CELL_SIZE, CELL_SIZE, c);
             bg.setStroke(Color.WHITE);
             getChildren().add(bg);
         }
+
+        public void setImg (VistaUnidad u){
+            ImagePattern img = new ImagePattern(u.image);
+            bg.setFill(img);
+        }
     }
 
     private static final int CELL_SIZE = 50;
     private static final int GRID_SIZE_IN_CELLS = 15;
 
+    private List listaCasilleros;
+
     private final Juego juego;
     private static Mapa mapa;
+
+    private int turno;
 
     private Pane layout;
     private Pane layoutEnemigosYDefensas;
     public VistaMapa(Juego juego){
         this.juego = juego;
         this.mapa = juego.mapa();
+        this.turno = 1;
     }
 
     public Pane crearMapa() {
-
+        listaCasilleros = new ArrayList();
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
@@ -64,6 +75,7 @@ public class VistaMapa extends Pane {
                     }
                 }
                 layout.getChildren().add(cell);
+                listaCasilleros.add(cell);
             }
         }
         this.layout = layout;
@@ -74,13 +86,13 @@ public class VistaMapa extends Pane {
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
         
         ///Pedirle a jugador que construya torres y construirlas
-        this.juego.jugar();
-        this.layoutEnemigosYDefensas = this.update();
+        this.juego.jugar(turno);
+        this.update();
+        this.turno++;
 
     }
 
     public Pane update(){
-
         var layout = new Pane();
         layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
 
@@ -88,46 +100,46 @@ public class VistaMapa extends Pane {
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                 if(mapa.posicion(y, x).hayEnemigos()){
                     if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
-                        VistaHormiga vistaEnemigo = new VistaHormiga();
-                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                        cell.getChildren().add(vistaEnemigo);
+                        VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/hormiga.png");
+                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell.setImg(enemigo);
 
                     }else if(mapa.posicion(y, x).enemigo().equals(new Arania())){
-                        VistaArania vistaEnemigo = new VistaArania();
-                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                        cell.getChildren().add(vistaEnemigo); 
+                        VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/Arania.png");
+                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell.setImg(enemigo);
 
                     }else if(mapa.posicion(y, x).enemigo().equals(new Topo())){
-                        VistaTopo vistaEnemigo = new VistaTopo();
-                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                        cell.getChildren().add(vistaEnemigo); 
+                        VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/topo.png");
+                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell.setImg(enemigo);
 
                     }else if(mapa.posicion(y, x).enemigo().equals(new Lechuza())){
-                       VistaLechuza vistaEnemigo = new VistaLechuza();
-                        Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                        cell.getChildren().add(vistaEnemigo); 
+                        VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/lechuza.png");
+                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell.setImg(enemigo);
 
                     }
                 } else if(mapa.posicion(y, x).equals(new Tierra(x,y)) && mapa.posicion(y, x).hayDefensa()){
 
                         if(mapa.posicion(y,x).defensa().equals(new TorreBlanca(x,y))) {
-                            VistaTorreBlanca vistaTorre = new VistaTorreBlanca();
-                            Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                            cell.getChildren().add(vistaTorre); 
+                            VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorreBlanca.png");
+                            Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                            cell.setImg(torre);
 
                         }else if(mapa.posicion(y,x).defensa().equals(new TorrePlateada(x,y))){
-                            VistaTorrePlateada vistaTorre = new VistaTorrePlateada();
-                            Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                            cell.getChildren().add(vistaTorre);
-
+                            VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorrePlateada.png");
+                            Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                            cell.setImg(torre);
                         }
 
                 } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
-
-                        if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
-                            VistaTrampaArenosa vistaTorre = new VistaTrampaArenosa();
-                            Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
-                            cell.getChildren().add(vistaTorre);            
+                        if(mapa.posicion(y, x).defensa() != null){
+                            if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
+                                VistaUnidad trampa = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TrampaArenosa.png");
+                                Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                                cell.setImg(trampa);
+                            }
                         }
                     }
                 }

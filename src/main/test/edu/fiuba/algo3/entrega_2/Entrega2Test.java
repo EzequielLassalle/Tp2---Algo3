@@ -105,7 +105,7 @@ public class Entrega2Test{
 
         Juego juego = new Juego(parser, mapaParser);
 
-        juego.jugar();
+        juego.jugar(turno);
 
         assertTrue(juego.gano());
 

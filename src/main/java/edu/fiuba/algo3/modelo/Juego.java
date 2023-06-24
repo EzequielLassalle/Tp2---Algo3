@@ -6,7 +6,6 @@ import java.util.List;
 public class Juego {
 	Jugador jugador;
 	Mapa mapa;
-	int turno;
 	private EnemyRepository enemyParser;
 	private MapRepository mapParser;
 
@@ -15,7 +14,6 @@ public class Juego {
 		this.mapParser = mapParser;
 		jugador = new Jugador();
 		mapa = this.mapParser.parsear();
-		turno = 0;
 	}
 
 
@@ -25,25 +23,20 @@ public class Juego {
 
 	public void pasarTurno() {
 		mapa.pasarTurno(jugador);
-		turno++;
 	}
 
-	public void jugar()throws IOException, FormatoJSONInvalido{
+	public void jugar(int turno)throws IOException, FormatoJSONInvalido{
 
 		/* hay que sacar el do while. Se hace el pasar turno con el handler del boton.*/
 
-		this.turno = 1;
 
-		List<Enemigo> lista = enemyParser.parsear(this.turno);
+		List<Enemigo> lista = enemyParser.parsear(turno);
 
 		this.mapa.establecerEnemigos(lista);
 
 		//this.jugador.jugar(this.mapa);
 
 		this.mapa.pasarTurno(this.jugador);
-
-		this.turno++;
-
 
 	}
 

@@ -1,10 +1,8 @@
 package edu.fiuba.algo3;
  
-import edu.fiuba.algo3.vistas.*;
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.Juego;
-import edu.fiuba.algo3.repositories.*;
- 
+import edu.fiuba.algo3.vistas.App;
+
 import java.io.IOException;
  
 public class Main {

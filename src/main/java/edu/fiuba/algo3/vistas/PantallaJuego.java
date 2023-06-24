@@ -47,12 +47,6 @@ public class PantallaJuego extends VBox{
         boxJugador.getChildren().add(infoJugador);
 
 
-
-
-
-
-
-
     }
 
     public void jugar(){
