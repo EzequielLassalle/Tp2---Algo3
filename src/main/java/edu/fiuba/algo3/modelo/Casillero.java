@@ -12,6 +12,7 @@ public class Casillero {
 	Torre trampaArenosa;
 	Casillero siguienteHipotenusa;
 	Pasarela pasarelaSiguiente;
+	List<Enemigo> enemigosNoMovidos = new ArrayList<>();
 
 	public Casillero (int nuevaX, int nuevaY) {
 
@@ -139,7 +140,15 @@ public class Casillero {
 			this.mover(enemigo);
 		}
 
-		enemigos.removeAll(enemigos);
+		
+		enemigos = new ArrayList<Enemigo>();
+
+		for(Enemigo enemigo: enemigosNoMovidos){
+			enemigos.add(enemigo);
+		}
+
+		enemigosNoMovidos = new ArrayList<Enemigo>();
+		
 
     }
 
@@ -159,9 +168,10 @@ public class Casillero {
 			pasarelaDestino = enemigo.mover(this);
 		}
 
-		/*if(pasarelaDestino == this){
+		if(pasarelaDestino == this){
+			enemigosNoMovidos.add(enemigo);
 			return;
-		} */
+		} 
 
 		pasarelaDestino.establecerEnemigo(enemigo);
 	}
