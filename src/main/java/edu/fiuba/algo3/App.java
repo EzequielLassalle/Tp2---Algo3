@@ -22,19 +22,6 @@ import edu.fiuba.algo3.handlers.BotonJugarEventHandler;
  */
 public class App extends Application{
     
-    private static class Casillero extends StackPane{
- 
-        private Rectangle bg;
-        Casillero(int x, int y, Color c){
-            setTranslateX(x * CELL_SIZE);
-            setTranslateY(y * CELL_SIZE);
-            bg = new Rectangle(CELL_SIZE, CELL_SIZE, c);
-            bg.setStroke(Color.WHITE);
-            getChildren().add(bg);
-        }
-    }
-
-
  
     private static final int CELL_SIZE = 50;
     private static final int GRID_SIZE_IN_CELLS = 15;
@@ -43,83 +30,11 @@ public class App extends Application{
  
     public static void jugar() {
 
+        ///aca llamar al mostrar mapa ///
+           //// stage.setScene(scene);
+            ////stage.show();
 
-
-        var layout = new Pane();
-        layout.setPrefSize(CELL_SIZE * GRID_SIZE_IN_CELLS, CELL_SIZE * GRID_SIZE_IN_CELLS);
-        var scene = new Scene(layout);
-        var stage = new Stage();
-        for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
-            for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
-                Casillero cell = new Casillero(x, y, Color.YELLOW);
-                if(mapa.posicion(y, x).equals(new Pasarela(x, y)) ){
-                    if(!mapa.ocupado(y, x)){
-                        cell = new Casillero(x, y, Color.GREEN);
-                    }else{
-
-                     /* 
-                        if(mapa.posicion(y,x).enemigo().equals(New Hormiga())){
-                            cell = new VistaEnemigo(x,y,imagenHormiga);
-                        }
-                        else if(mapa.posicion(y,x).enemigo().equals(New Arania())){
-                            cell = new VistaEnemigo(x,y,imagenArania);
-
-                        }else if(mapa.posicion(y,x).enemigo().equals(New Topo()))
-                            cell = new VistaEnemigo(x,y,imagenArania);
-
-                        else {
-                           cell = new VistaEnemigo(x,y,imagenLechuza); 
-                        }
-
-                    */
-
-                    }
-                }else if(mapa.posicion(y, x).equals(new Tierra(x, y)) ){
-
-                    if(!mapa.ocupado(y, x)){
-                        cell = new Casillero(x, y, Color.BROWN);
-
-                    }else{
-
-                       /* 
-
-                        if(mapa.ocupado(y, x).enemigo().equals(New Lechuza()){
-                            cell = new VistaEnemigo(x,y,imagenLechuza);
-
-                       } else if(mapa.ocupado(y,x).defensa().equals(New TorreBlanca()){
-                            cell = new VistaTorre(x,y,imagenTorreBlanca);
-
-                       }else if(mapa.ocupado(y,x).defensa().equals(New TorrePlateada()){
-                            cell = new VistaTorre(x,y,imagenTorrePlateada)
-                       }
-
-                       */
-                    }
-                }
-                else if(mapa.posicion(y, x).equals(new Rocosa(x, y)) ){
-                    if(!mapa.ocupado(y, x)){
-                        cell = new Casillero(x, y, Color.GRAY);
-                    }else{
-
-                       /* 
-                        if(mapa.ocupado(y,x).enemigo().equals(New Lechuza()){
-                                cell = new Lechuza(x,y imagenLechuza);
-                       }
-
-                        */
-
-                    }
-                }
-
-                
-
-
-                layout.getChildren().add(cell);
-            }
-        }
-
-            stage.setScene(scene);
-            stage.show();
+            
 
     }
  

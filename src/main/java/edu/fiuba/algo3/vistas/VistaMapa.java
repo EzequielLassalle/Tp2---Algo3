@@ -43,6 +43,8 @@ public class VistaMapa extends Pane {
 
     public Pane crearMapa() {
 
+
+
         ////MostrarMapa
 
         var layout = new Pane();
@@ -53,56 +55,16 @@ public class VistaMapa extends Pane {
                 if(mapa.posicion(y, x).equals(new Pasarela(x, y))){
                     if(!mapa.ocupado(y, x)){
                         cell = new Casillero(x, y, Color.GREEN);
-                    }else{
-                     /*
-                        if(mapa.posicion(y,x).enemigo().equals(New Hormiga())){
-                            cell = new VistaEnemigo(x,y,imagenHormiga);
-                        }
-                        else if(mapa.posicion(y,x).enemigo().equals(New Arania())){
-                            cell = new VistaEnemigo(x,y,imagenArania);
-
-                        }else if(mapa.posicion(y,x).enemigo().equals(New Topo()))
-                            cell = new VistaEnemigo(x,y,imagenArania);
-
-                        else {
-                           cell = new VistaEnemigo(x,y,imagenLechuza);
-                        }
-
-                    */
-
                     }
                 }else if(mapa.posicion(y, x).equals(new Tierra(x, y)) ){
-
                     if(!mapa.ocupado(y, x)){
                         cell = new Casillero(x, y, Color.BROWN);
 
-                    }else{
-
-                       /*
-
-                        if(mapa.ocupado(y, x).enemigo().equals(New Lechuza()){
-                            cell = new VistaEnemigo(x,y,imagenLechuza);
-
-                       } else if(mapa.ocupado(y,x).defensa().equals(New TorreBlanca()){
-                            cell = new VistaTorre(x,y,imagenTorreBlanca);
-
-                       }else if(mapa.ocupado(y,x).defensa().equals(New TorrePlateada()){
-                            cell = new VistaTorre(x,y,imagenTorrePlateada)
-                       }
-
-                       */
                     }
                 }
                 else if(mapa.posicion(y, x).equals(new Rocosa(x, y)) ){
                     if(!mapa.ocupado(y, x)){
                         cell = new Casillero(x, y, Color.GRAY);
-                    }else{
-
-                       /*
-                        if(mapa.ocupado(y,x).enemigo().equals(New Lechuza()){
-                                cell = new Lechuza(x,y imagenLechuza);
-                       }
-                        */
                     }
                 }
                 layout.getChildren().add(cell);
@@ -127,8 +89,7 @@ public class VistaMapa extends Pane {
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                 if(mapa.posicion(y, x).hayEnemigos()){
                     if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
-                        VistaEnemigo vistaEnemigo = new VistaEnemigo();
-                        ////VistaHormiga vistaEnemigo = new VistaHormiga();
+                        VistaHormiga vistaEnemigo = new VistaHormiga();
                         Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
                         cell.getChildren().add(vistaEnemigo);
 
@@ -162,7 +123,7 @@ public class VistaMapa extends Pane {
 
                         }
 
-                    } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
+                }else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
                         if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
                             /*  VistaTrampaArenosa vistaTorre = new VistaTrampaArenosa();
                             Casillero cell = (Casillero)this.layout.getChildren().get(y*GRID_SIZE_IN_CELLS+x);
