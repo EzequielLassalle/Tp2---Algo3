@@ -178,14 +178,19 @@ public class Mapa {
 	}
 
 	public void pasarTurno(Jugador jugador) {
+
 		for (int i = 0; i < mapa.length; i++) {
 			for (int j = 0; j < mapa[i].length; j++) {
 
 				this.AtacarEnemigos(mapa[i][j],jugador);
 
-				this.moverEnemigos(mapa[i][j], jugador);
+			}
+		}
 
-			
+		for(int i = mapa.length-1; i > -1 ; i--){
+			for(int j = mapa[i].length-1; j>-1 ; j-- ){
+
+				this.moverEnemigos(mapa[i][j], jugador);
 			}
 		}
 
