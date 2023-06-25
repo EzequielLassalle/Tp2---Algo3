@@ -109,12 +109,12 @@ public class VistaMapa extends Pane {
                         Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);
 
-                    }else if(mapa.posicion(y, x).enemigo().equals(new Topo())){
+                    }/*else if(mapa.posicion(y, x).enemigo().equals(new Topo())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/topo.png");
                         Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);
 
-                    }else if(mapa.posicion(y, x).enemigo().equals(new Lechuza())){
+                    }*/else if(mapa.posicion(y, x).enemigo().equals(new Lechuza())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/lechuza.png");
                         Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);

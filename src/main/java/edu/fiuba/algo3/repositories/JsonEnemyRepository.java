@@ -59,6 +59,18 @@ public class JsonEnemyRepository implements EnemyRepository {
             enemigos.add(asignar("arana"));
 
         }
+        Object topo = e.get("topo");
+        for(int i = 0; i < (Long) topo; i++){
+
+            enemigos.add(asignar("topo"));
+
+        }
+        Object lechuza = e.get("lechuza");
+        for(int i = 0; i < (Long) lechuza; i++){
+
+            enemigos.add(asignar("lechuza"));
+
+        }                
         return enemigos;
     }
 
@@ -70,6 +82,12 @@ public class JsonEnemyRepository implements EnemyRepository {
                 break;
             case "hormiga":
                 e = new Hormiga();
+                break;
+            case "topo":
+                e = new Topo();
+                break;
+            case "lechuza":
+                e = new Lechuza();
                 break;
         }
         return e;
@@ -86,6 +104,8 @@ public class JsonEnemyRepository implements EnemyRepository {
                 JSONObject enemigos = (JSONObject) turnoData.get("enemigos");
                 Object hormiga = enemigos.get("hormiga");
                 Object arana = enemigos.get("arana");
+                Object topo = enemigos.get("topo");
+                Object lechuza = enemigos.get("lechuza");
             } catch (Exception e){
                 throw new FormatoJSONInvalido();
             }

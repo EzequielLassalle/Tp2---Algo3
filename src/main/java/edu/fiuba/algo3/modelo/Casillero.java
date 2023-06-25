@@ -145,7 +145,9 @@ public class Casillero {
 		}
 
 		
-		enemigos = new ArrayList<Enemigo>();
+		for(int i = 0;i<enemigos.size();i++){
+			enemigos.remove(0);
+		}
 
 		 for(Enemigo enemigo: enemigosNoMovidos){
 			enemigos.add(enemigo);
