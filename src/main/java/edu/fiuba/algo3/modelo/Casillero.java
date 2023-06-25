@@ -178,14 +178,17 @@ public class Casillero {
 		if(pasarelaDestino == this){
 			enemigosNoMovidos.add(enemigo);
 			return;
-		} 
+		}else{
 
 		pasarelaDestino.establecerEnemigo(enemigo);
+		}
 	}
 
-	public boolean equals(Casillero c){
-        return this.getClass() == c.getClass();
+    @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
     }
+
 
 
 	public Credito Atacado(int danio){
