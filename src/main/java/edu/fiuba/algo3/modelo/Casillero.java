@@ -11,7 +11,7 @@ public class Casillero {
 	List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Torre trampaArenosa;
 	Casillero siguienteHipotenusa;
-	Pasarela pasarelaSiguiente;
+	Casillero pasarelaSiguiente;
 	List<Enemigo> enemigosNoMovidos = new ArrayList<>();
 
 	public Casillero (int nuevaX, int nuevaY) {
@@ -112,7 +112,11 @@ public class Casillero {
     public void establecerDefensa(Torre unaTorre){}
 
 	
-	public void establecerSiguiente(Casillero unaPasarela) {}
+	public void establecerSiguiente(Casillero unaPasarela) {
+
+		pasarelaSiguiente = unaPasarela;
+
+	}
 
 	public Boolean vacio() {
 
@@ -143,9 +147,10 @@ public class Casillero {
 		
 		enemigos = new ArrayList<Enemigo>();
 
-		for(Enemigo enemigo: enemigosNoMovidos){
+		 for(Enemigo enemigo: enemigosNoMovidos){
 			enemigos.add(enemigo);
-		}
+		} 
+		
 
 		enemigosNoMovidos = new ArrayList<Enemigo>();
 		
