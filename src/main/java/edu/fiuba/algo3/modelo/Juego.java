@@ -54,4 +54,9 @@ public class Juego {
 	public Mapa mapa() {
 		return this.mapa;
 	}
+
+	@Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
 }
