@@ -40,7 +40,7 @@ public class AraniaTest {
 
     @Test
     
-    public void test02AraniaRelantizadaSeMueveBien(){
+    public void test03AraniaRelantizadaSeMueveBien(){
 
         Arania arania = new Arania();
 

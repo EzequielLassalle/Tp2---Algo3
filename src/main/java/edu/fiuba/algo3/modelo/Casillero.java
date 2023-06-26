@@ -109,7 +109,7 @@ public class Casillero {
 		return this;
 	}
 	
-    public void establecerDefensa(Torre unaTorre){}
+    public void establecerDefensa(Torre unaTorre){} 
 
 	
 	public void establecerSiguiente(Casillero unaPasarela) {
@@ -126,7 +126,7 @@ public class Casillero {
 
 	public void eliminarDefensa(){
 
-	}
+	} 
 
 	public void daniarJugador(Jugador jugador){}
 
@@ -137,6 +137,11 @@ public class Casillero {
 			moverEnemigos();
 		}
 	}
+
+	@Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
 
 	public void moverEnemigos() {
 
