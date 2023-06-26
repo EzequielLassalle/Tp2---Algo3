@@ -25,7 +25,7 @@ public class TrampaArenosaTest {
 
     }
 
-        @Test
+    @Test
     public void TrampaArenosaNoAtaca02() {
 
     TrampaArenosa arenosa = new TrampaArenosa();
