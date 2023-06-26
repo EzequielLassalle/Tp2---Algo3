@@ -9,7 +9,7 @@ public class TrampaArenosa extends Torre {
 
         this.operativa = true;
         this.enConstruccion = false;
-        this.turno = 0;
+        this.turno = 1;
 
     }
 

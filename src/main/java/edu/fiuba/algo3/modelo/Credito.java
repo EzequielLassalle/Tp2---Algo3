@@ -15,6 +15,11 @@ public class Credito {
         this.credito += unCredito.obtenerCreditoTotal();
     }
 
+        @Override
+    public boolean equals(Object o){
+        return o.getClass().equals(this.getClass());
+    }
+
     public Boolean igual(Credito unCredito){
 
         return(this.credito == unCredito.obtenerCreditoTotal());

@@ -170,9 +170,11 @@ public class Casillero {
 		Casillero pasarelaDestino = null;
 
 		if(trampaArenosa != null){
-			if(trampaArenosa.operativa()){
+			if(trampaArenosa.operativa() == true){
 				pasarelaDestino = enemigo.moverRelantizado(this);
 				trampaArenosa.sumarTurno();
+			}else{
+				trampaArenosa = null;
 			}
 		}else{
 			pasarelaDestino = enemigo.mover(this);
