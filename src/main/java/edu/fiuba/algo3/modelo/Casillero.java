@@ -241,7 +241,12 @@ public class Casillero {
 
 	
 	public Enemigo enemigo(){
-		return enemigos.get(0);
+		
+		if(!enemigos.isEmpty()){
+			return enemigos.get(0);
+		}
+
+		return null;
 	}
 
 	public Torre defensa(){
