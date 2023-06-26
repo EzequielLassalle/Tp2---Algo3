@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public class Lechuza extends Enemigo {
+    int turno;
+
     
 
     public Lechuza(){
         this.credito = new Credito(5);
         this.vida = 5;
 		this.danio = 0;
+        this.turno = 1;
 
     }
 
@@ -21,9 +24,19 @@ public class Lechuza extends Enemigo {
 		
 
         if(vida > 3){
+           if(turno == 4){
 
+               unaPasarela =unaPasarela.obtenerAbajo().obtenerDerecha().obtenerDerecha().obtenerDerecha().obtenerDerecha();
+           
+            }else if(turno >4){
+                unaPasarela = unaPasarela.obtenerDerecha().obtenerDerecha().obtenerDerecha().obtenerDerecha().obtenerDerecha();
+            
+            }else{
             unaPasarela = unaPasarela.obtenerAbajo().obtenerAbajo().obtenerAbajo().obtenerDerecha().obtenerDerecha();
-       
+           
+        }
+           
+
         }else{
 
 
@@ -31,7 +44,7 @@ public class Lechuza extends Enemigo {
 
         }
         
-
+        this.turno = this.turno +1;
         return unaPasarela;
 
     }

@@ -129,9 +129,11 @@ public class Pasarela extends Casillero {
 		Casillero unaTorre;
 
 		if(hay_Lechuza()){
-			unaTorre = torres.get(0);
-			unaTorre.eliminarDefensa();
-			torres.remove(0);
+			if(!torres.isEmpty()){
+				unaTorre = torres.get(0);
+				unaTorre.eliminarDefensa();
+				torres.remove(0);
+			}
 
 		}
 

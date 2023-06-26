@@ -27,20 +27,22 @@ public class Juego {
 		mapa.pasarTurno(jugador);
 	}
 
-	public void jugar()throws IOException, FormatoJSONInvalido{
-
-		/* hay que sacar el do while. Se hace el pasar turno con el handler del boton.*/
-
-
+	public void establecerEnemigos()throws IOException, FormatoJSONInvalido{
 		List<Enemigo> lista = enemyParser.parsear(this.turno);
 
 		this.mapa.establecerEnemigos(lista);
+		this.turno++;
+
+	}
+
+	public void jugar()throws IOException, FormatoJSONInvalido{
+
+		/* hay que sacar el do while. Se hace el pasar turno con el handler del boton.*/
 
 		//this.jugador.jugar(this.mapa);
 
 		this.mapa.pasarTurno(this.jugador);
 
-		this.turno++;
 
 	}
 
