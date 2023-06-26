@@ -32,6 +32,10 @@ public class VistaMapa extends Pane {
             ImagePattern img = new ImagePattern(u.image);
             bg.setFill(img);
         }
+
+        public void setNull(){
+            bg.setFill(null);
+        }
     }
 
     private static final int CELL_SIZE = 50;
@@ -98,15 +102,17 @@ public class VistaMapa extends Pane {
 
         for(int x = 0; x < GRID_SIZE_IN_CELLS; x++){
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
+                    Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                    cell.setNull();
                 if(mapa.posicion(y, x).hayEnemigos()){
                     if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/hormiga.png");
-                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);
 
                     }else if(mapa.posicion(y, x).enemigo().equals(new Arania())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/Arania.png");
-                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);
 
                     }/*else if(mapa.posicion(y, x).enemigo().equals(new Topo())){
@@ -116,7 +122,7 @@ public class VistaMapa extends Pane {
 
                     }*/else if(mapa.posicion(y, x).enemigo().equals(new Lechuza())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/lechuza.png");
-                        Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                        cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                         cell.setImg(enemigo);
 
                     }
@@ -124,12 +130,12 @@ public class VistaMapa extends Pane {
 
                         if(mapa.posicion(y,x).defensa().equals(new TorreBlanca(x,y))) {
                             VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorreBlanca.png");
-                            Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                            cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                             cell.setImg(torre);
 
                         }else if(mapa.posicion(y,x).defensa().equals(new TorrePlateada(x,y))){
                             VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorrePlateada.png");
-                            Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                           cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                             cell.setImg(torre);
                         }
 
@@ -137,7 +143,7 @@ public class VistaMapa extends Pane {
                         if(mapa.posicion(y, x).defensa() != null){
                             if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
                                 VistaUnidad trampa = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TrampaArenosa.png");
-                                Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
+                                cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                                 cell.setImg(trampa);
                             }
                         }
