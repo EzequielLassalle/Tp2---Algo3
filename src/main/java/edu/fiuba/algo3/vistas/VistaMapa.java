@@ -104,6 +104,17 @@ public class VistaMapa extends Pane {
             for(int y = 0; y < GRID_SIZE_IN_CELLS; y++){
                     Casillero cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                     cell.setNull();
+
+                if(mapa.posicion(y, x).equals(new Pasarela(x, y))){
+                        cell.bg.setFill(Color.GREEN);
+                }else if(mapa.posicion(y, x).equals(new Tierra(x, y)) ){
+                        cell.bg.setFill(Color.BROWN);
+                }
+                else if(mapa.posicion(y, x).equals(new Rocosa(x, y)) ){
+                        cell.bg.setFill(Color.GRAY);
+                }                   
+                    
+
                 if(mapa.posicion(y, x).hayEnemigos()){
                     if(mapa.posicion(y, x).enemigo().equals(new Hormiga())){
                         VistaUnidad enemigo = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/hormiga.png");
