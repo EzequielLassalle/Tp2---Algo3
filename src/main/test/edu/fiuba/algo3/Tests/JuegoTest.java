@@ -59,8 +59,42 @@ public class JuegoTest {
 
         Juego juego = new Juego(parser, mapaParser);
 
-
+        
         assertTrue(juego.equals(new Juego(parser,mapaParser)));
+
+    }
+
+    @Test
+    public void JuegoGanoNoFuncionaCuandoNoDebe() throws IOException, FormatoJSONInvalido {
+
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
+
+        Juego juego = new Juego(parser, mapaParser);
+
+        juego.establecerEnemigos();
+
+        juego.pasarTurno();
+
+
+
+        assertFalse(juego.gano());
+
+    }
+
+    @Test
+    public void JuegoPerdioNoFuncionaCuandoNoDebe() throws IOException, FormatoJSONInvalido {
+
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
+
+        Juego juego = new Juego(parser, mapaParser);
+
+        juego.establecerEnemigos();
+
+        juego.pasarTurno();
+
+        assertFalse(juego.perdio());
 
     }
 }
