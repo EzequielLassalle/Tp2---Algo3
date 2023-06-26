@@ -135,6 +135,66 @@ public class LechuzaTest {
 
 
     }
+
+    @Test
+    public void Test04LechuzaAtacadaRelantizadaSeMueveBien() {
+
+    Lechuza lechuza = new Lechuza();
+
+    lechuza.Atacado(2);
+
+    Casillero casillero1 = new Casillero(1,1);
+    Casillero casillero2 = new Casillero(1,1);
+    Casillero casillero3 = new Casillero(1,1);
+    Casillero casillero4 = new Casillero(1,1);
+    Casillero casillero5= new Casillero(1,1);
+    Casillero casillero6 = new Casillero(1,1);
+
+    casillero1.establecerHipotenusa(casillero2);
+    casillero2.establecerHipotenusa(casillero3);
+    casillero3.establecerHipotenusa(casillero4);
+    casillero4.establecerHipotenusa(casillero5);
+    casillero5.establecerHipotenusa(casillero6);
+
+    assertTrue(lechuza.moverRelantizado(casillero1) == casillero6);
+
+
+    }
+
+    @Test
+    public void Test05LechuzaRelantizadaSeMueveBien() {
+
+    Lechuza lechuza = new Lechuza();
+
+    Casillero casillero1 = new Casillero(1,1);
+    Casillero casillero2 = new Casillero(1,1);
+    Casillero casillero3 = new Casillero(1,1);
+    Casillero casillero4 = new Casillero(1,1);
+    Casillero casillero5= new Casillero(1,1);
+    Casillero casillero6 = new Casillero(1,1);
+
+    casillero1.establecerAbajo(casillero2);
+    casillero2.establecerAbajo(casillero3);
+    casillero3.establecerAbajo(casillero4);
+    casillero4.establecerDerecha(casillero5);
+    casillero5.establecerDerecha(casillero6);
+
+    assertTrue(lechuza.moverRelantizado(casillero1) == casillero6);
+
+    }
+
+    
+    @Test
+    public void Test06LechuzaEsLechuza() {
+
+    Lechuza lechuza = new Lechuza();
+
+    assertTrue(lechuza.soyLechuza());
+
+
+    } 
+
+
     
     
 
