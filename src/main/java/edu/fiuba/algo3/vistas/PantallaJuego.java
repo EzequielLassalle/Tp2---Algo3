@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 public class PantallaJuego extends VBox{
 
-    private final double INFO_HEIGHT = 200;
+    private final double INFO_HEIGHT = 130;
 
     public PantallaJuego(Stage stage, VistaMapa mapa){
 
