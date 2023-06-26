@@ -8,12 +8,14 @@ public class Juego {
 	Mapa mapa;
 	private EnemyRepository enemyParser;
 	private MapRepository mapParser;
+	int turno;
 
 	public Juego(EnemyRepository enemyParser, MapRepository mapParser) throws IOException, FormatoJSONInvalido {
 		this.enemyParser = enemyParser;
 		this.mapParser = mapParser;
 		jugador = new Jugador();
 		mapa = this.mapParser.parsear();
+		turno = 1;
 	}
 
 
@@ -25,18 +27,20 @@ public class Juego {
 		mapa.pasarTurno(jugador);
 	}
 
-	public void jugar(int turno)throws IOException, FormatoJSONInvalido{
+	public void jugar()throws IOException, FormatoJSONInvalido{
 
 		/* hay que sacar el do while. Se hace el pasar turno con el handler del boton.*/
 
 
-		List<Enemigo> lista = enemyParser.parsear(turno);
+		List<Enemigo> lista = enemyParser.parsear(this.turno);
 
 		this.mapa.establecerEnemigos(lista);
 
 		//this.jugador.jugar(this.mapa);
 
 		this.mapa.pasarTurno(this.jugador);
+
+		this.turno++;
 
 	}
 

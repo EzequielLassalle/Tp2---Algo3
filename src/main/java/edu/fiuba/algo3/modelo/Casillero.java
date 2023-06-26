@@ -145,9 +145,7 @@ public class Casillero {
 		}
 
 		
-		for(int i = 0;i<enemigos.size();i++){
-			enemigos.remove(0);
-		}
+		enemigos = new ArrayList<Enemigo>();
 
 		 for(Enemigo enemigo: enemigosNoMovidos){
 			enemigos.add(enemigo);
@@ -178,17 +176,14 @@ public class Casillero {
 		if(pasarelaDestino == this){
 			enemigosNoMovidos.add(enemigo);
 			return;
-		}else{
+		} 
 
 		pasarelaDestino.establecerEnemigo(enemigo);
-		}
 	}
 
-    @Override
-    public boolean equals(Object o){
-        return o.getClass().equals(this.getClass());
+	public boolean equals(Casillero c){
+        return this.getClass() == c.getClass();
     }
-
 
 
 	public Credito Atacado(int danio){

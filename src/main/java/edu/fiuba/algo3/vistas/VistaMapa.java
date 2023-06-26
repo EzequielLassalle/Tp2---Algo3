@@ -53,7 +53,6 @@ public class VistaMapa extends Pane {
     public VistaMapa(Juego juego){
         this.juego = juego;
         this.mapa = juego.mapa();
-        this.turno = 1;
     }
 
     public Pane crearMapa() {
@@ -90,9 +89,9 @@ public class VistaMapa extends Pane {
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
         
         ///Pedirle a jugador que construya torres y construirlas
-        this.juego.jugar(turno);
         this.update();
-        this.turno++;
+        this.juego.jugar();
+        
 
     }
 
