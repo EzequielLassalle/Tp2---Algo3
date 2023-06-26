@@ -14,6 +14,18 @@ public class Topo extends Enemigo {
 
     }
 
+    public Casillero moverConTurnoSeteado(int Unturno,Casillero unaPasarela){
+        this.turno = Unturno;
+        return this.mover(unaPasarela);
+
+    }
+    public Casillero moverRelantizadoConTurnoSeteado(int Unturno,Casillero unaPasarela){
+        this.turno = Unturno;
+        return this.moverRelantizado(unaPasarela);
+
+    }
+
+
 	public Casillero mover(Casillero unaPasarela) {
 		
         this.turno = this.turno + 1;
