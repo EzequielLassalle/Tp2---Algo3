@@ -29,7 +29,9 @@ public class JuegoTest {
 
         juego.establecerEnemigos();
 
-        assertTrue(juego.mapa().posicion(0, 1).enemigo().equals(new Hormiga()));
+        Mapa mapa = juego.mapa();
+
+        assertTrue(mapa.posicion(0, 1).enemigo().equals(new Hormiga()));
 
     }
 
@@ -46,6 +48,19 @@ public class JuegoTest {
         juego.pasarTurno();
 
         assertTrue(juego.mapa().posicion(1, 1).enemigo().equals(new Hormiga()));
+
+    }
+
+    @Test
+    public void JuegoSeCreaBien() throws IOException, FormatoJSONInvalido {
+
+        JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
+        JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
+
+        Juego juego = new Juego(parser, mapaParser);
+
+
+        assertTrue(juego.equals(new Juego(parser,mapaParser)));
 
     }
 }
