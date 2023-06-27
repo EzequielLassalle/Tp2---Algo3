@@ -76,7 +76,7 @@ public class TorrePlateada extends Torre {
 
             credito = unaPasarela.Atacado(this.danio);
 
-            System.out.println("Torre Plateada ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
+            ///System.out.println("Torre Plateada ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
 
         } else if(operativa() == false){
 

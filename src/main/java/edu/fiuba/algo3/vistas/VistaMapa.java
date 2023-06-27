@@ -156,7 +156,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorrePlateada(int x, int y){
 
         mapa.construir(x, y, new TorrePlateada());
-        this.update();
+        ////this.update();
 
 
     }
@@ -165,7 +165,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorreBlanca(int x, int y){
 
         mapa.construir(x, y, new TorreBlanca());
-        this.update();
+        ///this.update();
 
 
     }
@@ -173,7 +173,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTrampaArenosa(int x, int y){
 
         mapa.construir(x, y, new TorreBlanca());
-        this.update();
+        ////this.update();
 
 
     }
@@ -239,12 +239,12 @@ public class VistaMapa extends Pane {
                 } else if(mapa.posicion(y, x).equals(new Tierra(x,y)) && mapa.posicion(y, x).hayDefensa()){
 
                         if(mapa.posicion(y,x).defensa().equals(new TorreBlanca(x,y))) {
-                            VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorreBlanca.png");
+                            VistaUnidad torre = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/torreblanca.png");
                             cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                             cell.setImg(torre);
 
                         }else if(mapa.posicion(y,x).defensa().equals(new TorrePlateada(x,y))){
-                            VistaUnidad torre = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TorrePlateada.png");
+                            VistaUnidad torre = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/TorrePlateada.png");
                            cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                             cell.setImg(torre);
                         }
@@ -252,7 +252,7 @@ public class VistaMapa extends Pane {
                 } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
                         if(mapa.posicion(y, x).defensa() != null){
                             if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
-                                VistaUnidad trampa = new VistaUnidad("src/main/java/edu/fiuba/algo3/vistas/images/TrampaArenosa.png");
+                                VistaUnidad trampa = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/TrampaArenosa.png");
                                 cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                                 cell.setImg(trampa);
                             }
