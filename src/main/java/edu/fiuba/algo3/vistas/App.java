@@ -38,7 +38,7 @@ public class App extends Application{
 
         VistaMapa vistaMapa = new VistaMapa(juego);
 
-        PantallaJuego pantallaJuego = new PantallaJuego(stage, vistaMapa);
+        PantallaJuego pantallaJuego = new PantallaJuego(stage, vistaMapa,juego);
 
         Scene escenaJuego = new Scene(pantallaJuego, 750, 1000);
  

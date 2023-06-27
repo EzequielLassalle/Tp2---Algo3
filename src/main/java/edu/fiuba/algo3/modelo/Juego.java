@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Juego {
-	Jugador jugador;
+	public Jugador jugador;
 	Mapa mapa;
 	private EnemyRepository enemyParser;
 	private MapRepository mapParser;
