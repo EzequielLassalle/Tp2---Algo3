@@ -155,7 +155,7 @@ public class VistaMapa extends Pane {
 
     public void ConstruirTorrePlateada(int x, int y){
 
-        mapa.construir(x, y, new TorrePlateada());
+        mapa.construir(y, x, new TorrePlateada());
         ////this.update();
 
 
@@ -244,7 +244,7 @@ public class VistaMapa extends Pane {
                             cell.setImg(torre);
 
                         }else if(mapa.posicion(y,x).defensa().equals(new TorrePlateada(x,y))){
-                            VistaUnidad torre = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/TorrePlateada.png");
+                            VistaUnidad torre = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/torreplateada.jpg");
                            cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                             cell.setImg(torre);
                         }
