@@ -9,8 +9,7 @@ public class Mapa {
 	List<Casillero> torres = new ArrayList<Casillero>();
 
 	public Mapa() {
-		generarTerreno();
-		generarEnemigos();
+		
 	}
 
 	public Casillero posicion(int x, int y){
@@ -37,21 +36,6 @@ public class Mapa {
 	public Boolean ocupado(int y,int x){
 
 		return !mapa[y][x].vacio();
-	}
-
-	public void generarTerreno() {
-		//mapa = Parser.generarTerreno();
-		mapa = new Casillero[2][3];
-		mapa[0][0] = new Pasarela(0,0);
-		mapa[0][1] = new Pasarela(0,1);
-		mapa[0][2] = new Tierra(0,2);
-		mapa[1][0] = new Rocosa(1,0);
-		mapa[1][1] = new Pasarela(1,1);
-		mapa[1][2] = new Pasarela(1,2);
-
-		establecerCamino();
-		establecerSiguiente();
-		establecerHipotenusaAPasarela();
 	}
 
 	public void establecerCamino() {
@@ -155,10 +139,6 @@ public class Mapa {
 
 	}
 
-	public void generarEnemigos() {
-		pasarelaInicial.establecerEnemigo(new Hormiga());
-		pasarelaInicial.establecerEnemigo(new Arania());
-	}
 
 	public Boolean hayEnemigos() {
 		Casillero pasarela = pasarelaInicial;
