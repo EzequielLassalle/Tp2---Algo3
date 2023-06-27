@@ -53,7 +53,7 @@ public class VistaMapa extends Pane {
 }
     }
 
-    private static final int CELL_SIZE = 50;
+    private static final int CELL_SIZE = 40;
     private static final int GRID_SIZE_IN_CELLS = 15;
 
     private List listaCasilleros;

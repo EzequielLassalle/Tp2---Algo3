@@ -40,7 +40,7 @@ public class App extends Application{
 
         PantallaJuego pantallaJuego = new PantallaJuego(stage, vistaMapa,juego);
 
-        Scene escenaJuego = new Scene(pantallaJuego, 750, 1000);
+        Scene escenaJuego = new Scene(pantallaJuego, 600, 730);
  
         var layout = new VBox();
         layout.setAlignment(Pos.CENTER);
@@ -53,6 +53,7 @@ public class App extends Application{
         var usuario = new TextField();
         usuario.setPromptText("Usuario");
         usuario.setMaxWidth(200);
+
  
         var jugarButton = new Button();
         jugarButton.setText("JUGAR");

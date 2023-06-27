@@ -14,8 +14,8 @@ public class VidaYCreditosHandler {
     }
 
     public void handle(int vida, int creditos){
-        vidaLabel.setText("Vida: " + vida);
-        creditosLabel.setText("Creditos: " + creditos);
+        vidaLabel.setText(": " + vida);
+        creditosLabel.setText(": " + creditos);
     }
 
 }
