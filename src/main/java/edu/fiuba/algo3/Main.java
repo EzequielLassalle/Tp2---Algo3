@@ -10,7 +10,7 @@ public class Main {
 
         /*PantallaInicial init = new PantallaInicial();
         Handler handler = new Handler(juego, init);*/
-      App.main(args);
+        App.main(args);
     }
     
 }

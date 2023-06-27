@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -11,6 +14,7 @@ import javafx.scene.shape.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class VistaMapa extends Pane {
 
@@ -19,7 +23,10 @@ public class VistaMapa extends Pane {
     private static class Casillero extends StackPane {
 
         private Rectangle bg;
+        private Integer[] coordinates;
         Casillero(int x, int y, Color c){
+
+            coordinates = new Integer[] { x, y };
 
             setTranslateX(x * CELL_SIZE);
             setTranslateY(y * CELL_SIZE);
@@ -36,6 +43,14 @@ public class VistaMapa extends Pane {
         public void setNull(){
             bg.setFill(null);
         }
+
+        public Rectangle bg(){
+            return bg;
+        }
+
+        public void setUserData() {
+            setUserData(coordinates);
+}
     }
 
     private static final int CELL_SIZE = 50;
@@ -77,6 +92,33 @@ public class VistaMapa extends Pane {
                         cell = new Casillero(x, y, Color.GRAY);
                     }
                 }
+
+                final int currentRow = x;
+                final int currentCol = y;
+
+                Integer[] coordinates = { x, y };
+                cell.setUserData(coordinates);
+
+
+                final Casillero finalCasillero = cell;
+
+            finalCasillero.setOnMouseClicked(event -> {
+                if (finalCasillero.getUserData() != null) {
+                Integer[] clickedCoordinates = (Integer[]) finalCasillero.getUserData();
+                int clickedRow = clickedCoordinates[0];
+                int clickedCol = clickedCoordinates[1];
+                System.out.println("Clicked on rectangle: [" + clickedRow + ", " + clickedCol + "]");
+
+        // Ask the user for their choice of method
+                showMethodSelectionDialog(clickedRow, clickedCol);
+            }
+        });
+
+        
+ 
+
+
+
                 layout.getChildren().add(cell);
                 listaCasilleros.add(cell);
             }
@@ -84,6 +126,63 @@ public class VistaMapa extends Pane {
         this.layout = layout;
         return layout;
     }
+
+        private void showMethodSelectionDialog(int x, int y) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Construir torre");
+        alert.setContentText("Elegir Torre:");
+
+        ButtonType buttonTypeA = new ButtonType("Plateada");
+        ButtonType buttonTypeB = new ButtonType("Blanca");
+        ButtonType buttonTypeC = new ButtonType("Arenosa");
+
+        alert.getButtonTypes().setAll(buttonTypeA, buttonTypeB, buttonTypeC);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == buttonTypeA) {
+                // Call method A
+                ConstruirTorrePlateada(x, y);
+            } else if (result.get() == buttonTypeB) {
+                // Call method B
+                ConstruirTorreBlanca(x, y);
+            } else if (result.get() == buttonTypeC) {
+                // Call method C
+                ConstruirTrampaArenosa(x, y);
+            }
+        }
+    }
+
+    public void ConstruirTorrePlateada(int x, int y){
+
+        mapa.construir(x, y, new TorrePlateada());
+        this.update();
+
+
+    }
+
+    
+    public void ConstruirTorreBlanca(int x, int y){
+
+        mapa.construir(x, y, new TorreBlanca());
+        this.update();
+
+
+    }
+
+    public void ConstruirTrampaArenosa(int x, int y){
+
+        mapa.construir(x, y, new TorreBlanca());
+        this.update();
+
+
+    }
+
+
+
+
+
+
 
 
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
