@@ -156,7 +156,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorrePlateada(int x, int y){
 
         mapa.construir(y, x, new TorrePlateada());
-        ////this.update();
+        ///this.update();
 
 
     }
@@ -164,7 +164,7 @@ public class VistaMapa extends Pane {
     
     public void ConstruirTorreBlanca(int x, int y){
 
-        mapa.construir(x, y, new TorreBlanca());
+        mapa.construir(y, x, new TorreBlanca());
         ///this.update();
 
 
