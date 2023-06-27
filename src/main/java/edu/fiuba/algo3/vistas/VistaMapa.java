@@ -248,8 +248,8 @@ public class VistaMapa extends Pane {
                             cell.setImg(torre);
                         }
 
-                } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))  && mapa.posicion(y, x).hayDefensa()){
-                            if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
+                } else if(mapa.posicion(y, x).equals(new Pasarela(x,y)) && mapa.posicion(y, x).defensa() != null){
+                            if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa()) && mapa.posicion(y, x).defensa().operativa()){
                                 VistaUnidad trampa = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/trampaarenosa.jpg");
                                 cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                                 cell.setImg(trampa);

@@ -47,7 +47,7 @@ public class Pasarela extends Casillero {
 	@Override
 	public void establecerDefensa(Torre unaTorre){
 
-        this.trampaArenosa = unaTorre;
+        this.defensa = unaTorre;
         unaTorre.setCoordenadas(this.x,this.y);
 
     }
@@ -138,10 +138,10 @@ public class Pasarela extends Casillero {
 
 	}
 
-	    @Override
+	@Override
     public Torre defensa(){
 
-        return this.trampaArenosa;
+        return defensa;
     }
 
 

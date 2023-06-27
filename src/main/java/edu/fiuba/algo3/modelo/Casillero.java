@@ -10,6 +10,7 @@ public class Casillero {
 	Casillero casilleroDerecha;
 	List<Enemigo> enemigos = new ArrayList<Enemigo>();
 	Torre trampaArenosa;
+	Torre defensa = null;
 	Casillero siguienteHipotenusa;
 	Casillero pasarelaSiguiente;
 	List<Enemigo> enemigosNoMovidos = new ArrayList<>();
@@ -18,7 +19,6 @@ public class Casillero {
 
 		this.x = nuevaX;
 		this.y = nuevaY;
-		this.trampaArenosa = null;
 		this.casilleroAbajo = null;
 		this.casilleroDerecha = null;
 		this.pasarelaSiguiente = null;
@@ -165,27 +165,28 @@ public class Casillero {
 
 	///Implementar aca el corrector
 
-	private void mover(Enemigo enemigo) {
+	public void mover(Enemigo enemigo) {
 
 		Casillero pasarelaDestino = null;
-
-		if(trampaArenosa != null){
-			if(trampaArenosa.operativa() == true){
+		
+		if(this.defensa != null ){
+			if(this.defensa.operativa() == true && this.defensa.equals((new TrampaArenosa()))){
 				pasarelaDestino = enemigo.moverRelantizado(this);
-				trampaArenosa.sumarTurno();
-			}else{
-				trampaArenosa = null;
+				this.defensa.sumarTurno();
 			}
-		}else{
-			pasarelaDestino = enemigo.mover(this);
 		}
 
-		if(pasarelaDestino == this){
+		pasarelaDestino = enemigo.mover(this);
+			
+
+		if(pasarelaDestino == this || pasarelaDestino == null){
 			enemigosNoMovidos.add(enemigo);
 			return;
 		} 
-
+			
 		pasarelaDestino.establecerEnemigo(enemigo);
+		
+
 	}
 
 	public boolean equals(Casillero c){
@@ -250,7 +251,7 @@ public class Casillero {
 	}
 
 	public Torre defensa(){
-		return this.trampaArenosa;
+		return this.defensa;
 	}
 
 	public Boolean hay_Lechuza(){

@@ -43,6 +43,7 @@ public class TrampaArenosa extends Torre {
             this.operativa = false;
         }
     }
+    
 
     @Override
     public void sumarTurno(){
@@ -50,6 +51,13 @@ public class TrampaArenosa extends Torre {
         this.turno++;
         this.vidaUtil();
     }
+
+    @Override
+    public boolean operativa(){
+
+		return this.operativa;
+		
+	}
 
 
 

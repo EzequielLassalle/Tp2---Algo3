@@ -14,11 +14,11 @@ public abstract class Torre {
 
     public void turno(){
 
-		if (enConstruccion){
+		  if (enConstruccion){
 
-			this.tiempoConstruyendose++;
+			  this.tiempoConstruyendose++;
 
-		}
+		  }
 
 		estado();
     
@@ -26,13 +26,13 @@ public abstract class Torre {
     
     public void estado(){
 
-		if(tiempoConstruyendose == tiempoDeConstruccion){
+		  if(tiempoConstruyendose == tiempoDeConstruccion){
 
-			this.enConstruccion = false;
-			this.operativa = true;
+			  this.enConstruccion = false;
+			  this.operativa = true;
 			//this.tiempoConstruyendose = 0;
 
-		}
+		  }
 
     }
 
@@ -44,7 +44,7 @@ public abstract class Torre {
 
     public void pagar(Jugador unJugador) {
 
-		unJugador.pagar(costo);
+		  unJugador.pagar(costo);
 
 	}
 
