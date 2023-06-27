@@ -24,7 +24,7 @@ public class Tierra extends Casillero{
 		defensa = null;
 	}
 
-    
+    @Override
     public void establecerDefensa(Torre unaTorre){
 
         this.defensa = unaTorre;

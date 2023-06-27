@@ -107,7 +107,6 @@ public class VistaMapa extends Pane {
                 Integer[] clickedCoordinates = (Integer[]) finalCasillero.getUserData();
                 int clickedRow = clickedCoordinates[0];
                 int clickedCol = clickedCoordinates[1];
-                System.out.println("Clicked on rectangle: [" + clickedRow + ", " + clickedCol + "]");
 
         // Ask the user for their choice of method
                 showMethodSelectionDialog(clickedRow, clickedCol);
@@ -156,7 +155,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorrePlateada(int x, int y){
 
         mapa.construir(y, x, new TorrePlateada());
-        ///this.update();
+        
 
 
     }
@@ -165,15 +164,15 @@ public class VistaMapa extends Pane {
     public void ConstruirTorreBlanca(int x, int y){
 
         mapa.construir(y, x, new TorreBlanca());
-        ///this.update();
+       
 
 
     }
 
     public void ConstruirTrampaArenosa(int x, int y){
 
-        mapa.construir(x, y, new TorreBlanca());
-        ////this.update();
+        mapa.construir(y, x, new TrampaArenosa());
+        
 
 
     }
@@ -249,14 +248,12 @@ public class VistaMapa extends Pane {
                             cell.setImg(torre);
                         }
 
-                } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))){
-                        if(mapa.posicion(y, x).defensa() != null){
+                } else if(mapa.posicion(y, x).equals(new Pasarela(x,y))  && mapa.posicion(y, x).hayDefensa()){
                             if(mapa.posicion(y, x).defensa().equals(new TrampaArenosa())){
-                                VistaUnidad trampa = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/TrampaArenosa.png");
+                                VistaUnidad trampa = new VistaUnidad("file:src/main/java/edu/fiuba/algo3/vistas/images/trampaarenosa.jpg");
                                 cell = (Casillero) listaCasilleros.get(x*GRID_SIZE_IN_CELLS+y);
                                 cell.setImg(trampa);
                             }
-                        }
                     }
                 }
             }

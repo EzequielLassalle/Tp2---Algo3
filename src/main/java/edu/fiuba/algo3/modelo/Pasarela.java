@@ -44,6 +44,7 @@ public class Pasarela extends Casillero {
 
     }
 
+	@Override
 	public void establecerDefensa(Torre unaTorre){
 
         this.trampaArenosa = unaTorre;
@@ -138,6 +139,12 @@ public class Pasarela extends Casillero {
 		}
 
 	}
+
+	    @Override
+    public Torre defensa(){
+
+        return this.trampaArenosa;
+    }
 
 
 

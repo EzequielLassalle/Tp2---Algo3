@@ -50,6 +50,9 @@ public class TrampaArenosa extends Torre {
         this.turno++;
         this.vidaUtil();
     }
+
+
+
     
     /* public void turno(){
 
