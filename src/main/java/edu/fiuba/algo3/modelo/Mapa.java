@@ -152,9 +152,13 @@ public class Mapa {
 		return !vacio;
 	}
 
-	public void construir(int posX, int posY, Torre unaTorre) {
-		mapa[posX][posY].establecerDefensa(unaTorre);
-		torres.add(mapa[posX][posY]);
+	public void construir(int posX, int posY, Torre unaTorre,Jugador jugador) {
+
+		if(jugador.credito().mayorQue(unaTorre.costo())){
+			mapa[posX][posY].establecerDefensa(unaTorre);
+			torres.add(mapa[posX][posY]);
+			jugador.credito().restar(unaTorre.costo());
+		}
 	}
 
 	public void pasarTurno(Jugador jugador) {

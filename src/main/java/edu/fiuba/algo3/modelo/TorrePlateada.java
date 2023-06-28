@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class TorrePlateada extends Torre {
 
-	static Credito costo = new Credito(20);
+	public Credito costo = new Credito(20);
 
      public TorrePlateada(){
 
@@ -33,7 +33,7 @@ public class TorrePlateada extends Torre {
         return o.getClass().equals(this.getClass());
     }
 
-	public static Credito costo() {
+	public Credito costo() {
 		return costo;
 	}
     

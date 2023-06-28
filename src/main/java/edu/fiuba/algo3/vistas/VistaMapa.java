@@ -154,7 +154,7 @@ public class VistaMapa extends Pane {
 
     public void ConstruirTorrePlateada(int x, int y){
 
-        mapa.construir(y, x, new TorrePlateada());
+        mapa.construir(y, x, new TorrePlateada(),this.juego.jugador());
         this.update();
         
 
@@ -164,7 +164,7 @@ public class VistaMapa extends Pane {
     
     public void ConstruirTorreBlanca(int x, int y){
 
-        mapa.construir(y, x, new TorreBlanca());
+        mapa.construir(y, x, new TorreBlanca(),this.juego.jugador());
         this.update();
        
 
@@ -173,7 +173,7 @@ public class VistaMapa extends Pane {
 
     public void ConstruirTrampaArenosa(int x, int y){
 
-        mapa.construir(y, x, new TrampaArenosa());
+        mapa.construir(y, x, new TrampaArenosa(),this.juego.jugador());
         this.update();
         
 

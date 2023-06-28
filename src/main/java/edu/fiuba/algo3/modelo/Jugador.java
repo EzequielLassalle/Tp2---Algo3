@@ -24,7 +24,9 @@ public class Jugador {
 
     public TorreBlanca construirTorreBlanca(Casillero unCasillero){
 
-		Credito costo = TorreBlanca.costo();
+        TorreBlanca torreBlanca = new TorreBlanca(); 
+
+		Credito costo = torreBlanca.costo();
         
         if(this.credito.mayorQue(costo) && unCasillero.esTierra()){
             
@@ -41,11 +43,13 @@ public class Jugador {
 
     public TorrePlateada construirTorrePlateada(Casillero unCasillero){
 
-		Credito costo = TorrePlateada.costo();
+        TorrePlateada torrePlateada = new TorrePlateada(); 
+
+		Credito costo = torrePlateada.costo();
 
         if(this.credito.mayorQue(costo) && unCasillero.esTierra()){
             
-            this.credito.restar(TorrePlateada.costo());
+            this.credito.restar(costo);
             TorrePlateada torreNueva = new TorrePlateada(unCasillero.obtenerX(), unCasillero.obtenerY());
             unCasillero.establecerDefensa(torreNueva);
             return (torreNueva);

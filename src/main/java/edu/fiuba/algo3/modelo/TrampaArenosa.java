@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class TrampaArenosa extends Torre {
 
-	static Credito costo = new Credito(25);
+	public Credito costo = new Credito(25);
     int turno;
 
      public TrampaArenosa(){
@@ -34,7 +34,7 @@ public class TrampaArenosa extends Torre {
         
     }
 
-	public static Credito costo() {
+	public  Credito costo() {
 		return costo;
 	}
 

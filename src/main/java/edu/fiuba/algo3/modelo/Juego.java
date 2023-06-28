@@ -18,6 +18,10 @@ public class Juego {
 		turno = 1;
 	}
 
+	public Jugador jugador(){
+		return this.jugador;
+	}
+
 
 	public boolean gano() {
 		return (!mapa.hayEnemigos() && jugador.vida().obtenerVidaTotal() > 0);

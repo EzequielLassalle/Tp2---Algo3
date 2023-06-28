@@ -37,6 +37,10 @@ public  class Torre {
 
     }
 
+    public Credito costo(){
+        return this.costo;
+    }
+
 	public boolean operativa(){
 
 		return this.operativa;
