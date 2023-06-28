@@ -63,8 +63,8 @@ public class App extends Application{
     public static Scene initialize (Stage stage) throws IOException, FormatoJSONInvalido {
         Juego juego =   new Juego(new JsonEnemyRepository("src/json/enemigos.json"),
                 new JsonMapRepository("src/json/mapa.json"));
-        VistaMapa vistaMapa = new VistaMapa(juego);
-        PantallaJuego pantallaJuego = new PantallaJuego(stage, vistaMapa,juego);
+        VistaMapa vistaMapa = new VistaMapa(stage, juego);
+        PantallaJuego pantallaJuego = new PantallaJuego(vistaMapa,juego);
         Scene escenaJuego = new Scene(pantallaJuego, 600, 730);
         return escenaJuego;
     }

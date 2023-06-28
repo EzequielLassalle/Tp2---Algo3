@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 
 public class VistaGameOver {
 
-    private static String path = "file:edu/fiuba/algo3/vistas/images/gameover.png";
-    public VistaGameOver(){
+    private static String path = "file:src/main/java/edu/fiuba/algo3/vistas/images/gameover.png";
+    public VistaGameOver(Stage oldStage){
         Stage stage = new Stage();
         VBox display = new VBox();
         display.setAlignment(Pos.CENTER);
@@ -20,7 +20,7 @@ public class VistaGameOver {
         display.setPrefSize(400, 200);
         Rectangle gameOver = new Rectangle(200, 150);
         gameOver.setFill(new ImagePattern(new Image(path)));
-        VistaBotonJugarDeNuevo boton = new VistaBotonJugarDeNuevo(stage);
+        VistaBotonJugarDeNuevo boton = new VistaBotonJugarDeNuevo(oldStage, stage);
         display.getChildren().addAll(gameOver, boton);
 
         Scene scene = new Scene(display);

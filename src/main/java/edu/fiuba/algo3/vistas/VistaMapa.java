@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vistas;
 
+import edu.fiuba.algo3.handlers.FinJuegoHandler;
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -10,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class VistaMapa extends Pane {
-
 
 
     private static class Casillero extends StackPane {
@@ -61,13 +62,16 @@ public class VistaMapa extends Pane {
     private final Juego juego;
     private static Mapa mapa;
 
+    private Stage stage;
+
     private int turno;
 
     private Pane layout;
     private Pane layoutEnemigosYDefensas;
-    public VistaMapa(Juego juego){
+    public VistaMapa(Stage stage, Juego juego){
         this.juego = juego;
         this.mapa = juego.mapa();
+        this.stage = stage;
     }
 
     public Pane crearMapa() {
@@ -112,11 +116,6 @@ public class VistaMapa extends Pane {
                 showMethodSelectionDialog(clickedRow, clickedCol);
             }
         });
-
-        
- 
-
-
 
                 layout.getChildren().add(cell);
                 listaCasilleros.add(cell);
@@ -181,13 +180,11 @@ public class VistaMapa extends Pane {
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
         
         ///Pedirle a jugador que construya torres y construirlas
-
-
         this.juego.jugar();
         this.juego.establecerEnemigos();
         this.update();
-        
 
+        FinJuegoHandler handler = new FinJuegoHandler(juego, stage);
     }
 
     public Pane update(){

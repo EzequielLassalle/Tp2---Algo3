@@ -16,14 +16,17 @@ import java.io.IOException;
 
 public class JugarDeNuevoEventHandler implements EventHandler<ActionEvent>{
 
-    private Stage stage;
-    public JugarDeNuevoEventHandler(Stage stage){
-        this.stage = stage;
+    private Stage buttonStage;
+    private Stage gameStage;
+    public JugarDeNuevoEventHandler(Stage oldStage, Stage stage){
+        this.buttonStage = stage;
+        this.gameStage = oldStage;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        stage.close();
+        buttonStage.close();
+        gameStage.close();
         Scene escenaJuego = null;
         try {
             escenaJuego = App.initialize(new Stage());
