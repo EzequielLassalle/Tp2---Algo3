@@ -1,0 +1,180 @@
+@startuml
+
+abstract Enemigo {
+    - int vida
+    - int danio
+    - int energia
+    - int velocidad
+    - Credito credito
+
+    + Credito atacado(int unDanio)
+    + {abstract} Casillero mover(Casillero unCasillero)
+    + {abstract} Casillero moverRalentizado(Casillero unCasillero)
+    + Casillero volar(Casillero unCasillero)
+    + Casillero volarRalentizado(Casillero unCasillero)
+}
+
+class Hormiga {
+    - int vida
+    - int danio
+    - int energia
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Arania {
+    - int vida
+    - int danio
+    - int energia
+    - int velocidad
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Topo {
+    - int vida
+    - int danio
+    - int energia
+    - int turno
+    - Credito credito
+
+    + Credito atacado(int unDanio)
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+class Lechuza {
+    - int vida
+    - int danio
+    - Credito credito
+
+    + Casillero mover(Casillero unaPasarela)
+    + Casillero moverRalentizado(Casillero unaPasarela)
+}
+
+Enemigo <|-- Hormiga
+Enemigo <|-- Arania
+Enemigo <|-- Topo
+Enemigo <|-- Lechuza
+abstract Defensa {
+    - Boolean operativa
+    - int tiempoDeConstruccion
+    - int tiempoConstruyendose
+    - Rango rango
+    - Credito costo
+    - int x
+    - int y
+    - int danio
+
+    + void pagar(Jugador unJugador)
+    + {abstract} Credito atacar(Casillero unCasillero)
+    + void ralentizar()
+    + void sumarTurno()
+}
+
+class TorreBlanca {
+    - Boolean operativa
+    - int tiempoDeConstruccion
+    - int tiempoConstruyendose
+    - Rango rango
+    - Credito costo
+    - int x
+    - int y
+    - int danio
+
+    + TorreBlanca(int unX, int unY)
+    + Credito atacar(Casillero unCasillero)
+}
+
+class TorrePlateada {
+    - Boolean operativa
+    - int tiempoDeConstruccion
+    - int tiempoConstruyendose
+    - Rango rango
+    - Credito costo
+    - int x
+    - int y
+    - int danio
+
+    + TorrePlateada(int unX, int unY)
+    + Credito atacar(Casillero unCasillero)
+}
+
+class TrampaArenosa {
+    - Boolean operativa
+    - Credito costo
+    - int x
+    - int y
+
+    + TrampaArenosa(int unX, int unY)
+    + atacar(Casillero unCasillero)
+    + void sumarTurno()
+    + void actualizarVidaUtil()
+}
+
+abstract Rango {
+    + {abstract} Boolean calcularRango(Casillero, int x, int y)
+}
+
+class RangoTorreBlanca {
+    + Boolean calcularRango(Casillero, int x, int y)
+}
+
+class RangoTorrePlateada {
+    + Boolean calcularRango(Casillero, int x, int y)
+}
+
+Defensa <|-- TorreBlanca
+Defensa <|-- TorrePlateada
+Defensa <|-- TrampaArenosa
+
+Rango <|-- RangoTorreBlanca
+Rango <|-- RangoTorrePlateada
+
+TorreBlanca *-- RangoTorreBlanca
+TorrePlateada *-- RangoTorrePlateada
+
+' hay que ver si queda así...
+class Casillero {
+    - int x
+    - int y
+    - Casillero casilleroAbajo
+    - Casillero casilleroDerecha
+    - List<Enemigo> enemigos
+    - Defensa defensa
+
+    + Casillero(int unX, unY)
+    + void establecerSiguiente(Pasarela unaPasarela)
+    + Casillero obtenerSiguiente()
+    + void establecerEnemigos(List<Enemigo> enemigos)
+    + void establecerDefensa(Defensa unaDefensa)
+    + void daniarJugador(Jugador jugador)
+    + void moverEnemigos()
+    + Credito atacado(int danio)
+}
+
+class Pasarela {
+
+}
+
+class Rocosa {
+
+}
+
+class Tierra {
+
+}
+
+Casillero <|-- Pasarela
+Casillero <|-- Rocosa
+Casillero <|-- Tierra
+
+Tierra o-- Defensa
+Pasarela o-- Enemigo
+Pasarela o-- TrampaArenosa
+
+@enduml
