@@ -108,6 +108,69 @@ public class CasilleroTest {
 
     }
 
+
+    @Test
+    public void Casillero09devuelveElTipobien(){
+
+        Tierra tierra= new Tierra(0,0);
+
+        assertTrue(tierra.tipo() == "Tierra");
+
+    }
+
+    @Test 
+    public void casillero10EsAtacadoBien(){
+
+        Casillero casillero = new Casillero(1,2);
+
+        Hormiga hormiga = new Hormiga();
+
+        casillero.establecerEnemigo(hormiga);
+
+
+        assertTrue(casillero.enemigo().equals(new Hormiga()));
+
+        casillero.Atacado(100);
+
+        assertTrue(casillero.enemigo() == null);
+
+    }
+
+    @Test
+    public void Casillero10casilleroNoAtaca(){
+
+        Casillero casillero = new Casillero(0,0);
+
+        assertTrue(casillero.Atacar(new Casillero(0,0)).equals(new Credito(0)));
+
+    }
+
+    @Test
+    public void Casillero11ElCasilleroDetectaBienSiTieneUnaLechuza(){
+
+        Casillero casillero = new Casillero(0,0);
+
+        casillero.establecerEnemigo(new Lechuza());
+
+        assertTrue(casillero.hay_Lechuza());
+
+
+    }
+
+    @Test
+    public void Casillero12CasilleroNuncaTieneUnaDefensaSusHijasSi(){
+
+        Casillero casillero = new Casillero(0, 0);
+
+        casillero.establecerDefensa(new TorreBlanca(0,0));
+
+        assertFalse(casillero.hayDefensa());
+
+
+
+    }
+
+
     
     
 

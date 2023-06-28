@@ -101,51 +101,6 @@ public class Jugador {
 
     ///////////sistema log////////////////////////
 
-    public void jugar(Mapa mapa){
-
-
-        Scanner myObj = new Scanner(System.in);
-
-        int eleccion =  myObj.nextInt();
-
-        if(eleccion == 1){
-
-                int y = myObj.nextInt();
-
-                int x = myObj.nextInt();
-
-
-            int Torre =  myObj.nextInt();
-
-            if(Torre == 1){
-
-                mapa.construir(x, y, new TorrePlateada());
-
-            } else if(Torre == 2){
-
-                mapa.construir(x, y,new TorreBlanca());
-            }
-
-        }
-
-        if(eleccion == 2){
-            
-             System.out.println("Turno Pasado");
-
-        }
-
-
-
-
-
-        myObj.close();
-    }
-    
-
-    public Boolean gano(Mapa mapa){
-
-        return (!mapa.hayEnemigos());
-    }
 
 
     

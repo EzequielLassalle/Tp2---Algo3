@@ -8,8 +8,6 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException, FormatoJSONInvalido {
 
-        /*PantallaInicial init = new PantallaInicial();
-        Handler handler = new Handler(juego, init);*/
         App.main(args);
     }
     

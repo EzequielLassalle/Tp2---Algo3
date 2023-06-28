@@ -219,11 +219,6 @@ public class Casillero {
 		return 0;
 	}
 
-	public void AtacadoPorTorreBlanca(Jugador jugador) {
-	}
-
-	public void AtacadoPorTorrePlateada(Jugador jugador) {
-	}
 
 	public Credito Atacar(Casillero unPasarela){
 
