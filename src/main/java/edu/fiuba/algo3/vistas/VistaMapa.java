@@ -126,7 +126,7 @@ public class VistaMapa extends Pane {
         return layout;
     }
 
-        private void showMethodSelectionDialog(int x, int y) {
+    private void showMethodSelectionDialog(int x, int y) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Construir torre");
         alert.setContentText("Elegir Torre:");
@@ -156,9 +156,6 @@ public class VistaMapa extends Pane {
 
         mapa.construir(y, x, new TorrePlateada(),this.juego.jugador());
         this.update();
-        
-
-
     }
 
     
@@ -166,18 +163,12 @@ public class VistaMapa extends Pane {
 
         mapa.construir(y, x, new TorreBlanca(),this.juego.jugador());
         this.update();
-       
-
-
     }
 
     public void ConstruirTrampaArenosa(int x, int y){
 
         mapa.construir(y, x, new TrampaArenosa(),this.juego.jugador());
         this.update();
-        
-
-
     }
 
 
