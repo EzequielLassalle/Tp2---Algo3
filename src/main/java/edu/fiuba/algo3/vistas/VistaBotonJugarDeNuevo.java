@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class VistaBotonJugarDeNuevo extends Button {
 
-    private static String path = "file:edu/fiuba/algo3/vistas/images/replay.png";
+    private static String path = "file:src/main/java/edu/fiuba/algo3/vistas/images/replay.png";
     public VistaBotonJugarDeNuevo(Stage oldStage, Stage stage){
         Image imagen = new Image(path);
         ImageView i = new ImageView(imagen);
