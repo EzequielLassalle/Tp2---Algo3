@@ -92,8 +92,10 @@ public class Pasarela extends Casillero {
 
 	@Override
 	public Boolean vacio() {
+
 		return enemigos.isEmpty();
 	}
+
 
 
 

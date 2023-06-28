@@ -273,6 +273,15 @@ public class Casillero {
 
     }
 
+	
+	public void borrarEnemigos(){
+
+		enemigos.clear();
+
+
+
+	}
+
 
 
 	

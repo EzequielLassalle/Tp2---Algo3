@@ -210,6 +210,11 @@ public class Mapa {
 	public void atacarJugador(Jugador jugador){
 		pasarelaFinal.daniarJugador(jugador);
 		pasarelaFinal.AtacarTorres(jugador,torres);
+		
+	}
+
+	public void borrarEnemigos(){
+		pasarelaFinal.borrarEnemigos();
 	}
 
 }

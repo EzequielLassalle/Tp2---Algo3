@@ -180,9 +180,11 @@ public class VistaMapa extends Pane {
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
         
         ///Pedirle a jugador que construya torres y construirlas
+        
         this.juego.jugar();
         this.juego.establecerEnemigos();
         this.update();
+        this.mapa.borrarEnemigos();
 
         FinJuegoHandler handler = new FinJuegoHandler(juego, stage);
     }
