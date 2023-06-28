@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-public abstract class Torre {
+public  class Torre {
     
     Boolean operativa;
     Boolean enConstruccion;
@@ -14,7 +14,7 @@ public abstract class Torre {
 
     public void turno(){
 
-		  if (enConstruccion){
+		  if (operativa() == false){
 
 			  this.tiempoConstruyendose++;
 
@@ -30,6 +30,7 @@ public abstract class Torre {
 
 			  this.enConstruccion = false;
 			  this.operativa = true;
+
 			//this.tiempoConstruyendose = 0;
 
 		  }
@@ -49,7 +50,9 @@ public abstract class Torre {
 	}
 
 
-    public abstract Credito Atacar(Casillero unPasarela);
+    public Credito Atacar(Casillero unPasarela){
+        return (new Credito(0));
+    }
 
     public void setCoordenadas(int unX, int unY){
 

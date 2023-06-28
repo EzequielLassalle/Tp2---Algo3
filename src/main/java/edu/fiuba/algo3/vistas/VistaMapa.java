@@ -155,6 +155,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorrePlateada(int x, int y){
 
         mapa.construir(y, x, new TorrePlateada());
+        this.update();
         
 
 
@@ -164,6 +165,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTorreBlanca(int x, int y){
 
         mapa.construir(y, x, new TorreBlanca());
+        this.update();
        
 
 
@@ -172,6 +174,7 @@ public class VistaMapa extends Pane {
     public void ConstruirTrampaArenosa(int x, int y){
 
         mapa.construir(y, x, new TrampaArenosa());
+        this.update();
         
 
 
@@ -187,9 +190,11 @@ public class VistaMapa extends Pane {
     public void pasarTurno() throws IOException, FormatoJSONInvalido {
         
         ///Pedirle a jugador que construya torres y construirlas
+
+
+        this.juego.jugar();
         this.juego.establecerEnemigos();
         this.update();
-        this.juego.jugar();
         
 
     }

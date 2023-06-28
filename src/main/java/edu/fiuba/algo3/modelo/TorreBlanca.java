@@ -79,11 +79,7 @@ public class TorreBlanca extends Torre {
 
 			//System.out.println("Torre Blanca ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
 
-        } else if(operativa() == false){
-
-			this.turno();
-
-		}
+        }
 
         return credito;
 

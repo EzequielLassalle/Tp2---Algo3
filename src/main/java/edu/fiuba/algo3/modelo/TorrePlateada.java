@@ -78,15 +78,13 @@ public class TorrePlateada extends Torre {
 
             ///System.out.println("Torre Plateada ataco enemigos en Pasarela:" + unaPasarela.obtenerX() + " " + unaPasarela.obtenerY());
 
-        } else if(operativa() == false){
-
-			this.turno();
-
-		}
+        }
 
         return credito;
 
     }
+
+    
 
 }
 

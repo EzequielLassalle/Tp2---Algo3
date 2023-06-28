@@ -19,7 +19,7 @@ public abstract class Enemigo {
 
     public Credito Atacado(int unDanio){
 
-        this.vida -= unDanio;
+        this.vida = this.vida - unDanio;
 
         if(this.vida <= 0){
             return this.credito;

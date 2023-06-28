@@ -107,10 +107,11 @@ public class Entrega1Test {
 		Credito creditoEsperadoHormiga = new Credito(1);
 		Credito creditoEsperadoArania = new Credito(2);
 
-        tierraBlanca.Atacar(pasarela1);
 
-        tierraPlateada.Atacar(pasarela2);
-        tierraPlateada.Atacar(pasarela2);
+        tierraBlanca.defensa().turno();
+
+        tierraPlateada.defensa().turno();
+        tierraPlateada.defensa().turno();
 
 
 		assertTrue(creditoEsperadoHormiga.igual(tierraBlanca.Atacar(pasarela1)));
@@ -140,11 +141,11 @@ public class Entrega1Test {
         pasarela2.establecerEnemigo(enemigo2);
 
 
-        tierraBlanca.Atacar(pasarela1);
+        tierraBlanca.defensa().turno();
         tierraBlanca.Atacar(pasarela1);
 
-        tierraPlateada.Atacar(pasarela2);
-        tierraPlateada.Atacar(pasarela2);
+        tierraPlateada.defensa().turno();
+        tierraPlateada.defensa().turno();
         tierraPlateada.Atacar(pasarela2);
     	//torreBlanca.Atacar(pasarela1);
         //torrePlateada.Atacar(pasarela2);
@@ -184,9 +185,10 @@ public class Entrega1Test {
         tierraBlanca.establecerDefensa(torreBlanca);
         pasarela1.establecerEnemigo(enemigo1);
 
-        Credito credito = tierraBlanca.Atacar(pasarela1);
+        tierraBlanca.defensa().turno();
         /// por el turno de construccion ///
-        credito = tierraBlanca.Atacar(pasarela1);
+
+        Credito credito = tierraBlanca.Atacar(pasarela1);
 
         jugador.cobrarCredito(credito);
 
@@ -242,11 +244,11 @@ public class Entrega1Test {
 
 
         /////Por los turnos en construccion los primeros Atacar no ataca ///
-        tierraBlanca.Atacar(pasarela);
+        tierraBlanca.defensa().turno();
         tierraBlanca.Atacar(pasarela);
 
-        tierraPlateada.Atacar(pasarela);
-        tierraPlateada.Atacar(pasarela);
+        tierraPlateada.defensa().turno();
+        tierraPlateada.defensa().turno();
         tierraPlateada.Atacar(pasarela);
 
         assertTrue(pasarela.vacio());
@@ -280,11 +282,11 @@ public class Entrega1Test {
         pasarela1.establecerEnemigo(enemigo2);
         pasarela1.establecerEnemigo(enemigo3);
 
-        tierraBlanca.Atacar(pasarela1);
+        tierraBlanca.defensa().turno();
         tierraBlanca.Atacar(pasarela1);
 
-        tierraPlateada.Atacar(pasarela1);
-        tierraPlateada.Atacar(pasarela1);
+        tierraPlateada.defensa().turno();
+        tierraPlateada.defensa().turno();
         tierraPlateada.Atacar(pasarela1);
 
         pasarela1.moverEnemigos();
