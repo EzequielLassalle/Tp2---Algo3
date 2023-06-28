@@ -18,6 +18,9 @@ public class Jugador {
 
     }
 
+    //// estos metodos no se usan solo son usados en 2 pruebas del principio pero no fueeron borrados
+    ////        para mostrar un error que tiraba en 2 pruebas 
+    ////        no se usan porque no son polimorficos
 
     public TorreBlanca construirTorreBlanca(Casillero unCasillero){
 

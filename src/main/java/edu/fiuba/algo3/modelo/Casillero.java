@@ -173,10 +173,14 @@ public class Casillero {
 			if(this.defensa.operativa() == true && this.defensa.equals((new TrampaArenosa()))){
 				pasarelaDestino = enemigo.moverRelantizado(this);
 				this.defensa.sumarTurno();
+			}else{
+				pasarelaDestino = enemigo.mover(this);
 			}
+		}else{
+			pasarelaDestino = enemigo.mover(this);
 		}
 
-		pasarelaDestino = enemigo.mover(this);
+		
 			
 
 		if(pasarelaDestino == this || pasarelaDestino == null){

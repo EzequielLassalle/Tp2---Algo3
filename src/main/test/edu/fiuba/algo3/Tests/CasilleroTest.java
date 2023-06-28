@@ -170,6 +170,29 @@ public class CasilleroTest {
 
     }
 
+    @Test
+    public void Casillero13CasilleroMueveBien(){
+
+        Pasarela pasarela = new Pasarela(0, 0);
+
+        pasarela.establecerEnemigo(new Hormiga());
+        pasarela.establecerDefensa(new TrampaArenosa());
+
+        Pasarela pasarela2 = new Pasarela(0,1);
+
+        pasarela.establecerSiguiente(pasarela2);
+
+        pasarela.moverEnemigos();
+
+        assertTrue(pasarela.enemigo().equals(new Hormiga()));
+
+        pasarela.moverEnemigos();
+
+        assertTrue(pasarela2.enemigo().equals(new Hormiga()));
+
+    }
+
+
 
     
     

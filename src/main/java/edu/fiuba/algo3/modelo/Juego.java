@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Juego {
 	public Jugador jugador;
-	Mapa mapa;
-	private EnemyRepository enemyParser;
-	private MapRepository mapParser;
+	public Mapa mapa;
+	public EnemyRepository enemyParser;
+	public MapRepository mapParser;
 	int turno;
 
 	public Juego(EnemyRepository enemyParser, MapRepository mapParser) throws IOException, FormatoJSONInvalido {

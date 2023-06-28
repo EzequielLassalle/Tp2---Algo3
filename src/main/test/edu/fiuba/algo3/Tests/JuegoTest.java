@@ -97,4 +97,6 @@ public class JuegoTest {
         assertFalse(juego.perdio());
 
     }
+
+     
 }
