@@ -24,7 +24,7 @@ public class Juego {
 
 
 	public boolean gano() {
-		return (!mapa.hayEnemigos() && jugador.vida().obtenerVidaTotal() > 0 && turno>12);
+		return (jugador.vida().obtenerVidaTotal() > 0 && turno>12);
 	}
 
 	public void pasarTurno() {
