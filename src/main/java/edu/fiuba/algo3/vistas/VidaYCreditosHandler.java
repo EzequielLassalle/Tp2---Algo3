@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Label;

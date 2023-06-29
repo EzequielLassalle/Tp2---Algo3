@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.vistas.VistaConstrucciones;
 import javafx.scene.input.MouseEvent;
 
 public class BotonConstruccionEventHandler implements EventHandler<MouseEvent> {

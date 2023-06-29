@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.FormatoJSONInvalido;
 import edu.fiuba.algo3.vistas.VistaMapa;
@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.handlers.*;
 
 import java.io.IOException;
 

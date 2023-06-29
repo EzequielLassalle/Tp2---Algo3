@@ -24,7 +24,7 @@ public class Juego {
 
 
 	public boolean gano() {
-		return (jugador.vida().obtenerVidaTotal() > 0 && turno>12);
+		return (jugador.vida().obtenerVidaTotal() > 0 && turno>26);
 	}
 
 	public void pasarTurno() {

@@ -1,12 +1,9 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.FormatoJSONInvalido;
 import edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.repositories.JsonEnemyRepository;
 import edu.fiuba.algo3.repositories.JsonMapRepository;
-import edu.fiuba.algo3.vistas.App;
-import edu.fiuba.algo3.vistas.PantallaJuego;
-import edu.fiuba.algo3.vistas.VistaMapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

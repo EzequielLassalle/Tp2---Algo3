@@ -1,7 +1,5 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.vistas.PantallaJuego;
-import edu.fiuba.algo3.vistas.VistaMapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

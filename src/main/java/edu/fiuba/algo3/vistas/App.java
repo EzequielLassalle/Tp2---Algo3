@@ -17,8 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
- 
-import edu.fiuba.algo3.handlers.BotonJugarEventHandler;
 
 import java.io.IOException;
 

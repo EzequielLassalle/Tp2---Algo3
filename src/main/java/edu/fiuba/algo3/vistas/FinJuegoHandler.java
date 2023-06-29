@@ -1,8 +1,6 @@
-package edu.fiuba.algo3.handlers;
+package edu.fiuba.algo3.vistas;
 
 import edu.fiuba.algo3.modelo.Juego;
-import edu.fiuba.algo3.vistas.VistaGameOver;
-import edu.fiuba.algo3.vistas.VistaGameWon;
 import javafx.stage.Stage;
 
 public class FinJuegoHandler {

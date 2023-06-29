@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vistas;
 
-import edu.fiuba.algo3.handlers.FinJuegoHandler;
 import edu.fiuba.algo3.modelo.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
