@@ -96,6 +96,7 @@ public class Mapa {
 		}	
 
 	}
+	
 	public Casillero calcularDistanciaAMeta(Casillero casilleroArriba,Casillero casilleroAbajo,Casillero casilleroDerecha,Casillero casilleroDiagonal,Casillero CasilleroDiagonalArriba){
 
 		Casillero seleccionado = null; 
