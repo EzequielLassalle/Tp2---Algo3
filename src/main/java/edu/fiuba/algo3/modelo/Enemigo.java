@@ -53,6 +53,11 @@ public abstract class Enemigo {
     }
 
 
+
+    ///comentario ///
+    public void Enemigoss(){
+        int i = 1+1;
+    }
     
 
 
