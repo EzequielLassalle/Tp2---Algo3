@@ -10,4 +10,12 @@ import edu.fiuba.algo3.modelo.*;
 
 public class PasarelaTest {
 
+    @Test
+    public void PasarelaSeCreaBien(){
+
+        Pasarela pasarela = new Pasarela(0, 0);
+
+        assertTrue(pasarela.equals(new Pasarela(0, 0)));
+
+    }
 }
