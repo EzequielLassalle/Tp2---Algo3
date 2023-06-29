@@ -30,7 +30,7 @@ public class App extends Application{
     public void start(Stage stage) throws IOException, FormatoJSONInvalido {
 
 
-        Scene escenaJuego = this.initialize(stage);
+        PantallaJuego pantallaJuego = initialize(stage);
 
         var layout = new VBox();
         layout.setAlignment(Pos.CENTER);
@@ -44,10 +44,9 @@ public class App extends Application{
         usuario.setPromptText("Usuario");
         usuario.setMaxWidth(200);
 
-
         var jugarButton = new Button();
         jugarButton.setText("JUGAR");
-        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario.getText(), error, stage, escenaJuego);
+        BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(usuario, error, stage, pantallaJuego);
         jugarButton.setOnAction(botonJugarEventHandler);
 
         layout.getChildren().add(welcome);
@@ -58,18 +57,19 @@ public class App extends Application{
         stage.show();
     }
 
-    public static Scene initialize (Stage stage) throws IOException, FormatoJSONInvalido {
+    public static PantallaJuego initialize(Stage stage) throws IOException, FormatoJSONInvalido {
         Juego juego =   new Juego(new JsonEnemyRepository("src/json/enemigos.json"),
                 new JsonMapRepository("src/json/mapa.json"));
+
         VistaMapa vistaMapa = new VistaMapa(stage, juego);
-        PantallaJuego pantallaJuego = new PantallaJuego(vistaMapa,juego);
-        Scene escenaJuego = new Scene(pantallaJuego, 600, 730);
-        return escenaJuego;
+
+        PantallaJuego pantallaJuego = new PantallaJuego(juego, vistaMapa);
+        return pantallaJuego;
     }
+
  
     public static void main(String[] args) {
         launch();
     }
 }
- 
  

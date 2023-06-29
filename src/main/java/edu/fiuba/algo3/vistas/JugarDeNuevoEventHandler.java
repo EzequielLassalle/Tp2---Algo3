@@ -24,16 +24,19 @@ public class JugarDeNuevoEventHandler implements EventHandler<ActionEvent>{
     public void handle(ActionEvent event) {
         buttonStage.close();
         gameStage.close();
-        Scene escenaJuego = null;
+        PantallaJuego pantallaJuego = null;
         try {
-            escenaJuego = App.initialize(new Stage());
+            pantallaJuego = App.initialize(new Stage());
         } catch (IOException | FormatoJSONInvalido e) {
             throw new RuntimeException(e);
         }
+
+
         Stage newStage = new Stage();
-        newStage.setScene(escenaJuego);
+        newStage.setScene(new Scene(pantallaJuego, 600, 750));
         newStage.show();
 
     }
 }
+
 
