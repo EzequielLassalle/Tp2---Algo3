@@ -48,35 +48,33 @@ pensamos como funcionan la mayoria de los Tower Defense:
 
 Casilleros.uml.PNG
 
-##Primer Diagrama
-DiagramasTp2Algo3/Casilleros.uml.PNG
+
+![](DiagramasTp2Algo3/Casilleros.uml.PNG)
 
 ##Segundo Diagrama
-DiagramasTp2Algo3/Rango.uml.PNG
+![](DiagramasTp2Algo3/Rango.uml.PNG)
 
 ##Tercer Diagrama
-DiagramasTp2Algo3/Torre.uml.PNG
+![](diagramasTp2Algo3/Torre.uml.PNG)
 
 ##Cuarto Diagrama
-DiagramasTp2Algo3/Enemigos.uml.PNG
+![](DiagramasTp2Algo3/Enemigos.uml.PNG)
 
 ##Quinto Diagrama
-DiagramasTp2Algo3/DiagramaDeJuego.PNG
+![](DiagramasTp2Algo3/DiagramaDeJuego.PNG)
 
 ##SextoDiagrama
-DiagramasTp2Algo3/DiagramaDeSecuencia1.PNG
+![](DiagramasTp2Algo3/DiagramaDeSecuencia1.PNG)
 
 ## Septimo Diagrama
-DiagramasTp2Algo3/DiagramaDeSecuencia2.PNG
+![](DiagramasTp2Algo3/DiagramaDeSecuencia2.PNG)
 
 ##Octavo Diagrama
-DiagramasTp2Algo3/DiagramaDeSecuencia3.PNG
+![](DiagramasTp2Algo3/DiagramaDeSecuencia3.PNG)
 
 ##Noveno Diagrama
-DiagramasTp2Algo3/DiagramaDePaquetes.PNG
+![](DiagramasTp2Algo3/DiagramaDePaquetes.PNG)
 
-<!-- Diagramas de secuencia -->
-<!-- Diagrama de paquetes -->
 ## Detalles de implementación
 Para la implementación fuimos cuidadosos con los pilares de la programación orientada a objetos. Además aplicamos algunos de sus principios, como "Tell Don't Ask", Ley de Demeter, Programación contra Interfaces, entre otras.
 Intentamos cumplir con la mayoria de los principios de la materia. 
