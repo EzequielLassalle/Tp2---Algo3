@@ -7,15 +7,6 @@ public abstract class Enemigo {
     int energia;
     Credito credito;
 
-    public void AtacadoPorTorreBlanca(Jugador jugador){
-
-        this.vida = this.vida - 1;
-
-        if(this.vida <= 0){
-            jugador.cobrarCredito(credito);
-        }
-
-    }
 
     public Credito Atacado(int unDanio){
 
@@ -30,16 +21,6 @@ public abstract class Enemigo {
         return new Credito(0);
 
     }
-
-    public void AtacadoPorTorrePlateada(Jugador jugador){
-
-        this.vida = this.vida - 2;
-
-        if(this.vida <= 0){
-            jugador.cobrarCredito(credito);
-        }
-
-    } 
 
     public Boolean vida(int unaVida){
 
@@ -73,17 +54,7 @@ public abstract class Enemigo {
 
 
     
-    public Casillero volar(Casillero unCasillero){
 
-        return unCasillero;
-    }
-
-    
-    public Casillero volarRelantizado(Casillero unCasillero){
-
-
-        return unCasillero;
-    }
 
  
 }

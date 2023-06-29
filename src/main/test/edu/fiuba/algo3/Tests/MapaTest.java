@@ -31,7 +31,7 @@ public class MapaTest {
 
      @Test
 
-     public void test02MapaConstruyeBien()throws IOException, FormatoJSONInvalido{
+     public void test02MapaConstruyeBienYatacaBien()throws IOException, FormatoJSONInvalido{
 
         JsonEnemyRepository parser = new JsonEnemyRepository("src/json/enemigos.json");
         JsonMapRepository mapaParser = new JsonMapRepository("src/json/mapa.json");
@@ -49,6 +49,8 @@ public class MapaTest {
 
 
      }
+
+ 
 
 }
 

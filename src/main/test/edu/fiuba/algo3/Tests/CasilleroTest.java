@@ -193,6 +193,45 @@ public class CasilleroTest {
     }
 
 
+    @Test
+    public void Casillero14BorraBienEnemigos(){
+
+        Casillero casillero = new Casillero(0,1);
+
+        casillero.establecerEnemigo(new Lechuza());
+
+        casillero.borrarEnemigos();
+
+        assertTrue(casillero.enemigo() == null);
+
+    }
+
+    @Test
+    public void Casillero15NoDevuelveDefensas(){
+
+        Casillero casillero = new Casillero(0,1);
+
+        casillero.establecerDefensa(new TrampaArenosa());
+
+        assertTrue(casillero.defensa() == null);
+
+
+
+    }
+
+    @Test
+    public void Casillero16ApareceVacio(){
+
+        Casillero casillero = new Casillero(0,1);
+
+        
+
+        assertTrue(!casillero.hayEnemigos());
+
+
+
+    }
+
 
     
     
