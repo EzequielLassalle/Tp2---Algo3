@@ -46,6 +46,35 @@ pensamos como funcionan la mayoria de los Tower Defense:
 -La trampa arenosa pierde tu utilidad cuando es usada, como toda trampa en la mayoria de los Tower defense
 ## Diagramas de clases
 
+Casilleros.uml.PNG
+
+##Primer Diagrama
+DiagramasTp2Algo3/Casilleros.uml.PNG
+
+##Segundo Diagrama
+DiagramasTp2Algo3/Rango.uml.PNG
+
+##Tercer Diagrama
+DiagramasTp2Algo3/Torre.uml.PNG
+
+##Cuarto Diagrama
+DiagramasTp2Algo3/Enemigos.uml.PNG
+
+##Quinto Diagrama
+DiagramasTp2Algo3/DiagramaDeJuego.PNG
+
+##SextoDiagrama
+DiagramasTp2Algo3/DiagramaDeSecuencia1.PNG
+
+## Septimo Diagrama
+DiagramasTp2Algo3/DiagramaDeSecuencia2.PNG
+
+##Octavo Diagrama
+DiagramasTp2Algo3/DiagramaDeSecuencia3.PNG
+
+##Noveno Diagrama
+DiagramasTp2Algo3/DiagramaDePaquetes.PNG
+
 <!-- Diagramas de secuencia -->
 <!-- Diagrama de paquetes -->
 ## Detalles de implementación
