@@ -19,7 +19,7 @@ public class TrampaArenosaTest {
     @Test
     public void TrampaArenosaSeCreaBien01() {
 
-    TrampaArenosa arenosa = new TrampaArenosa();
+    TrampaArenosa arenosa = new TrampaArenosa(1,2);
 
     assertTrue(arenosa.equals(new TrampaArenosa()));
 

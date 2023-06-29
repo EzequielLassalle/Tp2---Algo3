@@ -157,6 +157,42 @@ public class TopoTest {
 
     } 
 
+    @Test
+    public void Topo09TopoRelantizadoSeMueveBien4() {
+
+        Topo topo = new Topo();
+
+
+        Casillero casillero1 = new Casillero(1,2);
+        Casillero casillero2 = new Casillero(1,2);
+        Casillero casillero3 = new Casillero(1,2);
+
+
+        casillero1.establecerSiguiente(casillero2);
+        casillero2.establecerSiguiente(casillero3);
+
+    
+        
+        assertTrue(topo.moverRelantizadoConTurnoSeteado(1, casillero1) == casillero1);
+        assertTrue(topo.moverRelantizadoConTurnoSeteado(1, casillero1) == casillero2);
+
+
+    } 
+
+    
+    @Test
+
+    public void Topo11TopoRelantizadoSeMueveBien4() {
+
+        Topo topo = new Topo();
+
+
+        assertTrue(topo.Atacado(0).equals(new Credito(0)));
+
+
+    } 
+
+
 
     
 }
